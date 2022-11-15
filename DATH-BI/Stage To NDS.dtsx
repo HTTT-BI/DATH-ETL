@@ -1,0 +1,2254 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/15/2022 6:56:44 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-G51F95O"
+  DTS:CreatorName="DESKTOP-G51F95O\anhkh"
+  DTS:DTSID="{297EB5CA-7CF2-4EFC-B180-B0A3A9CCF793}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.845.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{FEC9BF7E-F63E-4BA5-9A41-B5351A0B252B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.COVID_19_METADATA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{443C55DC-FF7A-40CA-B737-CA04ACD01B01}"
+      DTS:ObjectName="LocalHost.COVID_19_METADATA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=COVID_19_METADATA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{443C55DC-FF7A-40CA-B737-CA04ACD01B01}LocalHost.COVID_19_METADATA;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.COVID_19_NDS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{929C5AD0-EEEF-47A3-AA46-8AAECC45341E}"
+      DTS:ObjectName="LocalHost.COVID_19_NDS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=COVID_19_NDS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{929C5AD0-EEEF-47A3-AA46-8AAECC45341E}LocalHost.COVID_19_NDS;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.COVID_19_STAGE]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F3EBE3F5-A4C6-4ED9-83C2-0F668A5A751F}"
+      DTS:ObjectName="LocalHost.COVID_19_STAGE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=COVID_19_STAGE;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{F3EBE3F5-A4C6-4ED9-83C2-0F668A5A751F}LocalHost.COVID_19_STAGE;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\NDS Case_report"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{48869A6A-5D38-45E6-94E9-46929CEDFE93}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="NDS Case_report">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{EBAB2417-51EF-481C-987F-556EF35F0CBD}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="User"
+          DTS:ObjectName="SourceID_CR">
+          <DTS:VariableValue
+            DTS:DataType="3">1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\NDS Case_report\GET SourceId_CR"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{4F60E931-219E-466F-A066-FFF514FED19C}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="GET SourceId_CR"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{443C55DC-FF7A-40CA-B737-CA04ACD01B01}"
+              SQLTask:SqlStatementSource="SELECT ID as SourceID_cr FROM [data_flow] where name_of_table = 'case_report'"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="SourceID_CR"
+                SQLTask:DtsVariableName="User::SourceID_CR" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\NDS Case_report\Import from Stage To NDS"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{DAC04A2B-E8ED-492C-ADCD-28F1F4C6C339}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Import from Stage To NDS"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\NDS Case_report\Import from Stage To NDS\Derived created_at, update_at"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived created_at, update_at"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\NDS Case_report\Import from Stage To NDS\Derived created_at, update_at.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\NDS Case_report\Import from Stage To NDS\Derived created_at, update_at.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\NDS Case_report\Import from Stage To NDS\Derived created_at, update_at.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Derived created_at, update_at.Outputs[Derived Column Output].Columns[update_at]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Derived created_at, update_at.Outputs[Derived Column Output].Columns[update_at]"
+                          name="update_at"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[GETDATE]()</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">GETDATE()</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Derived created_at, update_at.Outputs[Derived Column Output].Columns[created_at]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Derived created_at, update_at.Outputs[Derived Column Output].Columns[created_at]"
+                          name="created_at"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[GETDATE]()</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">GETDATE()</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\NDS Case_report\Import from Stage To NDS\Derived created_at, update_at.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\NDS Case_report\Import from Stage To NDS\Derived created_at, update_at.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Derived created_at, update_at.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Derived created_at, update_at.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Derived created_at, update_at.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Derived created_at, update_at.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\NDS Case_report\Import from Stage To NDS\Derived SourceID"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived SourceID"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\NDS Case_report\Import from Stage To NDS\Derived SourceID.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\NDS Case_report\Import from Stage To NDS\Derived SourceID.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\NDS Case_report\Import from Stage To NDS\Derived SourceID.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Derived SourceID.Outputs[Derived Column Output].Columns[SourceID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Derived SourceID.Outputs[Derived Column Output].Columns[SourceID]"
+                          name="SourceID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::SourceID_CR]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::SourceID_CR]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\NDS Case_report\Import from Stage To NDS\Derived SourceID.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\NDS Case_report\Import from Stage To NDS\Derived SourceID.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Derived SourceID.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Derived SourceID.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Derived SourceID.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Derived SourceID.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\NDS Case_report\Import from Stage To NDS\Derived Update_at"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Update_at"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\NDS Case_report\Import from Stage To NDS\Derived Update_at.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\NDS Case_report\Import from Stage To NDS\Derived Update_at.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\NDS Case_report\Import from Stage To NDS\Derived Update_at.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Derived Update_at.Outputs[Derived Column Output].Columns[update_at]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Derived Update_at.Outputs[Derived Column Output].Columns[update_at]"
+                          name="update_at"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[GETDATE]()</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">GETDATE()</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\NDS Case_report\Import from Stage To NDS\Derived Update_at.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\NDS Case_report\Import from Stage To NDS\Derived Update_at.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Derived Update_at.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Derived Update_at.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Derived Update_at.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Derived Update_at.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\NDS Case_report\Import from Stage To NDS\Insert"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Insert"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[case_report]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[LocalHost.COVID_19_NDS]"
+                      connectionManagerRefId="Package.ConnectionManagers[LocalHost.COVID_19_NDS]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].Columns[patient]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="patient"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[patient]"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[patient]" />
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].Columns[outcome]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="outcome"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[outcome]"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[outcome]" />
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].Columns[age]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="age"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[age]"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[age]" />
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].Columns[gender]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="gender"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[gender]"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[gender]" />
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].Columns[reporting_phu]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="reporting_phu"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[reporting_phu]"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[reporting_phu]" />
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].Columns[outbreak_related]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="outbreak_related"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[outbreak_related]"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[outbreak_related]" />
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].Columns[specimen_date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="specimen_date"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[specimen_date]"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[specimen_date]" />
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].Columns[case_reported_date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="case_reported_date"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[case_reported_date]"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[case_reported_date]" />
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].Columns[test_reported_date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="test_reported_date"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[test_reported_date]"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[test_reported_date]" />
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].Columns[case_acquistion_info]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="case_acquistion_info"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[case_acquistion_info]"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[case_acquistion_info]" />
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].Columns[accurate_episode_date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="accurate_episode_date"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[accurate_episode_date]"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[accurate_episode_date]" />
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].Columns[status]"
+                          cachedDataType="i4"
+                          cachedName="status"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[status]"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[status]" />
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].Columns[phu_id]"
+                          cachedDataType="i4"
+                          cachedName="phu_id"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[phu_id]"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_id in PHU.Outputs[Lookup Match Output].Columns[phu_id]" />
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].Columns[update_at]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="update_at"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[update_at]"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Derived created_at, update_at.Outputs[Derived Column Output].Columns[update_at]" />
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].Columns[created_at]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="created_at"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[created_at]"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Derived created_at, update_at.Outputs[Derived Column Output].Columns[created_at]" />
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].Columns[SourceID]"
+                          cachedDataType="i4"
+                          cachedName="SourceID"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[source_id]"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Derived SourceID.Outputs[Derived Column Output].Columns[SourceID]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                          dataType="i4"
+                          name="id" />
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[source_id]"
+                          dataType="i4"
+                          name="source_id" />
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[phu_id]"
+                          dataType="i4"
+                          name="phu_id" />
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[patient]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="patient" />
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[age]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="age" />
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[outcome]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="outcome" />
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[gender]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="gender" />
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[reporting_phu]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="reporting_phu" />
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[outbreak_related]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="outbreak_related" />
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[specimen_date]"
+                          dataType="dbTimeStamp"
+                          name="specimen_date" />
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[case_reported_date]"
+                          dataType="dbTimeStamp"
+                          name="case_reported_date" />
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[test_reported_date]"
+                          dataType="dbTimeStamp"
+                          name="test_reported_date" />
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[case_acquistion_info]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="case_acquistion_info" />
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[accurate_episode_date]"
+                          dataType="dbTimeStamp"
+                          name="accurate_episode_date" />
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[created_at]"
+                          dataType="dbTimeStamp"
+                          name="created_at" />
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[update_at]"
+                          dataType="dbTimeStamp"
+                          name="update_at" />
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input].ExternalColumns[status]"
+                          dataType="i4"
+                          name="status" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="Load Stage"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[case_report]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[LocalHost.COVID_19_STAGE]"
+                      connectionManagerRefId="Package.ConnectionManagers[LocalHost.COVID_19_STAGE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[patient]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[patient]"
+                          length="100"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[patient]"
+                          name="patient"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[outcome]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[outcome]"
+                          length="100"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[outcome]"
+                          name="outcome"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[age]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[age]"
+                          length="100"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[age]"
+                          name="age"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[gender]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[gender]"
+                          length="100"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[gender]"
+                          name="gender"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[reporting_phu]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[reporting_phu]"
+                          length="100"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[reporting_phu]"
+                          name="reporting_phu"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[outbreak_related]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[outbreak_related]"
+                          length="100"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[outbreak_related]"
+                          name="outbreak_related"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[specimen_date]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[specimen_date]"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[specimen_date]"
+                          name="specimen_date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[case_reported_date]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[case_reported_date]"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[case_reported_date]"
+                          name="case_reported_date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[test_reported_date]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[test_reported_date]"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[test_reported_date]"
+                          name="test_reported_date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[case_acquistion_info]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[case_acquistion_info]"
+                          length="100"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[case_acquistion_info]"
+                          name="case_acquistion_info"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[accurate_episode_date]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[accurate_episode_date]"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[accurate_episode_date]"
+                          name="accurate_episode_date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[phu_city]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[phu_city]"
+                          length="100"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[phu_city]"
+                          name="phu_city"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[phu_address]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[phu_address]"
+                          length="100"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[phu_address]"
+                          name="phu_address"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[phu_website]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[phu_website]"
+                          length="100"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[phu_website]"
+                          name="phu_website"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[phu_postal_code]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[phu_postal_code]"
+                          length="100"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[phu_postal_code]"
+                          name="phu_postal_code"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[status]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[status]"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[status]"
+                          name="status"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[patient]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="patient" />
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[outcome]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="outcome" />
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[age]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="age" />
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[gender]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="gender" />
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[reporting_phu]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="reporting_phu" />
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[outbreak_related]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="outbreak_related" />
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[specimen_date]"
+                          dataType="dbTimeStamp"
+                          name="specimen_date" />
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[case_reported_date]"
+                          dataType="dbTimeStamp"
+                          name="case_reported_date" />
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[test_reported_date]"
+                          dataType="dbTimeStamp"
+                          name="test_reported_date" />
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[case_acquistion_info]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="case_acquistion_info" />
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[accurate_episode_date]"
+                          dataType="dbTimeStamp"
+                          name="accurate_episode_date" />
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[phu_city]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="phu_city" />
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[phu_address]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="phu_address" />
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[phu_website]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="phu_website" />
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[phu_latitude]"
+                          dataType="r8"
+                          name="phu_latitude" />
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[phu_longitude]"
+                          dataType="r8"
+                          name="phu_longitude" />
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[phu_postal_code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="phu_postal_code" />
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[status]"
+                          dataType="i4"
+                          name="status" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[patient]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[patient]"
+                          name="patient" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[outcome]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[outcome]"
+                          name="outcome" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[age]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[age]"
+                          name="age" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[gender]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[gender]"
+                          name="gender" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[reporting_phu]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[reporting_phu]"
+                          name="reporting_phu" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[outbreak_related]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[outbreak_related]"
+                          name="outbreak_related" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[specimen_date]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[specimen_date]"
+                          name="specimen_date" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[case_reported_date]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[case_reported_date]"
+                          name="case_reported_date" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[test_reported_date]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[test_reported_date]"
+                          name="test_reported_date" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[case_acquistion_info]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[case_acquistion_info]"
+                          name="case_acquistion_info" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[accurate_episode_date]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[accurate_episode_date]"
+                          name="accurate_episode_date" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[phu_city]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[phu_city]"
+                          name="phu_city" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[phu_address]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[phu_address]"
+                          name="phu_address" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[phu_website]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[phu_website]"
+                          name="phu_website" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[phu_postal_code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[phu_postal_code]"
+                          name="phu_postal_code" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[status]"
+                          dataType="i4"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[status]"
+                          name="status" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\NDS Case_report\Import from Stage To NDS\Lookup id in Case_report"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="Lookup id in Case_report"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[case_report]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[case_report]) [refTable]
+where [refTable].[patient] = ? and [refTable].[source_id] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="source_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="phu_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="patient" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="age" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="outcome" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="gender" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="reporting_phu" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="outbreak_related" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="specimen_date" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="case_reported_date" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="test_reported_date" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="case_acquistion_info" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="accurate_episode_date" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="created_at" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="update_at" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="status" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[patient]};#{Package\NDS Case_report\Import from Stage To NDS\Derived SourceID.Outputs[Derived Column Output].Columns[SourceID]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\NDS Case_report\Import from Stage To NDS\Lookup id in Case_report.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[LocalHost.COVID_19_NDS]"
+                      connectionManagerRefId="Package.ConnectionManagers[LocalHost.COVID_19_NDS]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\NDS Case_report\Import from Stage To NDS\Lookup id in Case_report.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Lookup id in Case_report.Inputs[Lookup Input].Columns[patient]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="patient"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[patient]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">patient</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Lookup id in Case_report.Inputs[Lookup Input].Columns[SourceID]"
+                          cachedDataType="i4"
+                          cachedName="SourceID"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Derived SourceID.Outputs[Derived Column Output].Columns[SourceID]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">source_id</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\NDS Case_report\Import from Stage To NDS\Lookup id in Case_report.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\NDS Case_report\Import from Stage To NDS\Lookup id in Case_report.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Lookup id in Case_report.Outputs[Lookup Match Output].Columns[id]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Lookup id in Case_report.Outputs[Lookup Match Output].Columns[id]"
+                          name="id"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">id</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\NDS Case_report\Import from Stage To NDS\Lookup id in Case_report.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\NDS Case_report\Import from Stage To NDS\Lookup id in Case_report.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\NDS Case_report\Import from Stage To NDS\Lookup id in Case_report.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\NDS Case_report\Import from Stage To NDS\Lookup id in Case_report.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Lookup id in Case_report.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Lookup id in Case_report.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Lookup id in Case_report.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Lookup id in Case_report.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_id in PHU"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="Lookup phu_id in PHU"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[public_health_unit]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[public_health_unit]) [refTable]
+where [refTable].[reporting_phu] = ? and [refTable].[reporting_phu_city] = ? and [refTable].[reporting_phu_address] = ? and [refTable].[reporting_phu_website] = ? and [refTable].[reporting_phu_postal_code] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="source_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="phu_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="reporting_phu" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="reporting_phu_address" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="reporting_phu_city" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="reporting_phu_postal_code" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="reporting_phu_website" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="reporting_phu_latitude" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="reporting_phu_longitide" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="phu_group" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="created_at" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="update_at" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="status" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[reporting_phu]};#{Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[phu_city]};#{Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[phu_address]};#{Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[phu_website]};#{Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[phu_postal_code]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_id in PHU.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[LocalHost.COVID_19_NDS]"
+                      connectionManagerRefId="Package.ConnectionManagers[LocalHost.COVID_19_NDS]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_id in PHU.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_id in PHU.Inputs[Lookup Input].Columns[phu_city]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="phu_city"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[phu_city]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">reporting_phu_city</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_id in PHU.Inputs[Lookup Input].Columns[phu_website]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="phu_website"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[phu_website]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">reporting_phu_website</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_id in PHU.Inputs[Lookup Input].Columns[phu_address]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="phu_address"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[phu_address]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">reporting_phu_address</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_id in PHU.Inputs[Lookup Input].Columns[phu_postal_code]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="phu_postal_code"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[phu_postal_code]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">reporting_phu_postal_code</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_id in PHU.Inputs[Lookup Input].Columns[reporting_phu]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="reporting_phu"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[reporting_phu]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">reporting_phu</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_id in PHU.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_id in PHU.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_id in PHU.Outputs[Lookup Match Output].Columns[phu_id]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_id in PHU.Outputs[Lookup Match Output].Columns[phu_id]"
+                          name="phu_id"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">id</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_id in PHU.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_id in PHU.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_id in PHU.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_id in PHU.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_id in PHU.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_id in PHU.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_id in PHU.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_id in PHU.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\NDS Case_report\Import from Stage To NDS\Update"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                  name="Update"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">  update [case_report] set age =?, outcome=?, gender=?, outbreak_related=?, specimen_date=?, case_reported_date=?, test_reported_date=?, case_acquistion_info=?, accurate_episode_date=?, [status] = ?, update_at=?, phu_id=? where id=?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\NDS Case_report\Import from Stage To NDS\Update.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[LocalHost.COVID_19_NDS]"
+                      connectionManagerRefId="Package.ConnectionManagers[LocalHost.COVID_19_NDS]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input]"
+                      errorOrTruncationOperation="Command Execution"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Command Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].Columns[age]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="age"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[age]" />
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].Columns[outcome]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="outcome"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[outcome]" />
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].Columns[gender]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="gender"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[gender]" />
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].Columns[outbreak_related]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="outbreak_related"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[outbreak_related]" />
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].Columns[specimen_date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="specimen_date"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[specimen_date]" />
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].Columns[case_reported_date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="case_reported_date"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[case_reported_date]" />
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].Columns[test_reported_date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="test_reported_date"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[test_reported_date]" />
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].Columns[case_acquistion_info]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="case_acquistion_info"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[case_acquistion_info]" />
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].Columns[accurate_episode_date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="accurate_episode_date"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[accurate_episode_date]" />
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].Columns[status]"
+                          cachedDataType="i4"
+                          cachedName="status"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[status]" />
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].Columns[update_at]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="update_at"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Derived Update_at.Outputs[Derived Column Output].Columns[update_at]" />
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].Columns[phu_id]"
+                          cachedDataType="i4"
+                          cachedName="phu_id"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_id in PHU.Outputs[Lookup Match Output].Columns[phu_id]" />
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].Columns[id]"
+                          cachedDataType="i4"
+                          cachedName="id"
+                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Lookup id in Case_report.Outputs[Lookup Match Output].Columns[id]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="Param_1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="Param_2">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="Param_3">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                          dataType="dbTimeStamp"
+                          name="Param_4">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                          dataType="dbTimeStamp"
+                          name="Param_5">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                          dataType="dbTimeStamp"
+                          name="Param_6">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="Param_7">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                          dataType="dbTimeStamp"
+                          name="Param_8">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                          dataType="i4"
+                          name="Param_9">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                          dataType="dbTimeStamp"
+                          name="Param_10">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                          dataType="i4"
+                          name="Param_11">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                          dataType="i4"
+                          name="Param_12">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\NDS Case_report\Import from Stage To NDS\Update.Outputs[OLE DB Command Output]"
+                      exclusionGroup="1"
+                      name="OLE DB Command Output"
+                      synchronousInputId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\NDS Case_report\Import from Stage To NDS\Update.Outputs[OLE DB Command Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Command Error Output"
+                      synchronousInputId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Update.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Update.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Update.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Update.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output]"
+                  endId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_id in PHU.Inputs[Lookup Input]"
+                  name="Derived Column Output"
+                  startId="Package\NDS Case_report\Import from Stage To NDS\Derived SourceID.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output1]"
+                  endId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input]"
+                  name="Derived Column Output"
+                  startId="Package\NDS Case_report\Import from Stage To NDS\Derived Update_at.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output2]"
+                  endId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\NDS Case_report\Import from Stage To NDS\Derived created_at, update_at.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\NDS Case_report\Import from Stage To NDS.Paths[Lookup Match Output]"
+                  endId="Package\NDS Case_report\Import from Stage To NDS\Lookup id in Case_report.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_id in PHU.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\NDS Case_report\Import from Stage To NDS.Paths[Lookup Match Output1]"
+                  endId="Package\NDS Case_report\Import from Stage To NDS\Derived Update_at.Inputs[Derived Column Input]"
+                  name="Lookup Match Output"
+                  startId="Package\NDS Case_report\Import from Stage To NDS\Lookup id in Case_report.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\NDS Case_report\Import from Stage To NDS.Paths[Lookup No Match Output]"
+                  endId="Package\NDS Case_report\Import from Stage To NDS\Derived created_at, update_at.Inputs[Derived Column Input]"
+                  name="Lookup No Match Output"
+                  startId="Package\NDS Case_report\Import from Stage To NDS\Lookup id in Case_report.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\NDS Case_report\Import from Stage To NDS.Paths[OLE DB Source Output]"
+                  endId="Package\NDS Case_report\Import from Stage To NDS\Derived SourceID.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\NDS Case_report.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{E2E6BE4C-CB9E-44E8-8F1D-3EA6F64C7F84}"
+          DTS:From="Package\NDS Case_report\GET SourceId_CR"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\NDS Case_report\Import from Stage To NDS" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\NDS Public_health_unit"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{2E251E55-9030-421D-A005-F322BEC64BC0}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="NDS Public_health_unit">
+      <DTS:Variables />
+      <DTS:Executables />
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{9E9B15E0-DA4A-41D2-9DAF-7365EE2C3584}"
+      DTS:From="Package\NDS Public_health_unit"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\NDS Case_report" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="162,42"
+          Id="Package\NDS Case_report\GET SourceId_CR"
+          TopLeft="53,15" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\NDS Case_report\Import from Stage To NDS"
+          TopLeft="37.5,96.5" />
+        <EdgeLayout
+          Id="Package\NDS Case_report.PrecedenceConstraints[Constraint]"
+          TopLeft="137,57">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.5"
+              Start="0,0"
+              End="0,32">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="269,165"
+          Size="269,208"
+          Id="Package\NDS Case_report"
+          TopLeft="172,226" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="212,98"
+          Size="212,141"
+          Id="Package\NDS Public_health_unit"
+          TopLeft="200,43" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="306.25,184">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42"
+              Start="0,0"
+              End="0,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\NDS Case_report\Import from Stage To NDS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="132,42"
+          Id="Package\NDS Case_report\Import from Stage To NDS\Load Stage"
+          TopLeft="266.388888888889,84.3888888888889" />
+        <NodeLayout
+          Size="197,42"
+          Id="Package\NDS Case_report\Import from Stage To NDS\Lookup id in Case_report"
+          TopLeft="234.611111111111,344.388888888889" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\NDS Case_report\Import from Stage To NDS\Derived SourceID"
+          TopLeft="248.5,174.5" />
+        <NodeLayout
+          Size="183,42"
+          Id="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_id in PHU"
+          TopLeft="237.833333333333,256.277777777778" />
+        <EdgeLayout
+          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[OLE DB Source Output]"
+          TopLeft="330.944444444444,126.388888888889">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48.1111111111111"
+              Start="0,0"
+              End="0,40.6111111111111">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.6111111111111" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output]"
+          TopLeft="329.416666666667,216.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.7777777777778"
+              Start="0,0"
+              End="0,32.2777777777778">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.2777777777778" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Lookup Match Output]"
+          TopLeft="331.222222222222,298.277777777778">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46.1111111111111"
+              Start="0,0"
+              End="0,38.6111111111111">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.6111111111111" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,13.5008680555556,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="167,42"
+          Id="Package\NDS Case_report\Import from Stage To NDS\Derived Update_at"
+          TopLeft="77,429" />
+        <EdgeLayout
+          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Lookup Match Output1]"
+          TopLeft="333.111111111111,386.388888888889">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-172.611111111111,42.6111111111111"
+              Start="0,0"
+              End="-172.611111111111,35.1111111111111">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.3055555555555" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.3055555555555"
+                    Point2="0,21.3055555555555"
+                    Point3="-4,21.3055555555555" />
+                  <mssgle:LineSegment
+                    End="-168.611111111111,21.3055555555555" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-168.611111111111,21.3055555555555"
+                    Point2="-172.611111111111,21.3055555555555"
+                    Point3="-172.611111111111,25.3055555555555" />
+                  <mssgle:LineSegment
+                    End="-172.611111111111,35.1111111111111" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-134.496942274306,26.3055555555555,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="222,42"
+          Id="Package\NDS Case_report\Import from Stage To NDS\Derived created_at, update_at"
+          TopLeft="433,425" />
+        <EdgeLayout
+          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Lookup No Match Output]"
+          TopLeft="364.611111111111,386.388888888889">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="179.388888888889,38.6111111111111"
+              Start="0,0"
+              End="179.388888888889,31.1111111111111">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.6310842564619" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.6310842564619"
+                    Point2="0,15.6310842564619"
+                    Point3="4,15.6310842564619" />
+                  <mssgle:LineSegment
+                    End="175.388888888889,15.6310842564619" />
+                  <mssgle:CubicBezierSegment
+                    Point1="175.388888888889,15.6310842564619"
+                    Point2="179.388888888889,15.6310842564619"
+                    Point3="179.388888888889,19.6310842564619" />
+                  <mssgle:LineSegment
+                    End="179.388888888889,31.1111111111111" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="33.8880577256944,20.6310842564619,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="113,42"
+          Id="Package\NDS Case_report\Import from Stage To NDS\Update"
+          TopLeft="103.5,505.5" />
+        <EdgeLayout
+          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output1]"
+          TopLeft="160.25,471">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.5"
+              Start="0,0"
+              End="0,27">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="107,42"
+          Id="Package\NDS Case_report\Import from Stage To NDS\Insert"
+          TopLeft="489,509" />
+        <EdgeLayout
+          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output2]"
+          TopLeft="543.25,467">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42"
+              Start="0,0"
+              End="0,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\NDS Case_report\Import from Stage To NDS\Load Stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\NDS Case_report\Import from Stage To NDS\Lookup id in Case_report">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[case_report]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\NDS Case_report\Import from Stage To NDS\Insert">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
