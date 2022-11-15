@@ -1,0 +1,1107 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/9/2022 8:38:56 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ASUS-VIVOBOOK-T"
+  DTS:CreatorName="ASUS-VIVOBOOK-T\ASUS"
+  DTS:DTSID="{A027617D-2453-4FEB-AC0D-5F8040C68A96}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.845.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package2"
+  DTS:PackageType="5"
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{0DC97F1A-1566-4C5C-8CD3-8FBAA032FE4B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[COVID_19_METADATA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{27942258-C7B9-4127-B88B-F8241AD471E1}"
+      DTS:ObjectName="COVID_19_METADATA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ASUS-VIVOBOOK-T\MSSQLSERVER2019;Initial Catalog=COVID_19_METADATA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package2-{27942258-C7B9-4127-B88B-F8241AD471E1}ASUS-VIVOBOOK-T\MSSQLSERVER2019.COVID_19_METADATA;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[COVID_19_STAGE]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0A991B16-FC06-4EFD-BDC8-C93DB0FC5A3B}"
+      DTS:ObjectName="COVID_19_STAGE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ASUS-VIVOBOOK-T\MSSQLSERVER2019;Initial Catalog=COVID_19_STAGE;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package2-{0A991B16-FC06-4EFD-BDC8-C93DB0FC5A3B}ASUS-VIVOBOOK-T\MSSQLSERVER2019.COVID_19_STAGE;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ongoing_outbreak_phu]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{B3421191-8CE1-42C6-94D0-F9F9EAC5FA36}"
+      DTS:ObjectName="ongoing_outbreak_phu">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\QST\Studying\4_Year\BI\DATH\ongoing_outbreaks_phu.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E5945640-8F2E-4EF8-809D-3433852FBB8D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="CET">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1990</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{63E5C537-48EC-4648-88EE-3E743DCD8A95}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LSET">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1990</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\GET CET"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Get current extract time"
+      DTS:DTSID="{8c646581-a8d4-4cf4-9f4d-8feb03737170}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="GET CET"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0A991B16-FC06-4EFD-BDC8-C93DB0FC5A3B}"
+          SQLTask:SqlStatementSource="select getDate() as CET"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="CET"
+            SQLTask:DtsVariableName="User::CET" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\GET LSET"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{b6ce740b-a167-45a5-a4ec-b3136ca65f33}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="GET LSET"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{27942258-C7B9-4127-B88B-F8241AD471E1}"
+          SQLTask:SqlStatementSource="select LSET from Data_Flow where name_of_table='ongoing_outbreak_phu'"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="LSET"
+            SQLTask:DtsVariableName="User::LSET" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\ongoing_outbreak_phu"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{2dafda96-6b95-4f9e-be08-05a680d5b3f6}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ongoing_outbreak_phu"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\ongoing_outbreak_phu\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ongoing_outbreak_phu\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ongoing_outbreak_phu\Conditional Split.Inputs[Conditional Split Input].Columns[Created At_Converted]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Created At_Converted"
+                      lineageId="Package\ongoing_outbreak_phu\Data Conversion.Outputs[Data Conversion Output].Columns[Created At_Converted]" />
+                    <inputColumn
+                      refId="Package\ongoing_outbreak_phu\Conditional Split.Inputs[Conditional Split Input].Columns[Updated At_Converted]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Updated At_Converted"
+                      lineageId="Package\ongoing_outbreak_phu\Data Conversion.Outputs[Data Conversion Output].Columns[Updated At_Converted]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ongoing_outbreak_phu\Conditional Split.Outputs[Case 1]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Case 1"
+                  synchronousInputId="Package\ongoing_outbreak_phu\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">(#{Package\ongoing_outbreak_phu\Data Conversion.Outputs[Data Conversion Output].Columns[Created At_Converted]} &lt; @[User::CET] &amp;&amp; #{Package\ongoing_outbreak_phu\Data Conversion.Outputs[Data Conversion Output].Columns[Created At_Converted]} &gt;= @[User::LSET]) || (#{Package\ongoing_outbreak_phu\Data Conversion.Outputs[Data Conversion Output].Columns[Updated At_Converted]} &lt; @[User::CET] &amp;&amp; #{Package\ongoing_outbreak_phu\Data Conversion.Outputs[Data Conversion Output].Columns[Updated At_Converted]} &gt;= @[User::LSET])</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">([Created At_Converted] &lt; @[User::CET] &amp;&amp; [Created At_Converted] &gt;= @[User::LSET]) || ([Updated At_Converted] &lt; @[User::CET] &amp;&amp; [Updated At_Converted] &gt;= @[User::LSET])</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ongoing_outbreak_phu\Conditional Split.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\ongoing_outbreak_phu\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ongoing_outbreak_phu\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\ongoing_outbreak_phu\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ongoing_outbreak_phu\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ongoing_outbreak_phu\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ongoing_outbreak_phu\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ongoing_outbreak_phu\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ongoing_outbreak_phu\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ongoing_outbreak_phu\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ongoing_outbreak_phu\Data Conversion.Inputs[Data Conversion Input].Columns[date]"
+                      cachedDataType="date"
+                      cachedName="date"
+                      lineageId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].Columns[date]" />
+                    <inputColumn
+                      refId="Package\ongoing_outbreak_phu\Data Conversion.Inputs[Data Conversion Input].Columns[phu_num]"
+                      cachedDataType="r8"
+                      cachedName="phu_num"
+                      lineageId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].Columns[phu_num]" />
+                    <inputColumn
+                      refId="Package\ongoing_outbreak_phu\Data Conversion.Inputs[Data Conversion Input].Columns[outbreak_group]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="outbreak_group"
+                      lineageId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].Columns[outbreak_group]" />
+                    <inputColumn
+                      refId="Package\ongoing_outbreak_phu\Data Conversion.Inputs[Data Conversion Input].Columns[number_ongoing_outbreaks]"
+                      cachedDataType="r8"
+                      cachedName="number_ongoing_outbreaks"
+                      lineageId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].Columns[number_ongoing_outbreaks]" />
+                    <inputColumn
+                      refId="Package\ongoing_outbreak_phu\Data Conversion.Inputs[Data Conversion Input].Columns[Created At]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Created At"
+                      lineageId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].Columns[Created At]" />
+                    <inputColumn
+                      refId="Package\ongoing_outbreak_phu\Data Conversion.Inputs[Data Conversion Input].Columns[Updated At]"
+                      cachedDataType="date"
+                      cachedName="Updated At"
+                      lineageId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].Columns[Updated At]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ongoing_outbreak_phu\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\ongoing_outbreak_phu\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ongoing_outbreak_phu\Data Conversion.Outputs[Data Conversion Output].Columns[date_converted]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ongoing_outbreak_phu\Data Conversion.Outputs[Data Conversion Output].Columns[date_converted]"
+                      name="date_converted"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].Columns[date]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ongoing_outbreak_phu\Data Conversion.Outputs[Data Conversion Output].Columns[phu_num_converted]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ongoing_outbreak_phu\Data Conversion.Outputs[Data Conversion Output].Columns[phu_num_converted]"
+                      name="phu_num_converted"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].Columns[phu_num]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ongoing_outbreak_phu\Data Conversion.Outputs[Data Conversion Output].Columns[outbreak_group_converted]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\ongoing_outbreak_phu\Data Conversion.Outputs[Data Conversion Output].Columns[outbreak_group_converted]"
+                      name="outbreak_group_converted"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].Columns[outbreak_group]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ongoing_outbreak_phu\Data Conversion.Outputs[Data Conversion Output].Columns[number_ongoing_outbreaks_converted]"
+                      dataType="ui4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ongoing_outbreak_phu\Data Conversion.Outputs[Data Conversion Output].Columns[number_ongoing_outbreaks_converted]"
+                      name="number_ongoing_outbreaks_converted"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].Columns[number_ongoing_outbreaks]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ongoing_outbreak_phu\Data Conversion.Outputs[Data Conversion Output].Columns[Created At_Converted]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ongoing_outbreak_phu\Data Conversion.Outputs[Data Conversion Output].Columns[Created At_Converted]"
+                      name="Created At_Converted"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].Columns[Created At]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ongoing_outbreak_phu\Data Conversion.Outputs[Data Conversion Output].Columns[Updated At_Converted]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ongoing_outbreak_phu\Data Conversion.Outputs[Data Conversion Output].Columns[Updated At_Converted]"
+                      name="Updated At_Converted"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].Columns[Updated At]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ongoing_outbreak_phu\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\ongoing_outbreak_phu\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ongoing_outbreak_phu\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ongoing_outbreak_phu\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ongoing_outbreak_phu\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ongoing_outbreak_phu\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="ongoing_outbreak_phu"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">in$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ongoing_outbreak_phu]"
+                  connectionManagerRefId="Package.ConnectionManagers[ongoing_outbreak_phu]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].Columns[Created At]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].ExternalColumns[Created At]"
+                      length="255"
+                      lineageId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].Columns[Created At]"
+                      name="Created At"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].Columns[date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].ExternalColumns[date]"
+                      lineageId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].Columns[date]"
+                      name="date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].Columns[phu_num]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].ExternalColumns[phu_num]"
+                      lineageId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].Columns[phu_num]"
+                      name="phu_num"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].Columns[outbreak_group]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].ExternalColumns[outbreak_group]"
+                      length="255"
+                      lineageId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].Columns[outbreak_group]"
+                      name="outbreak_group"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].Columns[number_ongoing_outbreaks]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].ExternalColumns[number_ongoing_outbreaks]"
+                      lineageId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].Columns[number_ongoing_outbreaks]"
+                      name="number_ongoing_outbreaks"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].Columns[Updated At]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].ExternalColumns[Updated At]"
+                      lineageId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].Columns[Updated At]"
+                      name="Updated At"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].ExternalColumns[Created At]"
+                      dataType="date"
+                      name="Created At" />
+                    <externalMetadataColumn
+                      refId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].ExternalColumns[date]"
+                      dataType="date"
+                      name="date" />
+                    <externalMetadataColumn
+                      refId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].ExternalColumns[phu_num]"
+                      dataType="r8"
+                      name="phu_num" />
+                    <externalMetadataColumn
+                      refId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].ExternalColumns[outbreak_group]"
+                      dataType="wstr"
+                      length="255"
+                      name="outbreak_group" />
+                    <externalMetadataColumn
+                      refId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].ExternalColumns[number_ongoing_outbreaks]"
+                      dataType="r8"
+                      name="number_ongoing_outbreaks" />
+                    <externalMetadataColumn
+                      refId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output].ExternalColumns[Updated At]"
+                      dataType="date"
+                      name="Updated At" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Error Output].Columns[date]"
+                      dataType="date"
+                      lineageId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Error Output].Columns[date]"
+                      name="date" />
+                    <outputColumn
+                      refId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Error Output].Columns[phu_num]"
+                      dataType="r8"
+                      lineageId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Error Output].Columns[phu_num]"
+                      name="phu_num" />
+                    <outputColumn
+                      refId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Error Output].Columns[outbreak_group]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Error Output].Columns[outbreak_group]"
+                      name="outbreak_group" />
+                    <outputColumn
+                      refId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Error Output].Columns[number_ongoing_outbreaks]"
+                      dataType="r8"
+                      lineageId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Error Output].Columns[number_ongoing_outbreaks]"
+                      name="number_ongoing_outbreaks" />
+                    <outputColumn
+                      refId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Error Output].Columns[Created At]"
+                      dataType="date"
+                      lineageId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Error Output].Columns[Created At]"
+                      name="Created At" />
+                    <outputColumn
+                      refId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Error Output].Columns[Updated At]"
+                      dataType="date"
+                      lineageId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Error Output].Columns[Updated At]"
+                      name="Updated At" />
+                    <outputColumn
+                      refId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ongoing_outbreak_phu\Stage ongoing_outbreak_phu"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Stage ongoing_outbreak_phu"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ongoing_outbreak_phu]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ongoing_outbreak_phu\Stage ongoing_outbreak_phu.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[COVID_19_STAGE]"
+                  connectionManagerRefId="Package.ConnectionManagers[COVID_19_STAGE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ongoing_outbreak_phu\Stage ongoing_outbreak_phu.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ongoing_outbreak_phu\Stage ongoing_outbreak_phu.Inputs[OLE DB Destination Input].Columns[date_converted]"
+                      cachedDataType="date"
+                      cachedName="date_converted"
+                      externalMetadataColumnId="Package\ongoing_outbreak_phu\Stage ongoing_outbreak_phu.Inputs[OLE DB Destination Input].ExternalColumns[date]"
+                      lineageId="Package\ongoing_outbreak_phu\Data Conversion.Outputs[Data Conversion Output].Columns[date_converted]" />
+                    <inputColumn
+                      refId="Package\ongoing_outbreak_phu\Stage ongoing_outbreak_phu.Inputs[OLE DB Destination Input].Columns[phu_num_converted]"
+                      cachedDataType="ui8"
+                      cachedName="phu_num_converted"
+                      externalMetadataColumnId="Package\ongoing_outbreak_phu\Stage ongoing_outbreak_phu.Inputs[OLE DB Destination Input].ExternalColumns[phu_num]"
+                      lineageId="Package\ongoing_outbreak_phu\Data Conversion.Outputs[Data Conversion Output].Columns[phu_num_converted]" />
+                    <inputColumn
+                      refId="Package\ongoing_outbreak_phu\Stage ongoing_outbreak_phu.Inputs[OLE DB Destination Input].Columns[outbreak_group_converted]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="outbreak_group_converted"
+                      externalMetadataColumnId="Package\ongoing_outbreak_phu\Stage ongoing_outbreak_phu.Inputs[OLE DB Destination Input].ExternalColumns[outbreak_group]"
+                      lineageId="Package\ongoing_outbreak_phu\Data Conversion.Outputs[Data Conversion Output].Columns[outbreak_group_converted]" />
+                    <inputColumn
+                      refId="Package\ongoing_outbreak_phu\Stage ongoing_outbreak_phu.Inputs[OLE DB Destination Input].Columns[number_ongoing_outbreaks_converted]"
+                      cachedDataType="ui4"
+                      cachedName="number_ongoing_outbreaks_converted"
+                      externalMetadataColumnId="Package\ongoing_outbreak_phu\Stage ongoing_outbreak_phu.Inputs[OLE DB Destination Input].ExternalColumns[number_ongoing_outbreaks]"
+                      lineageId="Package\ongoing_outbreak_phu\Data Conversion.Outputs[Data Conversion Output].Columns[number_ongoing_outbreaks_converted]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ongoing_outbreak_phu\Stage ongoing_outbreak_phu.Inputs[OLE DB Destination Input].ExternalColumns[date]"
+                      dataType="dbTimeStamp"
+                      name="date" />
+                    <externalMetadataColumn
+                      refId="Package\ongoing_outbreak_phu\Stage ongoing_outbreak_phu.Inputs[OLE DB Destination Input].ExternalColumns[phu_num]"
+                      dataType="i4"
+                      name="phu_num" />
+                    <externalMetadataColumn
+                      refId="Package\ongoing_outbreak_phu\Stage ongoing_outbreak_phu.Inputs[OLE DB Destination Input].ExternalColumns[outbreak_group]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="outbreak_group" />
+                    <externalMetadataColumn
+                      refId="Package\ongoing_outbreak_phu\Stage ongoing_outbreak_phu.Inputs[OLE DB Destination Input].ExternalColumns[number_ongoing_outbreaks]"
+                      dataType="i4"
+                      name="number_ongoing_outbreaks" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ongoing_outbreak_phu\Stage ongoing_outbreak_phu.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\ongoing_outbreak_phu\Stage ongoing_outbreak_phu.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ongoing_outbreak_phu\Stage ongoing_outbreak_phu.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ongoing_outbreak_phu\Stage ongoing_outbreak_phu.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ongoing_outbreak_phu\Stage ongoing_outbreak_phu.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ongoing_outbreak_phu\Stage ongoing_outbreak_phu.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\ongoing_outbreak_phu.Paths[Case 1]"
+              endId="Package\ongoing_outbreak_phu\Stage ongoing_outbreak_phu.Inputs[OLE DB Destination Input]"
+              name="Case 1"
+              startId="Package\ongoing_outbreak_phu\Conditional Split.Outputs[Case 1]" />
+            <path
+              refId="Package\ongoing_outbreak_phu.Paths[Data Conversion Output]"
+              endId="Package\ongoing_outbreak_phu\Conditional Split.Inputs[Conditional Split Input]"
+              name="Data Conversion Output"
+              startId="Package\ongoing_outbreak_phu\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\ongoing_outbreak_phu.Paths[Excel Source Output]"
+              endId="Package\ongoing_outbreak_phu\Data Conversion.Inputs[Data Conversion Input]"
+              name="Excel Source Output"
+              startId="Package\ongoing_outbreak_phu\ongoing_outbreak_phu.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TRUNCATE STAGE"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Truncate Stage Jupiter"
+      DTS:DTSID="{a6915981-2c15-438a-8670-1da7a10ce1f5}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TRUNCATE STAGE"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0A991B16-FC06-4EFD-BDC8-C93DB0FC5A3B}"
+          SQLTask:SqlStatementSource="Truncate table ongoing_outbreak_phu" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\UPDATE LSET"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{69b8630f-4c80-49bf-b038-23ca522a35ee}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="UPDATE LSET"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{27942258-C7B9-4127-B88B-F8241AD471E1}"
+          SQLTask:SqlStatementSource="Update data_flow set LSET= ? where name_of_table ='ongoing_outbreak_phu'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::CET"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="7"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{64c049d6-6ac9-4a59-b333-506041f85138}"
+      DTS:From="Package\TRUNCATE STAGE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\GET CET" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{507ea553-7775-46a9-bf34-fa72f30f9e4d}"
+      DTS:From="Package\GET CET"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\GET LSET" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{16268F97-4533-4835-BE44-C687FAF3BAC3}"
+      DTS:From="Package\GET LSET"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\ongoing_outbreak_phu" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{6B1139C1-3388-44A6-A39D-10B4DAA94A25}"
+      DTS:From="Package\ongoing_outbreak_phu"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\UPDATE LSET" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="123.2,41.6"
+          Id="Package\GET CET"
+          TopLeft="404.816524746186,139.533333305783" />
+        <NodeLayout
+          Size="132,41.6"
+          Id="Package\GET LSET"
+          TopLeft="401.566524746186,232.319047591497" />
+        <NodeLayout
+          Size="172.8,41.6"
+          Id="Package\TRUNCATE STAGE"
+          TopLeft="376.816524746186,56.5333333057827" />
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\UPDATE LSET"
+          TopLeft="391.483191545307,429.745238143451" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="464.816524746186,98.1333333057827">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.4"
+              Start="0,0"
+              End="0,33.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="466.991524746186,181.133333305783">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.185714285714"
+              Start="0,0"
+              End="0,43.685714285714">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.685714285714" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="184.8,41.6"
+          Id="Package\ongoing_outbreak_phu"
+          TopLeft="372.316525640255,322.478569816862" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="466.14152519322,273.919047591497">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48.5595222253648"
+              Start="0,0"
+              End="0,41.0595222253648">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.0595222253648" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="465.499858592781,364.078569816862">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65.6666683265897"
+              Start="0,0"
+              End="0,58.1666683265897">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.1666683265897" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\ongoing_outbreak_phu">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="184.8,41.6"
+          Id="Package\ongoing_outbreak_phu\ongoing_outbreak_phu"
+          TopLeft="128.166684183809,136.466666797532" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\ongoing_outbreak_phu\Data Conversion"
+          TopLeft="138.333327836461,227.5333346902" />
+        <EdgeLayout
+          Id="Package\ongoing_outbreak_phu.Paths[Excel Source Output]"
+          TopLeft="218.450006010135,178.066666797532">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49.4666678926681"
+              Start="0,0"
+              End="0,41.9666678926681">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.9666678926681" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\ongoing_outbreak_phu\Conditional Split"
+          TopLeft="140.83332773712,321.46666797532" />
+        <EdgeLayout
+          Id="Package\ongoing_outbreak_phu.Paths[Data Conversion Output]"
+          TopLeft="216.98332778679,269.1333346902">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.3333332851198"
+              Start="0,0"
+              End="0,44.8333332851198">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.8333332851198" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="214.4,41.6"
+          Id="Package\ongoing_outbreak_phu\Stage ongoing_outbreak_phu"
+          TopLeft="109.999995628993,423.333336074617" />
+        <EdgeLayout
+          Id="Package\ongoing_outbreak_phu.Paths[Case 1]"
+          TopLeft="217.416661683056,363.06666797532">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.2666680992974"
+              Start="0,0"
+              End="0,52.7666680992974">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.7666680992974" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-15.2180859375,21.6064785808987,30.436171875,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ongoing_outbreak_phu\ongoing_outbreak_phu">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ongoing_outbreak_phu\Stage ongoing_outbreak_phu">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

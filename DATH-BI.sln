@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32929.386
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "DATH-BI", "DATH-BI\DATH-BI.dtproj", "{2D420BE8-60AC-43EB-91D3-7A37F79CC3F0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D420BE8-60AC-43EB-91D3-7A37F79CC3F0}.Development|Default.ActiveCfg = Development
+		{2D420BE8-60AC-43EB-91D3-7A37F79CC3F0}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7CBF03AB-054A-421C-A51A-B5E77B355EC4}
+	EndGlobalSection
+EndGlobal
