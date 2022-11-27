@@ -5,21 +5,21 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-G51F95O"
   DTS:CreatorName="DESKTOP-G51F95O\anhkh"
-  DTS:DTSID="{9B02D431-5841-4EAF-9301-9045E484ACE4}"
+  DTS:DTSID="{5BE919AC-7D41-4C8F-9202-D02154E53419}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.845.0"
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="227"
-  DTS:VersionGUID="{FD1590D0-F02D-4E5F-830F-18512E8B7DE5}">
+  DTS:VersionBuild="229"
+  DTS:VersionGUID="{A7A15B50-8120-446A-A588-4F8766D401FE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[case report]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{C5E8637C-CA3D-4BCB-80B0-3030E7F6C180}"
+      DTS:DTSID="{84AC6B4C-2E9F-4313-9BF9-B95151051154}"
       DTS:ObjectName="case report">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -39,7 +39,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Patient"
-              DTS:DTSID="{ACEDE919-1F5A-4603-AAEA-74A9E25CEBB4}"
+              DTS:DTSID="{6D246D72-4376-4B83-A0D7-902325EE6BA6}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -48,7 +48,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Outcome"
-              DTS:DTSID="{9DDBD239-7DD7-424D-BAA1-2ED22DD93E86}"
+              DTS:DTSID="{E4716C14-6788-473D-81F7-796346C0FC58}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -57,7 +57,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Age"
-              DTS:DTSID="{F7C2A571-58EB-4612-83D8-51E9001CD86B}"
+              DTS:DTSID="{623160C6-46DD-4EB1-98B7-348BEBA284F3}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -66,7 +66,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Gender"
-              DTS:DTSID="{0DB8549C-8932-45FD-B051-575DBAF5E26D}"
+              DTS:DTSID="{08CFBB70-C4EB-4A78-BF3B-671DC3FFD908}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -75,7 +75,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Reporting PHU"
-              DTS:DTSID="{463BF528-713E-4891-91CC-59408065A021}"
+              DTS:DTSID="{E5E11593-53CD-40F7-A207-396755A7FC7E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -84,7 +84,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="SpecimenDate"
-              DTS:DTSID="{224ACC7E-A645-463D-BFA3-9FFABDCD7824}"
+              DTS:DTSID="{E5D29831-B099-4FF0-AEB6-4CA5E1C2E55F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -93,7 +93,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CaseReported Date"
-              DTS:DTSID="{B6DE5B0E-F75F-4B01-8905-33B859649996}"
+              DTS:DTSID="{2C2EA4E0-B6A0-413A-B11C-60A014C3C0BD}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -102,7 +102,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="PHUCity"
-              DTS:DTSID="{A974FBA0-31B4-4781-9764-342745F654F3}"
+              DTS:DTSID="{BAF39EB9-F90E-492B-8743-99079A7C85ED}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -111,7 +111,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="TestReported Date"
-              DTS:DTSID="{065C42EA-30A8-4422-8C10-F16BE4FEFBEE}"
+              DTS:DTSID="{3E3C58F3-D10A-48D4-B06E-B2E700F3DBC7}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -120,7 +120,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CaseAcquisition info"
-              DTS:DTSID="{0E8BAE25-01A5-4811-8507-345E0E730599}"
+              DTS:DTSID="{C854033B-C2DE-4C0C-AFCC-4A9314C80EFA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -129,7 +129,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="AccurateEpisode Dt"
-              DTS:DTSID="{F6218246-48C2-47CE-B265-B8E10195B094}"
+              DTS:DTSID="{C3C93BA3-6D5F-42D0-9647-071ED5FB5F0C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -138,7 +138,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="PHU Address"
-              DTS:DTSID="{90CF4691-C3A1-4F82-8389-2A9983F31C31}"
+              DTS:DTSID="{622F1312-0B42-4F24-A9B1-35BA6BF9B56D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -147,7 +147,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="PHU Website"
-              DTS:DTSID="{56ACE95C-A778-4137-9A95-8A8185B8D770}"
+              DTS:DTSID="{3D7FE014-B7E3-472B-9E33-D7EBA037526D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -156,7 +156,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="OutbreakRelated"
-              DTS:DTSID="{1CB88752-5BF4-470C-BC26-E9B0CA16773C}"
+              DTS:DTSID="{369DEBC8-9E1F-416F-A0AA-271DB6F84CA9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -165,7 +165,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="PHU Latitude"
-              DTS:DTSID="{CF64EB2F-823F-4DFC-AD01-9C3BFA681EA8}"
+              DTS:DTSID="{2D8C75DE-0C46-490E-A037-2BCD5F82936D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -174,7 +174,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="PHU Longitude"
-              DTS:DTSID="{9934DDA7-ABE7-4CCA-AB13-D1EA96DAE5AA}"
+              DTS:DTSID="{231EC9E9-D351-4271-B5D5-2D672ECD8B88}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -183,7 +183,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="PHU Postal Code"
-              DTS:DTSID="{6EB81904-A46B-4559-ABDD-F9F8A86AA1E9}"
+              DTS:DTSID="{01BFF4AE-4490-4D55-8BF1-8805BFF24A2E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -192,7 +192,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Created At"
-              DTS:DTSID="{BBD56DEC-94F0-4AA4-930A-BB742AB50320}"
+              DTS:DTSID="{0D8167AA-7245-43B0-B749-8D0C6FCDC21A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -201,7 +201,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Update At"
-              DTS:DTSID="{67C5C121-1DE7-45D2-9049-EED997726610}"
+              DTS:DTSID="{9312CEEF-AE93-4C00-A573-39E2C07F4D52}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -209,7 +209,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="Status"
-              DTS:DTSID="{040D7FE7-6732-460E-A953-0F4D3E439282}"
+              DTS:DTSID="{113DB700-DEDA-446B-ABF2-B99E3306C1FB}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -218,7 +218,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[cc19cd]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{B49199A6-1B8A-4703-846F-2731F9BFEDA5}"
+      DTS:DTSID="{8A04C4C9-CF51-4F9E-BF62-DF9B10852695}"
       DTS:ObjectName="cc19cd">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -237,7 +237,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="ObjectId"
-              DTS:DTSID="{05BDEAD7-18CB-4EEB-A283-1E232E0B8410}"
+              DTS:DTSID="{92C9698D-6A97-4497-BE65-666078B4891A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -245,7 +245,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="row_id"
-              DTS:DTSID="{A6D3A5F3-E206-4C20-8E16-C9CE18423CE8}"
+              DTS:DTSID="{A97970B6-4F2F-4FF1-96B5-B4A0C0F5BDC9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -254,7 +254,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="date_reported"
-              DTS:DTSID="{F482D332-0E0E-434F-8564-1A2BD0568875}"
+              DTS:DTSID="{5CCAB49B-A243-4348-913B-5F817F9C649E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -262,7 +262,7 @@
               DTS:DataType="302"
               DTS:TextQualified="True"
               DTS:ObjectName="health_region"
-              DTS:DTSID="{AF917CFF-9FFB-4874-B7B2-9C21E0ABB8BF}"
+              DTS:DTSID="{2A207290-33B1-4F91-AA50-D6833E3C3FC4}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -270,7 +270,7 @@
               DTS:DataType="302"
               DTS:TextQualified="True"
               DTS:ObjectName="age_group"
-              DTS:DTSID="{7E9B9F76-F954-4FAE-8726-BF15E81CDB02}"
+              DTS:DTSID="{AFDE07AB-7F28-475C-B79A-27511EF3B9B6}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -278,7 +278,7 @@
               DTS:DataType="302"
               DTS:TextQualified="True"
               DTS:ObjectName="gender"
-              DTS:DTSID="{A82DB27A-FB07-4086-8775-92D5ACBCDAD2}"
+              DTS:DTSID="{B6256CDF-9820-4046-9602-675DD7D506EC}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -286,7 +286,7 @@
               DTS:DataType="302"
               DTS:TextQualified="True"
               DTS:ObjectName="exposure"
-              DTS:DTSID="{22F6F266-391F-4549-A3D4-3C61131F6CA0}"
+              DTS:DTSID="{50A529DE-42A5-43F1-907E-08A515D8BA3C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -294,7 +294,7 @@
               DTS:DataType="302"
               DTS:TextQualified="True"
               DTS:ObjectName="case_status"
-              DTS:DTSID="{F2BD09CC-FCCA-4827-8F8B-9B46E3AABD86}"
+              DTS:DTSID="{868857C8-59DC-43C0-94A2-E6D6C3E493BD}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -302,7 +302,7 @@
               DTS:DataType="302"
               DTS:TextQualified="True"
               DTS:ObjectName="province"
-              DTS:DTSID="{6C6D3251-5FE0-4A2B-9E46-273E141F5AE4}"
+              DTS:DTSID="{E61D3C56-985E-4384-A7ED-0052CDEFE5F4}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -310,7 +310,7 @@
               DTS:DataType="7"
               DTS:TextQualified="True"
               DTS:ObjectName="Created At"
-              DTS:DTSID="{E3FBD31B-7564-4895-B469-2505AE6A1A21}"
+              DTS:DTSID="{0BBCBE06-CEA6-48D1-BACC-8844965562AF}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -318,7 +318,7 @@
               DTS:DataType="7"
               DTS:TextQualified="True"
               DTS:ObjectName="Updated At"
-              DTS:DTSID="{961688C0-A779-4D1D-8593-09D3B25130D2}"
+              DTS:DTSID="{E4D3FF0C-F3F3-4857-93B0-384A360F86F1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -326,7 +326,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="Status"
-              DTS:DTSID="{DAB43D56-914A-413E-B0ED-58F0FDE80157}"
+              DTS:DTSID="{E4721785-6F62-43E1-877B-F52631519A4F}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -335,31 +335,31 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[LocalHost.COVID_19_METADATA]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{60447A8A-CE5D-48A6-B799-36270B3FEB61}"
+      DTS:DTSID="{AFD051CB-6024-4CDD-8D37-AB5E820F4C8C}"
       DTS:ObjectName="LocalHost.COVID_19_METADATA">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=.;Initial Catalog=COVID_19_METADATA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{60447A8A-CE5D-48A6-B799-36270B3FEB61}LocalHost.COVID_19_METADATA;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=.;Initial Catalog=COVID_19_METADATA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{AFD051CB-6024-4CDD-8D37-AB5E820F4C8C}LocalHost.COVID_19_METADATA;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[LocalHost.COVID_19_STAGE]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{0DB04D4D-E6E5-4452-A512-CE18D868AD0E}"
+      DTS:DTSID="{E8D15DBD-57F5-4DA7-88D0-2FA82DC9F23D}"
       DTS:ObjectName="LocalHost.COVID_19_STAGE">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=.;Initial Catalog=COVID_19_STAGE;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{0DB04D4D-E6E5-4452-A512-CE18D868AD0E}LocalHost.COVID_19_STAGE;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=.;Initial Catalog=COVID_19_STAGE;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{E8D15DBD-57F5-4DA7-88D0-2FA82DC9F23D}LocalHost.COVID_19_STAGE;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[ongoing outbreak]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{E7A11AEA-DD80-4EB7-BBAB-04416227A017}"
+      DTS:DTSID="{D643EAD4-54B4-46B5-B20E-2955A51082E5}"
       DTS:ObjectName="ongoing outbreak">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -378,7 +378,7 @@
               DTS:DataType="7"
               DTS:TextQualified="True"
               DTS:ObjectName="date"
-              DTS:DTSID="{BB9EED4C-8DE4-46C8-92EF-BFDFBE256211}"
+              DTS:DTSID="{7CD77FC3-E4B7-4929-BFE8-DAA4BCCCB642}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -386,7 +386,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="phu_num"
-              DTS:DTSID="{5A498FFD-783C-420F-9F51-41C146C1E7BA}"
+              DTS:DTSID="{AE086739-611E-4ECB-98C9-1D9C39E17849}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -394,7 +394,7 @@
               DTS:DataType="302"
               DTS:TextQualified="True"
               DTS:ObjectName="outbreak_group"
-              DTS:DTSID="{CE2232CF-0888-47EA-913E-B451C3512E68}"
+              DTS:DTSID="{B727A237-F05C-454D-8E4E-C3DB7022590E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -402,7 +402,7 @@
               DTS:DataType="19"
               DTS:TextQualified="True"
               DTS:ObjectName="number_ongoing_outbreaks"
-              DTS:DTSID="{36B6FFE5-D72C-48DC-94A0-86B6F33B887F}"
+              DTS:DTSID="{22DC8C4E-43D7-4501-BC08-4450AA5DA070}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -410,7 +410,7 @@
               DTS:DataType="7"
               DTS:TextQualified="True"
               DTS:ObjectName="Created At"
-              DTS:DTSID="{3A09B8FC-57BF-4557-A5A3-67A5ACAE6D07}"
+              DTS:DTSID="{A712A1D0-505F-4AEF-A6BC-1BBD833346F3}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -418,7 +418,7 @@
               DTS:DataType="7"
               DTS:TextQualified="True"
               DTS:ObjectName="Updated At"
-              DTS:DTSID="{3978CA23-0E49-4622-97BD-6319A84009BF}"
+              DTS:DTSID="{80E309E8-2B31-43DF-9878-D6F7D80C78ED}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -426,7 +426,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="Status"
-              DTS:DTSID="{D9D66A66-1BB9-4215-82A7-2CE5DE90463A}"
+              DTS:DTSID="{51F0BCED-A48B-46F0-A952-C1AAA474F1BD}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -435,7 +435,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Public_health_unit]"
       DTS:CreationName="EXCEL"
-      DTS:DTSID="{D57F5E99-642C-46F8-8ACB-7CB1F9A796C7}"
+      DTS:DTSID="{21DD62D2-2D83-4066-BE90-59E234CFAC81}"
       DTS:ObjectName="Public_health_unit">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -447,7 +447,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[public_health_unit_group]"
       DTS:CreationName="EXCEL"
-      DTS:DTSID="{2801C531-5B5F-4BC4-8A0C-BE514C04B044}"
+      DTS:DTSID="{48E62F40-1BED-47B3-BAEA-38CF66371252}"
       DTS:ObjectName="public_health_unit_group">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -459,7 +459,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Vaccine_by_age_phu]"
       DTS:CreationName="EXCEL"
-      DTS:DTSID="{3A4E10C1-D091-496E-A989-33B21C4E0933}"
+      DTS:DTSID="{69F45BB4-4EE6-4802-9482-F43ACDE834C0}"
       DTS:ObjectName="Vaccine_by_age_phu">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -472,7 +472,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{92F4EF53-0514-4581-8F58-AC3784C6B146}"
+      DTS:DTSID="{D67E4C9A-9B54-4BA5-BFC2-DD1ECF3C3A27}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="CET">
@@ -485,14 +485,14 @@
       DTS:refId="Package\Case_report"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:DTSID="{1DFED844-7199-4852-A074-633FE35BA56C}"
+      DTS:DTSID="{E286D2A8-570B-4B20-B040-A3544A6B03E3}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="Case_report">
       <DTS:Variables>
         <DTS:Variable
           DTS:CreationName=""
-          DTS:DTSID="{9CF306BE-8C4B-4C6E-AD9B-73415FDBE737}"
+          DTS:DTSID="{9E030ABB-4FA6-4C6A-8545-92100B82A7DA}"
           DTS:IncludeInDebugDump="6789"
           DTS:Namespace="User"
           DTS:ObjectName="LSET">
@@ -505,7 +505,7 @@
           DTS:refId="Package\Case_report\case_report_stage"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
-          DTS:DTSID="{0ed894e2-8baf-48c0-ac1c-769a3de22a98}"
+          DTS:DTSID="{60BBB258-BC77-4C48-8059-D474B290F19C}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
           DTS:ObjectName="case_report_stage"
@@ -1921,7 +1921,7 @@
           DTS:refId="Package\Case_report\GET LSET"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{49291f58-8738-4abd-b30a-17061fcd236b}"
+          DTS:DTSID="{A8DF8EA9-6C0D-43F0-A558-319CA0521A4A}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="GET LSET"
@@ -1929,7 +1929,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{60447A8A-CE5D-48A6-B799-36270B3FEB61}"
+              SQLTask:Connection="{AFD051CB-6024-4CDD-8D37-AB5E820F4C8C}"
               SQLTask:SqlStatementSource="select LSET from Data_Flow where name_of_table='case_report'"
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
@@ -1942,7 +1942,7 @@
           DTS:refId="Package\Case_report\UPDATE LSET"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{683e5719-c6d5-47be-88e5-3ff8b6654fd1}"
+          DTS:DTSID="{0BE24FA4-DE5E-4260-BE0F-38411C44C4BD}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="UPDATE LSET"
@@ -1950,7 +1950,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{60447A8A-CE5D-48A6-B799-36270B3FEB61}"
+              SQLTask:Connection="{AFD051CB-6024-4CDD-8D37-AB5E820F4C8C}"
               SQLTask:SqlStatementSource="Update data_flow set LSET= ? where name_of_table ='case_report'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
@@ -1966,7 +1966,7 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Case_report.PrecedenceConstraints[Constraint 2]"
           DTS:CreationName=""
-          DTS:DTSID="{45bd390b-88e8-4fa2-9c43-c42ed989ead2}"
+          DTS:DTSID="{9BCFE169-42F7-4011-AB2E-2A4EADCE90D9}"
           DTS:From="Package\Case_report\GET LSET"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 2"
@@ -1974,7 +1974,7 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Case_report.PrecedenceConstraints[Constraint 3]"
           DTS:CreationName=""
-          DTS:DTSID="{fed38647-3d9e-4399-823c-695effc71cd2}"
+          DTS:DTSID="{E5968FF2-AF19-4D20-921A-A48233EE8E5A}"
           DTS:From="Package\Case_report\case_report_stage"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 3"
@@ -1985,14 +1985,14 @@
       DTS:refId="Package\CC19CD"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:DTSID="{261487AC-7354-48B3-9F8A-0D7011DBAB41}"
+      DTS:DTSID="{B06E988B-F1A7-41EB-9E6D-61A1CD2C0158}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="CC19CD">
       <DTS:Variables>
         <DTS:Variable
           DTS:CreationName=""
-          DTS:DTSID="{0D75D5AB-FECC-48E3-8BAE-C99F3041A5BE}"
+          DTS:DTSID="{6AA26DA2-C053-478F-96F3-D61CB28BD9E5}"
           DTS:IncludeInDebugDump="6789"
           DTS:Namespace="User"
           DTS:ObjectName="LSET">
@@ -2005,7 +2005,7 @@
           DTS:refId="Package\CC19CD\cc19cd"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
-          DTS:DTSID="{8CEA7B3F-D5E9-4026-A2F3-7A404105C1BB}"
+          DTS:DTSID="{C80EDA66-7FB3-429E-A101-EE436FFE97CE}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
           DTS:ObjectName="cc19cd"
@@ -3035,7 +3035,7 @@
           DTS:refId="Package\CC19CD\GET LSET"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{9a9ffcea-c157-49be-813f-150ce10db470}"
+          DTS:DTSID="{63F2EF79-C9A8-41C5-9734-0123EACB0502}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="GET LSET"
@@ -3043,7 +3043,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{60447A8A-CE5D-48A6-B799-36270B3FEB61}"
+              SQLTask:Connection="{AFD051CB-6024-4CDD-8D37-AB5E820F4C8C}"
               SQLTask:SqlStatementSource="select LSET from Data_Flow where name_of_table='complited_covid_19_case_details'"
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
@@ -3056,7 +3056,7 @@
           DTS:refId="Package\CC19CD\UPDATE LSET CC19CD"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{35544b1f-c36e-4d63-b709-70ea5e0a53c6}"
+          DTS:DTSID="{AF297816-14B6-496E-BD69-11C596E21825}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="UPDATE LSET CC19CD"
@@ -3064,7 +3064,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{60447A8A-CE5D-48A6-B799-36270B3FEB61}"
+              SQLTask:Connection="{AFD051CB-6024-4CDD-8D37-AB5E820F4C8C}"
               SQLTask:SqlStatementSource="Update data_flow set LSET= ? where name_of_table ='complited_covid_19_case_details'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
@@ -3080,7 +3080,7 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\CC19CD.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{612AB261-B03E-461F-8381-3670E7656BB6}"
+          DTS:DTSID="{DA41CF0D-D25C-41F3-8B81-AF7BBD459EF4}"
           DTS:From="Package\CC19CD\GET LSET"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
@@ -3088,7 +3088,7 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\CC19CD.PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
-          DTS:DTSID="{83CA474B-3FB2-4571-B069-518BC8970848}"
+          DTS:DTSID="{F43BB885-2CBC-4BAC-BAA5-D9266D2B4E30}"
           DTS:From="Package\CC19CD\cc19cd"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
@@ -3099,7 +3099,7 @@
       DTS:refId="Package\GET CET"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Get current extract time"
-      DTS:DTSID="{5dfeb08a-dc20-4017-9669-8bad4a5a7513}"
+      DTS:DTSID="{AAB46110-68FA-453E-8C0B-B337CF9ECE9C}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="GET CET"
@@ -3107,7 +3107,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{60447A8A-CE5D-48A6-B799-36270B3FEB61}"
+          SQLTask:Connection="{AFD051CB-6024-4CDD-8D37-AB5E820F4C8C}"
           SQLTask:SqlStatementSource="select getDate() as CET"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -3120,14 +3120,14 @@
       DTS:refId="Package\Ongoing_outbreak_phu"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:DTSID="{E4060CF5-9EE5-46A6-8994-D28F6F1775AE}"
+      DTS:DTSID="{A4831343-EA19-4FB9-A72E-75CB05F474E0}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="Ongoing_outbreak_phu">
       <DTS:Variables>
         <DTS:Variable
           DTS:CreationName=""
-          DTS:DTSID="{5EBAFF9A-D2CD-4528-8CCD-58A9DFCAE975}"
+          DTS:DTSID="{0F705F90-CF7C-435E-8B73-AE9EEBC43A40}"
           DTS:IncludeInDebugDump="6789"
           DTS:Namespace="User"
           DTS:ObjectName="LSET">
@@ -3140,7 +3140,7 @@
           DTS:refId="Package\Ongoing_outbreak_phu\GET LSET"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{74A894E7-5550-41F6-90E4-9D1E4D8ED4D2}"
+          DTS:DTSID="{C547C6A8-ACAF-435A-AF0D-A4B9AA2E763B}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="GET LSET"
@@ -3148,7 +3148,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{60447A8A-CE5D-48A6-B799-36270B3FEB61}"
+              SQLTask:Connection="{AFD051CB-6024-4CDD-8D37-AB5E820F4C8C}"
               SQLTask:SqlStatementSource="select LSET from Data_Flow where name_of_table='ongoing_outbreak_phu'"
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
@@ -3161,7 +3161,7 @@
           DTS:refId="Package\Ongoing_outbreak_phu\ongoing_outbreak_phu"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
-          DTS:DTSID="{6E025A30-9B3A-4E85-A2D9-3F9E16F312EC}"
+          DTS:DTSID="{55B3BEE9-DD1C-4D18-A348-DF2A9C879BF3}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
           DTS:ObjectName="ongoing_outbreak_phu"
@@ -3760,7 +3760,7 @@
           DTS:refId="Package\Ongoing_outbreak_phu\UPDATE LSET"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{ba4004d3-01ab-4218-8f77-c25e32518f9b}"
+          DTS:DTSID="{72F7C943-1470-4685-96BF-656D349E384C}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="UPDATE LSET"
@@ -3768,7 +3768,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{60447A8A-CE5D-48A6-B799-36270B3FEB61}"
+              SQLTask:Connection="{AFD051CB-6024-4CDD-8D37-AB5E820F4C8C}"
               SQLTask:SqlStatementSource="Update data_flow set LSET= ? where name_of_table ='ongoing_outbreak_phu'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
@@ -3784,7 +3784,7 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Ongoing_outbreak_phu.PrecedenceConstraints[Constraint 5]"
           DTS:CreationName=""
-          DTS:DTSID="{C54C89C1-0242-4D00-8037-BE862747F241}"
+          DTS:DTSID="{084363B2-4749-4F6E-B753-C88544A4CBD5}"
           DTS:From="Package\Ongoing_outbreak_phu\GET LSET"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 5"
@@ -3792,7 +3792,7 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Ongoing_outbreak_phu.PrecedenceConstraints[Constraint 6]"
           DTS:CreationName=""
-          DTS:DTSID="{C2A55620-ACDD-4844-8EBD-8E61E2FC926E}"
+          DTS:DTSID="{A1FEE414-2727-4B50-AE16-801739A70901}"
           DTS:From="Package\Ongoing_outbreak_phu\ongoing_outbreak_phu"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 6"
@@ -3803,14 +3803,14 @@
       DTS:refId="Package\PHU"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:DTSID="{61A98CB6-E8DA-4CA1-80CC-7D9B76C4F902}"
+      DTS:DTSID="{EF749E67-A362-4F5B-9B01-B121B3D9921A}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="PHU">
       <DTS:Variables>
         <DTS:Variable
           DTS:CreationName=""
-          DTS:DTSID="{0B79D1DD-4082-44FF-8597-55D988B7D2E2}"
+          DTS:DTSID="{F99E4A49-5A5E-4BA7-94DA-7EA6155D2227}"
           DTS:IncludeInDebugDump="6789"
           DTS:Namespace="User"
           DTS:ObjectName="LSET">
@@ -3823,7 +3823,7 @@
           DTS:refId="Package\PHU\GET LSET PHU"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{d050bf19-69f2-435c-b853-74d55be9330d}"
+          DTS:DTSID="{493C1F45-48D9-4196-B1AC-960C3790861C}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="GET LSET PHU"
@@ -3831,7 +3831,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{60447A8A-CE5D-48A6-B799-36270B3FEB61}"
+              SQLTask:Connection="{AFD051CB-6024-4CDD-8D37-AB5E820F4C8C}"
               SQLTask:SqlStatementSource="select LSET from Data_Flow where name_of_table='public_health_unit'"
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
@@ -3844,7 +3844,7 @@
           DTS:refId="Package\PHU\public_health_unit stage"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
-          DTS:DTSID="{cb10b597-4aa1-4730-b57e-8109095e2c8e}"
+          DTS:DTSID="{025DB399-D90A-4184-ADEA-15DF850C322F}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
           DTS:ObjectName="public_health_unit stage"
@@ -4917,7 +4917,7 @@
           DTS:refId="Package\PHU\UPDATE PHU"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{68aed843-593c-4001-9058-466c2a09dc7b}"
+          DTS:DTSID="{C903107D-5E33-4956-B6A4-A1C77E254593}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="UPDATE PHU"
@@ -4925,7 +4925,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{60447A8A-CE5D-48A6-B799-36270B3FEB61}"
+              SQLTask:Connection="{AFD051CB-6024-4CDD-8D37-AB5E820F4C8C}"
               SQLTask:SqlStatementSource="Update data_flow set LSET= ? where name_of_table ='public_health_unit'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
@@ -4941,7 +4941,7 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\PHU.PrecedenceConstraints[Constraint 2 1]"
           DTS:CreationName=""
-          DTS:DTSID="{0639be3b-3576-4f0a-885a-a2c92289ce70}"
+          DTS:DTSID="{105876B6-3065-4792-A33B-22B56E6BE397}"
           DTS:From="Package\PHU\GET LSET PHU"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 2 1"
@@ -4949,7 +4949,7 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\PHU.PrecedenceConstraints[Constraint 3 1]"
           DTS:CreationName=""
-          DTS:DTSID="{2ec228ff-2fe7-4cab-880b-aebf35176442}"
+          DTS:DTSID="{ACC029BB-732C-4D4D-A15A-F28DE042BF20}"
           DTS:From="Package\PHU\public_health_unit stage"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 3 1"
@@ -4960,14 +4960,14 @@
       DTS:refId="Package\PHU_Group"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:DTSID="{F0476D1A-5CAE-47E2-B356-F74BE5FC857F}"
+      DTS:DTSID="{F0796298-292A-403D-BA30-7D4467696DD5}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="PHU_Group">
       <DTS:Variables>
         <DTS:Variable
           DTS:CreationName=""
-          DTS:DTSID="{472DA2D4-49C2-4018-8A30-6FBD071DC564}"
+          DTS:DTSID="{0394AE7F-7601-4FF9-AF9E-5797998E2D30}"
           DTS:IncludeInDebugDump="6789"
           DTS:Namespace="User"
           DTS:ObjectName="LSET">
@@ -4980,7 +4980,7 @@
           DTS:refId="Package\PHU_Group\GET LSET PHUG"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{c73398d5-5063-40ce-a495-7cced4cebb6f}"
+          DTS:DTSID="{6FF3DED6-E97E-4959-8B92-54777843F2CE}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="GET LSET PHUG"
@@ -4988,7 +4988,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{60447A8A-CE5D-48A6-B799-36270B3FEB61}"
+              SQLTask:Connection="{AFD051CB-6024-4CDD-8D37-AB5E820F4C8C}"
               SQLTask:SqlStatementSource="select LSET from Data_Flow where name_of_table='public_health_unit_group'"
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
@@ -5001,7 +5001,7 @@
           DTS:refId="Package\PHU_Group\public_health_unit_group stage"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
-          DTS:DTSID="{215d0221-9247-4d94-ba66-312f9f70d98d}"
+          DTS:DTSID="{ADB112D0-A52B-4831-9B06-DDA27C66D8B3}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
           DTS:ObjectName="public_health_unit_group stage"
@@ -5651,7 +5651,7 @@
                           cachedDataType="str"
                           cachedLength="100"
                           cachedName="PHU_City_Converted"
-                          externalMetadataColumnId="Package\PHU_Group\public_health_unit_group stage\Stage public_health_unit_group.Inputs[OLE DB Destination Input].ExternalColumns[PHU_City]"
+                          externalMetadataColumnId="Package\PHU_Group\public_health_unit_group stage\Stage public_health_unit_group.Inputs[OLE DB Destination Input].ExternalColumns[phu_city]"
                           lineageId="Package\PHU_Group\public_health_unit_group stage\Data Conversion.Outputs[Data Conversion Output].Columns[PHU_City_Converted]" />
                       </inputColumns>
                       <externalMetadataColumns
@@ -5673,11 +5673,11 @@
                           dataType="i4"
                           name="status" />
                         <externalMetadataColumn
-                          refId="Package\PHU_Group\public_health_unit_group stage\Stage public_health_unit_group.Inputs[OLE DB Destination Input].ExternalColumns[PHU_City]"
+                          refId="Package\PHU_Group\public_health_unit_group stage\Stage public_health_unit_group.Inputs[OLE DB Destination Input].ExternalColumns[phu_city]"
                           codePage="1252"
                           dataType="str"
                           length="100"
-                          name="PHU_City" />
+                          name="phu_city" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -5736,7 +5736,7 @@
           DTS:refId="Package\PHU_Group\UPDATE PHUG"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{f2a1d005-a5b6-41c0-afaa-0921d5a9324b}"
+          DTS:DTSID="{B483A344-765A-4C36-BD49-609C12190C45}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="UPDATE PHUG"
@@ -5744,7 +5744,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{60447A8A-CE5D-48A6-B799-36270B3FEB61}"
+              SQLTask:Connection="{AFD051CB-6024-4CDD-8D37-AB5E820F4C8C}"
               SQLTask:SqlStatementSource="Update data_flow set LSET= ? where name_of_table ='public_health_unit_group'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
@@ -5760,7 +5760,7 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\PHU_Group.PrecedenceConstraints[Constraint 2 2]"
           DTS:CreationName=""
-          DTS:DTSID="{0d1aeeaa-38f9-4d3b-a001-84e72434c565}"
+          DTS:DTSID="{582DCDA2-253C-4C03-9ED1-D7134AEE0968}"
           DTS:From="Package\PHU_Group\GET LSET PHUG"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 2 2"
@@ -5768,7 +5768,7 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\PHU_Group.PrecedenceConstraints[Constraint 3 2]"
           DTS:CreationName=""
-          DTS:DTSID="{35c42a75-75b5-4436-a5c0-c881fcc9c7f9}"
+          DTS:DTSID="{D999C4CC-8F46-4C5E-99D3-B8CF5D96B783}"
           DTS:From="Package\PHU_Group\public_health_unit_group stage"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 3 2"
@@ -5779,7 +5779,7 @@
       DTS:refId="Package\TRUNCATE STAGE"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Truncate Stage Jupiter"
-      DTS:DTSID="{88a815b4-a703-407c-8178-bf5139cccc2f}"
+      DTS:DTSID="{3BFC72C6-0FB0-4CB9-8443-04DAA1A6A68B}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="TRUNCATE STAGE"
@@ -5787,7 +5787,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{0DB04D4D-E6E5-4452-A512-CE18D868AD0E}"
+          SQLTask:Connection="{E8D15DBD-57F5-4DA7-88D0-2FA82DC9F23D}"
           SQLTask:SqlStatementSource="Truncate table case_report;&#xA;Truncate table complited_covid_19_case_details;&#xA;Truncate table ongoing_outbreak_phu;&#xA;Truncate table public_health_unit;&#xA;Truncate table public_health_unit_group;&#xA;Truncate table vaccines_by_age_phu&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -5795,14 +5795,14 @@
       DTS:refId="Package\VBAPHU"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:DTSID="{5F525CFD-6FF1-4961-8220-175D3582F8C2}"
+      DTS:DTSID="{DCFB343A-A1EC-4F85-A3AC-1685AD1197AB}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
       DTS:ObjectName="VBAPHU">
       <DTS:Variables>
         <DTS:Variable
           DTS:CreationName=""
-          DTS:DTSID="{B3611CA7-236F-4350-A8BD-D0B0FBC00909}"
+          DTS:DTSID="{84A7405A-32DB-4552-9D6F-7C3668BC1BE0}"
           DTS:IncludeInDebugDump="6789"
           DTS:Namespace="User"
           DTS:ObjectName="LSET">
@@ -5815,7 +5815,7 @@
           DTS:refId="Package\VBAPHU\GET LSET"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{b36d7e1e-a908-4542-9079-c7365afc9028}"
+          DTS:DTSID="{707561E2-CC03-45F4-928E-DA9C97387EB2}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="GET LSET"
@@ -5823,7 +5823,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{60447A8A-CE5D-48A6-B799-36270B3FEB61}"
+              SQLTask:Connection="{AFD051CB-6024-4CDD-8D37-AB5E820F4C8C}"
               SQLTask:SqlStatementSource="select LSET from Data_Flow where name_of_table='vaccines_by_age_phu'"
               SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
@@ -5836,7 +5836,7 @@
           DTS:refId="Package\VBAPHU\Stage vaccines_by_age_phu Stage"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
-          DTS:DTSID="{482554c3-923b-43cc-9fb9-414ba34f616c}"
+          DTS:DTSID="{3CEF8C01-CA47-4B7D-9BE7-597DCFF8DE0E}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
           DTS:ObjectName="Stage vaccines_by_age_phu Stage"
@@ -6709,7 +6709,7 @@
           DTS:refId="Package\VBAPHU\UPDATE LSET VBAP"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{17ae561a-4b79-416e-aee0-6442abbdbaa5}"
+          DTS:DTSID="{F337F50C-4198-4C65-91DA-2CEA38A389C5}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="UPDATE LSET VBAP"
@@ -6717,7 +6717,7 @@
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{60447A8A-CE5D-48A6-B799-36270B3FEB61}"
+              SQLTask:Connection="{AFD051CB-6024-4CDD-8D37-AB5E820F4C8C}"
               SQLTask:SqlStatementSource="Update data_flow set LSET= ? where name_of_table ='vaccines_by_age_phu'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
@@ -6733,7 +6733,7 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\VBAPHU.PrecedenceConstraints[Constraint 2 3]"
           DTS:CreationName=""
-          DTS:DTSID="{7f2524a3-18a5-497d-af29-9e5c3a6a9dcd}"
+          DTS:DTSID="{5B84F37B-38E8-4899-A348-6C5CCC1B2329}"
           DTS:From="Package\VBAPHU\GET LSET"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 2 3"
@@ -6741,7 +6741,7 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\VBAPHU.PrecedenceConstraints[Constraint 3 3]"
           DTS:CreationName=""
-          DTS:DTSID="{1d47cb6a-c483-4604-9fea-d4b84caa6343}"
+          DTS:DTSID="{98D42F61-9E90-4A96-AE15-9376251B4C20}"
           DTS:From="Package\VBAPHU\Stage vaccines_by_age_phu Stage"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 3 3"
@@ -6753,7 +6753,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{81a21e03-6be0-44e0-bc74-9ce778dc20ad}"
+      DTS:DTSID="{E3013C5B-B0EF-41C0-B924-655C1AF48863}"
       DTS:From="Package\TRUNCATE STAGE"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
@@ -6761,7 +6761,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{519FECEA-5D10-483A-A0D1-A9D6067C2C74}"
+      DTS:DTSID="{CEC213B9-1D89-47E1-A043-FA1D63BE2210}"
       DTS:From="Package\GET CET"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
@@ -6769,7 +6769,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
-      DTS:DTSID="{818437AF-28AA-4CB9-8FEA-27B65A700A00}"
+      DTS:DTSID="{F4828094-0CF9-4D8A-A326-F342EAC7F9AF}"
       DTS:From="Package\CC19CD"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
@@ -6777,7 +6777,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
-      DTS:DTSID="{FDC89F71-8CBD-4E06-B6FA-E1C4E56EA105}"
+      DTS:DTSID="{AE4DCB12-B48A-4435-B8BF-A87A0EF479E8}"
       DTS:From="Package\PHU"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
@@ -6785,7 +6785,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
       DTS:CreationName=""
-      DTS:DTSID="{67E023D8-F966-4176-94B3-18192F1F294B}"
+      DTS:DTSID="{8638FC1C-08DF-4395-85EE-5F312D28E08C}"
       DTS:From="Package\Ongoing_outbreak_phu"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 4"
@@ -6793,7 +6793,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
       DTS:CreationName=""
-      DTS:DTSID="{99B871DB-5B71-46A9-9A2F-535C326D0C6A}"
+      DTS:DTSID="{A521A21B-D354-4656-963E-D3A8DDA52ED4}"
       DTS:From="Package\PHU_Group"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 5"
@@ -6801,7 +6801,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
       DTS:CreationName=""
-      DTS:DTSID="{89066D2D-34E7-44A2-9D07-FF2731254738}"
+      DTS:DTSID="{11599017-C877-4080-A9A0-89DB3C9325C5}"
       DTS:From="Package\VBAPHU"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 6"
@@ -7761,7 +7761,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7831,7 +7833,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -7889,6 +7893,30 @@
           Id="Package\PHU_Group\public_health_unit_group stage\Conditional Split"
           TopLeft="575,287" />
         <EdgeLayout
+          Id="Package\PHU_Group\public_health_unit_group stage.Paths[Case 1]"
+          TopLeft="654.875,329">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.75"
+              Start="0,0"
+              End="0,34.25">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.25" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-15.2180859375,12.34814453125,30.436171875,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\PHU_Group\public_health_unit_group stage.Paths[No empty row]"
           TopLeft="651.625,247.5">
           <EdgeLayout.Curve>
@@ -7931,9 +7959,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7955,33 +7981,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\PHU_Group\public_health_unit_group stage.Paths[Case 1]"
-          TopLeft="654.875,329">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,41.75"
-              Start="0,0"
-              End="0,34.25">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.25" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-15.2180859375,12.34814453125,30.436171875,9.5537109375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
