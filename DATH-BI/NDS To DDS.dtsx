@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="347"
-  DTS:VersionGUID="{020D29C3-F41A-4432-9220-1DB31EABC77C}">
+  DTS:VersionBuild="354"
+  DTS:VersionGUID="{176EA08E-8EFF-4EB4-BC05-A641F52BEA0E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -11236,7 +11236,10 @@ where id_phu =? and id_day=? and id_case=?</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select *
+from case_report
+where (created_at &lt; ? and created_at&gt;=?) 
+or (update_at&lt;? and update_at&gt;=?)</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -11253,11 +11256,11 @@ where id_phu =? and id_day=? and id_case=?</property>
                       dataType="System.Int32"
                       description="Specifies the mode used to access the database."
                       name="AccessMode"
-                      typeConverter="AccessMode">0</property>
+                      typeConverter="AccessMode">2</property>
                     <property
                       dataType="System.String"
                       description="The mappings between the parameters in the SQL command and variables."
-                      name="ParameterMapping"></property>
+                      name="ParameterMapping">"Parameter0:Input",{4F223BDE-89EA-4040-A55D-3FBA52EDC1C3};"Parameter1:Input",{AF4AE282-D18D-4AAF-A16B-EEF23DCD74AA};"Parameter2:Input",{4F223BDE-89EA-4040-A55D-3FBA52EDC1C3};"Parameter3:Input",{AF4AE282-D18D-4AAF-A16B-EEF23DCD74AA};</property>
                   </properties>
                   <connections>
                     <connection
@@ -14795,7 +14798,9 @@ where [refTable].[year] = ?</property>
                       description="The SQL command to be executed."
                       name="SqlCommand"
                       UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from case_detail
-where province='Ontario'</property>
+where province='Ontario'
+and (created_at &lt; ? and created_at&gt;=?) 
+or (update_at&lt;? and update_at&gt;=?)</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -14816,7 +14821,7 @@ where province='Ontario'</property>
                     <property
                       dataType="System.String"
                       description="The mappings between the parameters in the SQL command and variables."
-                      name="ParameterMapping"></property>
+                      name="ParameterMapping">"Parameter0:Input",{A7E1641C-99DD-4F3C-B8FB-84D0AF7FCB4A};"Parameter1:Input",{021DCF6F-BCC7-4395-B458-9B9E42049481};"Parameter2:Input",{A7E1641C-99DD-4F3C-B8FB-84D0AF7FCB4A};"Parameter3:Input",{021DCF6F-BCC7-4395-B458-9B9E42049481};</property>
                   </properties>
                   <connections>
                     <connection
@@ -17369,11 +17374,11 @@ where [refTable].[source_id] = ? and [refTable].[age_group] = ?</property>
               version="1">
               <components>
                 <component
-                  refId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert for new phu_id and phu_day"
+                  refId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert"
                   componentClassID="Microsoft.OLEDBDestination"
                   contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
                   description="OLE DB Destination"
-                  name="Insert for new phu_id and phu_day"
+                  name="Insert"
                   usesDispositions="true"
                   version="4">
                   <properties>
@@ -17426,7 +17431,7 @@ where [refTable].[source_id] = ? and [refTable].[age_group] = ?</property>
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert for new phu_id and phu_day.Connections[OleDbConnection]"
+                      refId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert.Connections[OleDbConnection]"
                       connectionManagerID="Package.ConnectionManagers[LocalHost.COVID_19_DDS]"
                       connectionManagerRefId="Package.ConnectionManagers[LocalHost.COVID_19_DDS]"
                       description="The OLE DB runtime connection used to access the database."
@@ -17434,53 +17439,53 @@ where [refTable].[source_id] = ? and [refTable].[age_group] = ?</property>
                   </connections>
                   <inputs>
                     <input
-                      refId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert for new phu_id and phu_day.Inputs[OLE DB Destination Input]"
+                      refId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert.Inputs[OLE DB Destination Input]"
                       errorOrTruncationOperation="Insert"
                       errorRowDisposition="FailComponent"
                       hasSideEffects="true"
                       name="OLE DB Destination Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert for new phu_id and phu_day.Inputs[OLE DB Destination Input].Columns[id_day]"
+                          refId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert.Inputs[OLE DB Destination Input].Columns[id_day]"
                           cachedDataType="i4"
                           cachedName="id_day"
-                          externalMetadataColumnId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert for new phu_id and phu_day.Inputs[OLE DB Destination Input].ExternalColumns[id_day]"
+                          externalMetadataColumnId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert.Inputs[OLE DB Destination Input].ExternalColumns[id_day]"
                           lineageId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Lookup id_day.Outputs[Lookup Match Output].Columns[id_day]" />
                         <inputColumn
-                          refId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert for new phu_id and phu_day.Inputs[OLE DB Destination Input].Columns[id_phu]"
+                          refId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert.Inputs[OLE DB Destination Input].Columns[id_phu]"
                           cachedDataType="i4"
                           cachedName="id_phu"
-                          externalMetadataColumnId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert for new phu_id and phu_day.Inputs[OLE DB Destination Input].ExternalColumns[id_phu]"
+                          externalMetadataColumnId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert.Inputs[OLE DB Destination Input].ExternalColumns[id_phu]"
                           lineageId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Lookup id_phu.Outputs[Lookup Match Output].Columns[id_phu]" />
                         <inputColumn
-                          refId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert for new phu_id and phu_day.Inputs[OLE DB Destination Input].Columns[id_outbreak_group]"
+                          refId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert.Inputs[OLE DB Destination Input].Columns[id_outbreak_group]"
                           cachedDataType="i4"
                           cachedName="id_outbreak_group"
-                          externalMetadataColumnId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert for new phu_id and phu_day.Inputs[OLE DB Destination Input].ExternalColumns[id_outbreak_group]"
+                          externalMetadataColumnId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert.Inputs[OLE DB Destination Input].ExternalColumns[id_outbreak_group]"
                           lineageId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Lookup id_outbreak_group.Outputs[Lookup Match Output].Columns[id_outbreak_group]" />
                         <inputColumn
-                          refId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert for new phu_id and phu_day.Inputs[OLE DB Destination Input].Columns[outbreak_number]"
+                          refId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert.Inputs[OLE DB Destination Input].Columns[outbreak_number]"
                           cachedDataType="i4"
                           cachedName="outbreak_number"
-                          externalMetadataColumnId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert for new phu_id and phu_day.Inputs[OLE DB Destination Input].ExternalColumns[infectected_amount]"
+                          externalMetadataColumnId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert.Inputs[OLE DB Destination Input].ExternalColumns[infectected_amount]"
                           lineageId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Load outbreak.Outputs[OLE DB Source Output].Columns[outbreak_number]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert for new phu_id and phu_day.Inputs[OLE DB Destination Input].ExternalColumns[id_phu]"
+                          refId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert.Inputs[OLE DB Destination Input].ExternalColumns[id_phu]"
                           dataType="i4"
                           name="id_phu" />
                         <externalMetadataColumn
-                          refId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert for new phu_id and phu_day.Inputs[OLE DB Destination Input].ExternalColumns[id_day]"
+                          refId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert.Inputs[OLE DB Destination Input].ExternalColumns[id_day]"
                           dataType="i4"
                           name="id_day" />
                         <externalMetadataColumn
-                          refId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert for new phu_id and phu_day.Inputs[OLE DB Destination Input].ExternalColumns[id_outbreak_group]"
+                          refId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert.Inputs[OLE DB Destination Input].ExternalColumns[id_outbreak_group]"
                           dataType="i4"
                           name="id_outbreak_group" />
                         <externalMetadataColumn
-                          refId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert for new phu_id and phu_day.Inputs[OLE DB Destination Input].ExternalColumns[infectected_amount]"
+                          refId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert.Inputs[OLE DB Destination Input].ExternalColumns[infectected_amount]"
                           dataType="i4"
                           name="infectected_amount" />
                       </externalMetadataColumns>
@@ -17488,22 +17493,22 @@ where [refTable].[source_id] = ? and [refTable].[age_group] = ?</property>
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert for new phu_id and phu_day.Outputs[OLE DB Destination Error Output]"
+                      refId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert.Outputs[OLE DB Destination Error Output]"
                       exclusionGroup="1"
                       isErrorOut="true"
                       name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert for new phu_id and phu_day.Inputs[OLE DB Destination Input]">
+                      synchronousInputId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert.Inputs[OLE DB Destination Input]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert for new phu_id and phu_day.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          refId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert for new phu_id and phu_day.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          lineageId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert for new phu_id and phu_day.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          refId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert for new phu_id and phu_day.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          lineageId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -17536,7 +17541,10 @@ where [refTable].[source_id] = ? and [refTable].[age_group] = ?</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select *
+from outbreak
+where (created_at &lt; ? and created_at&gt;=?) 
+or (update_at&lt;? and update_at&gt;=?)</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -17553,11 +17561,11 @@ where [refTable].[source_id] = ? and [refTable].[age_group] = ?</property>
                       dataType="System.Int32"
                       description="Specifies the mode used to access the database."
                       name="AccessMode"
-                      typeConverter="AccessMode">0</property>
+                      typeConverter="AccessMode">2</property>
                     <property
                       dataType="System.String"
                       description="The mappings between the parameters in the SQL command and variables."
-                      name="ParameterMapping"></property>
+                      name="ParameterMapping">"Parameter0:Input",{8F1C4CFF-6507-4F9D-8008-8968BA905B56};"Parameter1:Input",{BD361355-69FB-48CA-A445-D809B490A2F6};"Parameter2:Input",{8F1C4CFF-6507-4F9D-8008-8968BA905B56};"Parameter3:Input",{BD361355-69FB-48CA-A445-D809B490A2F6};</property>
                   </properties>
                   <connections>
                     <connection
@@ -19239,7 +19247,7 @@ where [refTable].[year] = ?</property>
                   startId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Lookup id_outbreak_group.Outputs[Lookup Match Output]" />
                 <path
                   refId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount.Paths[Lookup No Match Output]"
-                  endId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert for new phu_id and phu_day.Inputs[OLE DB Destination Input]"
+                  endId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert.Inputs[OLE DB Destination Input]"
                   name="Lookup No Match Output"
                   startId="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Lookup id from outbreak.Outputs[Lookup No Match Output]" />
                 <path
@@ -21627,7 +21635,10 @@ where [refTable].[year] = ?</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select *
+from case_report
+where (created_at &lt; ? and created_at&gt;=?) 
+or (update_at&lt;? and update_at&gt;=?)</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -21644,11 +21655,11 @@ where [refTable].[year] = ?</property>
                       dataType="System.Int32"
                       description="Specifies the mode used to access the database."
                       name="AccessMode"
-                      typeConverter="AccessMode">0</property>
+                      typeConverter="AccessMode">2</property>
                     <property
                       dataType="System.String"
                       description="The mappings between the parameters in the SQL command and variables."
-                      name="ParameterMapping"></property>
+                      name="ParameterMapping">"Parameter0:Input",{B7756CD4-D4C3-472F-B98F-81E2AE76B1B6};"Parameter1:Input",{D10B0549-896C-488D-8B83-E1E19D822795};"Parameter2:Input",{B7756CD4-D4C3-472F-B98F-81E2AE76B1B6};"Parameter3:Input",{D10B0549-896C-488D-8B83-E1E19D822795};</property>
                   </properties>
                   <connections>
                     <connection
@@ -23385,11 +23396,11 @@ where [refTable].[year] = ?</property>
               version="1">
               <components>
                 <component
-                  refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert for new phu_id and phu_day"
+                  refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert"
                   componentClassID="Microsoft.OLEDBDestination"
                   contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
                   description="OLE DB Destination"
-                  name="Insert for new phu_id and phu_day"
+                  name="Insert"
                   usesDispositions="true"
                   version="4">
                   <properties>
@@ -23442,7 +23453,7 @@ where [refTable].[year] = ?</property>
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert for new phu_id and phu_day.Connections[OleDbConnection]"
+                      refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Connections[OleDbConnection]"
                       connectionManagerID="Package.ConnectionManagers[LocalHost.COVID_19_DDS]"
                       connectionManagerRefId="Package.ConnectionManagers[LocalHost.COVID_19_DDS]"
                       description="The OLE DB runtime connection used to access the database."
@@ -23450,53 +23461,53 @@ where [refTable].[year] = ?</property>
                   </connections>
                   <inputs>
                     <input
-                      refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert for new phu_id and phu_day.Inputs[OLE DB Destination Input]"
+                      refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Destination Input]"
                       errorOrTruncationOperation="Insert"
                       errorRowDisposition="FailComponent"
                       hasSideEffects="true"
                       name="OLE DB Destination Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert for new phu_id and phu_day.Inputs[OLE DB Destination Input].Columns[id_day]"
+                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Destination Input].Columns[id_day]"
                           cachedDataType="i4"
                           cachedName="id_day"
-                          externalMetadataColumnId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert for new phu_id and phu_day.Inputs[OLE DB Destination Input].ExternalColumns[id_day]"
+                          externalMetadataColumnId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Destination Input].ExternalColumns[id_day]"
                           lineageId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_day.Outputs[Lookup Match Output].Columns[id_day]" />
                         <inputColumn
-                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert for new phu_id and phu_day.Inputs[OLE DB Destination Input].Columns[id_phu]"
+                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Destination Input].Columns[id_phu]"
                           cachedDataType="i4"
                           cachedName="id_phu"
-                          externalMetadataColumnId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert for new phu_id and phu_day.Inputs[OLE DB Destination Input].ExternalColumns[id_phu]"
+                          externalMetadataColumnId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Destination Input].ExternalColumns[id_phu]"
                           lineageId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_phu.Outputs[Lookup Match Output].Columns[id_phu]" />
                         <inputColumn
-                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert for new phu_id and phu_day.Inputs[OLE DB Destination Input].Columns[at_least_one_dose]"
+                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Destination Input].Columns[at_least_one_dose]"
                           cachedDataType="i4"
                           cachedName="at_least_one_dose"
-                          externalMetadataColumnId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert for new phu_id and phu_day.Inputs[OLE DB Destination Input].ExternalColumns[vaccination_amount]"
+                          externalMetadataColumnId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Destination Input].ExternalColumns[vaccination_amount]"
                           lineageId="Package\fact_vaccination_amount\fact_vaccination_amount\Load vaccination.Outputs[OLE DB Source Output].Columns[at_least_one_dose]" />
                         <inputColumn
-                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert for new phu_id and phu_day.Inputs[OLE DB Destination Input].Columns[id_age_group]"
+                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Destination Input].Columns[id_age_group]"
                           cachedDataType="i4"
                           cachedName="id_age_group"
-                          externalMetadataColumnId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert for new phu_id and phu_day.Inputs[OLE DB Destination Input].ExternalColumns[id_age_group]"
+                          externalMetadataColumnId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Destination Input].ExternalColumns[id_age_group]"
                           lineageId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_age_group.Outputs[Lookup Match Output].Columns[id_age_group]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert for new phu_id and phu_day.Inputs[OLE DB Destination Input].ExternalColumns[id_phu]"
+                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Destination Input].ExternalColumns[id_phu]"
                           dataType="i4"
                           name="id_phu" />
                         <externalMetadataColumn
-                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert for new phu_id and phu_day.Inputs[OLE DB Destination Input].ExternalColumns[id_day]"
+                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Destination Input].ExternalColumns[id_day]"
                           dataType="i4"
                           name="id_day" />
                         <externalMetadataColumn
-                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert for new phu_id and phu_day.Inputs[OLE DB Destination Input].ExternalColumns[vaccination_amount]"
+                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Destination Input].ExternalColumns[vaccination_amount]"
                           dataType="i4"
                           name="vaccination_amount" />
                         <externalMetadataColumn
-                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert for new phu_id and phu_day.Inputs[OLE DB Destination Input].ExternalColumns[id_age_group]"
+                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Destination Input].ExternalColumns[id_age_group]"
                           dataType="i4"
                           name="id_age_group" />
                       </externalMetadataColumns>
@@ -23504,22 +23515,22 @@ where [refTable].[year] = ?</property>
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert for new phu_id and phu_day.Outputs[OLE DB Destination Error Output]"
+                      refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Outputs[OLE DB Destination Error Output]"
                       exclusionGroup="1"
                       isErrorOut="true"
                       name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert for new phu_id and phu_day.Inputs[OLE DB Destination Input]">
+                      synchronousInputId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Destination Input]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert for new phu_id and phu_day.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert for new phu_id and phu_day.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          lineageId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert for new phu_id and phu_day.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert for new phu_id and phu_day.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          lineageId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -23901,11 +23912,11 @@ where [refTable].[id] = ?</property>
                   </outputs>
                 </component>
                 <component
-                  refId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id for old phu_id and phu_day"
+                  refId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id"
                   componentClassID="Microsoft.Lookup"
                   contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
                   description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-                  name="Lookup id for old phu_id and phu_day"
+                  name="Lookup id"
                   usesDispositions="true"
                   version="6">
                   <properties>
@@ -23969,7 +23980,7 @@ where [refTable].[id_day] = ? and [refTable].[id_age_group] = ? and [refTable].[
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id for old phu_id and phu_day.Connections[OleDbConnection]"
+                      refId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id.Connections[OleDbConnection]"
                       connectionManagerID="Package.ConnectionManagers[LocalHost.COVID_19_DDS]"
                       connectionManagerRefId="Package.ConnectionManagers[LocalHost.COVID_19_DDS]"
                       description="Connection manager used to access lookup data."
@@ -23977,11 +23988,11 @@ where [refTable].[id_day] = ? and [refTable].[id_age_group] = ? and [refTable].[
                   </connections>
                   <inputs>
                     <input
-                      refId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id for old phu_id and phu_day.Inputs[Lookup Input]"
+                      refId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id.Inputs[Lookup Input]"
                       name="Lookup Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id for old phu_id and phu_day.Inputs[Lookup Input].Columns[id_day]"
+                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id.Inputs[Lookup Input].Columns[id_day]"
                           cachedDataType="i4"
                           cachedName="id_day"
                           lineageId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_day.Outputs[Lookup Match Output].Columns[id_day]">
@@ -23997,7 +24008,7 @@ where [refTable].[id_day] = ? and [refTable].[id_age_group] = ? and [refTable].[
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id for old phu_id and phu_day.Inputs[Lookup Input].Columns[id_phu]"
+                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id.Inputs[Lookup Input].Columns[id_phu]"
                           cachedDataType="i4"
                           cachedName="id_phu"
                           lineageId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_phu.Outputs[Lookup Match Output].Columns[id_phu]">
@@ -24013,7 +24024,7 @@ where [refTable].[id_day] = ? and [refTable].[id_age_group] = ? and [refTable].[
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id for old phu_id and phu_day.Inputs[Lookup Input].Columns[id_age_group]"
+                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id.Inputs[Lookup Input].Columns[id_age_group]"
                           cachedDataType="i4"
                           cachedName="id_age_group"
                           lineageId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_age_group.Outputs[Lookup Match Output].Columns[id_age_group]">
@@ -24034,38 +24045,38 @@ where [refTable].[id_day] = ? and [refTable].[id_age_group] = ? and [refTable].[
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id for old phu_id and phu_day.Outputs[Lookup Match Output]"
+                      refId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id.Outputs[Lookup Match Output]"
                       errorOrTruncationOperation="Lookup"
                       exclusionGroup="1"
                       name="Lookup Match Output"
-                      synchronousInputId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id for old phu_id and phu_day.Inputs[Lookup Input]">
+                      synchronousInputId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id.Inputs[Lookup Input]">
                       <externalMetadataColumns />
                     </output>
                     <output
-                      refId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id for old phu_id and phu_day.Outputs[Lookup No Match Output]"
+                      refId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id.Outputs[Lookup No Match Output]"
                       description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
                       exclusionGroup="1"
                       name="Lookup No Match Output"
-                      synchronousInputId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id for old phu_id and phu_day.Inputs[Lookup Input]">
+                      synchronousInputId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id.Inputs[Lookup Input]">
                       <externalMetadataColumns />
                     </output>
                     <output
-                      refId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id for old phu_id and phu_day.Outputs[Lookup Error Output]"
+                      refId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id.Outputs[Lookup Error Output]"
                       exclusionGroup="1"
                       isErrorOut="true"
                       name="Lookup Error Output"
-                      synchronousInputId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id for old phu_id and phu_day.Inputs[Lookup Input]">
+                      synchronousInputId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id.Inputs[Lookup Input]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id for old phu_id and phu_day.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id.Outputs[Lookup Error Output].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id for old phu_id and phu_day.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          lineageId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id.Outputs[Lookup Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id for old phu_id and phu_day.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id for old phu_id and phu_day.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          lineageId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -25266,14 +25277,14 @@ where [refTable].[year] = ?</property>
                   startId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup ak_phu_id from phu.Outputs[Lookup Match Output]" />
                 <path
                   refId="Package\fact_vaccination_amount\fact_vaccination_amount.Paths[Lookup Match Output6]"
-                  endId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id for old phu_id and phu_day.Inputs[Lookup Input]"
+                  endId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id.Inputs[Lookup Input]"
                   name="Lookup Match Output"
                   startId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_phu.Outputs[Lookup Match Output]" />
                 <path
                   refId="Package\fact_vaccination_amount\fact_vaccination_amount.Paths[Lookup No Match Output]"
-                  endId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert for new phu_id and phu_day.Inputs[OLE DB Destination Input]"
+                  endId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Destination Input]"
                   name="Lookup No Match Output"
-                  startId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id for old phu_id and phu_day.Outputs[Lookup No Match Output]" />
+                  startId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id.Outputs[Lookup No Match Output]" />
                 <path
                   refId="Package\fact_vaccination_amount\fact_vaccination_amount.Paths[OLE DB Source Output]"
                   endId="Package\fact_vaccination_amount\fact_vaccination_amount\YEAR, QUARTER, MONTH, DAY.Inputs[Derived Column Input]"
@@ -27829,9 +27840,7 @@ where [refTable].[year] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -27853,9 +27862,7 @@ where [refTable].[year] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -27956,9 +27963,7 @@ where [refTable].[year] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -27980,9 +27985,7 @@ where [refTable].[year] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31229,8 +31232,8 @@ where [refTable].[year] = ?</property>
           Id="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Lookup id_year"
           TopLeft="451.166666666667,128.5" />
         <NodeLayout
-          Size="246,42"
-          Id="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert for new phu_id and phu_day"
+          Size="107,42"
+          Id="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert"
           TopLeft="919.90873015873,303.236652236649" />
         <NodeLayout
           Size="205,42"
@@ -31507,7 +31510,7 @@ where [refTable].[year] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert for new phu_id and phu_day">
+    design-time-name="Package\fact_outbreak_infectected_amount\fact_outbreak_infectected_amount\Insert">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -31583,8 +31586,8 @@ where [refTable].[year] = ?</property>
           Id="Package\fact_vaccination_amount\fact_vaccination_amount\YEAR, QUARTER, MONTH, DAY"
           TopLeft="205.5,85.5" />
         <NodeLayout
-          Size="246,42"
-          Id="Package\fact_vaccination_amount\fact_vaccination_amount\Insert for new phu_id and phu_day"
+          Size="107,42"
+          Id="Package\fact_vaccination_amount\fact_vaccination_amount\Insert"
           TopLeft="1064.81060606061,266.960678210681" />
         <NodeLayout
           Size="157,42"
@@ -31611,9 +31614,9 @@ where [refTable].[year] = ?</property>
           Id="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_phu"
           TopLeft="541.5,266.5" />
         <NodeLayout
-          Size="258,42"
-          Id="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id for old phu_id and phu_day"
-          TopLeft="765.972222222222,267.06746031746" />
+          Size="125,42"
+          Id="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id"
+          TopLeft="822.222222222222,265.81746031746" />
         <EdgeLayout
           Id="Package\fact_vaccination_amount\fact_vaccination_amount.Paths[OLE DB Source Output]"
           TopLeft="178,106.5">
@@ -31638,25 +31641,25 @@ where [refTable].[year] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\fact_vaccination_amount\fact_vaccination_amount.Paths[Lookup Match Output6]"
-          TopLeft="689.5,287.78373015873">
+          TopLeft="689.5,287.15873015873">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="76.4722222222219,0"
+              EndConnector="132.722222222222,0"
               Start="0,0"
-              End="68.9722222222219,0">
+              End="125.222222222222,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="68.9722222222219,0" />
+                    End="125.222222222222,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-13.7052756076391,5,96.3827734375,11.609375"
+              BoundingBox="14.419724392361,5,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -31828,25 +31831,25 @@ where [refTable].[year] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\fact_vaccination_amount\fact_vaccination_amount.Paths[Lookup No Match Output]"
-          TopLeft="1023.97222222222,288.01406926407">
+          TopLeft="947.222222222222,287.38906926407">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="40.8383838383841,0"
+              EndConnector="117.588383838384,0"
               Start="0,0"
-              End="33.3383838383841,0">
+              End="110.088383838384,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="33.3383838383841,0" />
+                    End="110.088383838384,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-39.137194799558,5,111.6127734375,11.609375"
+              BoundingBox="-0.762194799557967,5,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -31900,7 +31903,7 @@ where [refTable].[year] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\fact_vaccination_amount\fact_vaccination_amount\Insert for new phu_id and phu_day">
+    design-time-name="Package\fact_vaccination_amount\fact_vaccination_amount\Insert">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -32036,7 +32039,7 @@ where [refTable].[year] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id for old phu_id and phu_day">
+    design-time-name="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
