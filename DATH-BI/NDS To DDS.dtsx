@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="356"
-  DTS:VersionGUID="{75ABFEB5-D83F-4267-B24D-2F72B87080F7}">
+  DTS:VersionBuild="378"
+  DTS:VersionGUID="{DA384692-FDA5-4778-83D6-23528DBAC14A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -13224,49 +13224,49 @@ where [refTable].[year] = ?</property>
                   startId="Package\fact_case_amount\fact_case_amount\Check case_status.Outputs[Fatal]" />
                 <path
                   refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output8]"
-                  endId="Package\fact_case_amount\fact_case_amount\Check status.Inputs[Conditional Split Input]"
-                  name="Lookup Match Output"
-                  startId="Package\fact_case_amount\fact_case_amount\Lookup id in fact_case_amount.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output7]"
-                  endId="Package\fact_case_amount\fact_case_amount\Lookup id_case.Inputs[Lookup Input]"
-                  name="Lookup Match Output"
-                  startId="Package\fact_case_amount\fact_case_amount\Lookup id_gender_age.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output6]"
-                  endId="Package\fact_case_amount\fact_case_amount\Lookup id_day.Inputs[Lookup Input]"
-                  name="Lookup Match Output"
-                  startId="Package\fact_case_amount\fact_case_amount\Lookup id_month.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output5]"
-                  endId="Package\fact_case_amount\fact_case_amount\Lookup id in fact_case_amount.Inputs[Lookup Input]"
-                  name="Lookup Match Output"
-                  startId="Package\fact_case_amount\fact_case_amount\Lookup id_case.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output3]"
-                  endId="Package\fact_case_amount\fact_case_amount\Lookup id_quarter.Inputs[Lookup Input]"
-                  name="Lookup Match Output"
-                  startId="Package\fact_case_amount\fact_case_amount\Lookup id_year.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output2]"
-                  endId="Package\fact_case_amount\fact_case_amount\Lookup id_month.Inputs[Lookup Input]"
-                  name="Lookup Match Output"
-                  startId="Package\fact_case_amount\fact_case_amount\Lookup id_quarter.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output1]"
                   endId="Package\fact_case_amount\fact_case_amount\Lookup id_phu.Inputs[Lookup Input]"
                   name="Lookup Match Output"
                   startId="Package\fact_case_amount\fact_case_amount\Lookup ak_phu_id from phu.Outputs[Lookup Match Output]" />
                 <path
-                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output]"
+                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output7]"
+                  endId="Package\fact_case_amount\fact_case_amount\Lookup id_month.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\fact_case_amount\fact_case_amount\Lookup id_quarter.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output6]"
+                  endId="Package\fact_case_amount\fact_case_amount\Lookup id_quarter.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\fact_case_amount\fact_case_amount\Lookup id_year.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output5]"
+                  endId="Package\fact_case_amount\fact_case_amount\Check status.Inputs[Conditional Split Input]"
+                  name="Lookup Match Output"
+                  startId="Package\fact_case_amount\fact_case_amount\Lookup id in fact_case_amount.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output3]"
                   endId="Package\fact_case_amount\fact_case_amount\Lookup id_gender_age.Inputs[Lookup Input]"
                   name="Lookup Match Output"
                   startId="Package\fact_case_amount\fact_case_amount\Lookup id_phu.Outputs[Lookup Match Output]" />
                 <path
-                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output4]"
+                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output2]"
                   endId="Package\fact_case_amount\fact_case_amount\Lookup ak_phu_id from phu.Inputs[Lookup Input]"
                   name="Lookup Match Output"
                   startId="Package\fact_case_amount\fact_case_amount\Lookup id_day.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output1]"
+                  endId="Package\fact_case_amount\fact_case_amount\Lookup id in fact_case_amount.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\fact_case_amount\fact_case_amount\Lookup id_case.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output]"
+                  endId="Package\fact_case_amount\fact_case_amount\Lookup id_day.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\fact_case_amount\fact_case_amount\Lookup id_month.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output4]"
+                  endId="Package\fact_case_amount\fact_case_amount\Lookup id_case.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\fact_case_amount\fact_case_amount\Lookup id_gender_age.Outputs[Lookup Match Output]" />
                 <path
                   refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup No Match Output]"
                   endId="Package\fact_case_amount\fact_case_amount\Check case_status.Inputs[Conditional Split Input]"
@@ -17161,24 +17161,24 @@ where [refTable].[source_id] = ? and [refTable].[age_group] = ?</property>
                   startId="Package\fact_ontario_case\fact_ontario_case\Check case_status.Outputs[Deceased]" />
                 <path
                   refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output10]"
+                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup ak_phu_id from phu.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_day.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output9]"
+                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup id_day.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_month.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output8]"
+                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup id_month.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_quarter.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output7]"
                   endId="Package\fact_ontario_case\fact_ontario_case\Check Status.Inputs[Conditional Split Input]"
                   name="Lookup Match Output"
                   startId="Package\fact_ontario_case\fact_ontario_case\Lookup id.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output9]"
-                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup id_exposure.Inputs[Lookup Input]"
-                  name="Lookup Match Output"
-                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_phu.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output8]"
-                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup id_object.Inputs[Lookup Input]"
-                  name="Lookup Match Output"
-                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_exposure.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output7]"
-                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup id_gender.Inputs[Lookup Input]"
-                  name="Lookup Match Output"
-                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_object.Outputs[Lookup Match Output]" />
                 <path
                   refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output6]"
                   endId="Package\fact_ontario_case\fact_ontario_case\Lookup id_phu.Inputs[Lookup Input]"
@@ -17186,9 +17186,9 @@ where [refTable].[source_id] = ? and [refTable].[age_group] = ?</property>
                   startId="Package\fact_ontario_case\fact_ontario_case\Lookup ak_phu_id from phu.Outputs[Lookup Match Output]" />
                 <path
                   refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output3]"
-                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup id_month.Inputs[Lookup Input]"
+                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup id.Inputs[Lookup Input]"
                   name="Lookup Match Output"
-                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_quarter.Outputs[Lookup Match Output]" />
+                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup_id_age_group.Outputs[Lookup Match Output]" />
                 <path
                   refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output4]"
                   endId="Package\fact_ontario_case\fact_ontario_case\Lookup id_quarter.Inputs[Lookup Input]"
@@ -17196,24 +17196,24 @@ where [refTable].[source_id] = ? and [refTable].[age_group] = ?</property>
                   startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_year.Outputs[Lookup Match Output]" />
                 <path
                   refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output2]"
-                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup id_day.Inputs[Lookup Input]"
-                  name="Lookup Match Output"
-                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_month.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output1]"
-                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup ak_phu_id from phu.Inputs[Lookup Input]"
-                  name="Lookup Match Output"
-                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_day.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output]"
-                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup id.Inputs[Lookup Input]"
-                  name="Lookup Match Output"
-                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup_id_age_group.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output5]"
                   endId="Package\fact_ontario_case\fact_ontario_case\Lookup_id_age_group.Inputs[Lookup Input]"
                   name="Lookup Match Output"
                   startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_gender.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output1]"
+                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup id_gender.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_object.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output]"
+                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup id_object.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_exposure.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output5]"
+                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup id_exposure.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_phu.Outputs[Lookup Match Output]" />
                 <path
                   refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup No Match Output]"
                   endId="Package\fact_ontario_case\fact_ontario_case\Check case_status.Inputs[Conditional Split Input]"
@@ -19622,7 +19622,10 @@ where [refTable].[year] = ?</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select *
+from case_report
+where (created_at &lt; ? and created_at&gt;=?) 
+or (update_at&lt;? and update_at&gt;=?)</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -19639,11 +19642,11 @@ where [refTable].[year] = ?</property>
                       dataType="System.Int32"
                       description="Specifies the mode used to access the database."
                       name="AccessMode"
-                      typeConverter="AccessMode">0</property>
+                      typeConverter="AccessMode">2</property>
                     <property
                       dataType="System.String"
                       description="The mappings between the parameters in the SQL command and variables."
-                      name="ParameterMapping"></property>
+                      name="ParameterMapping">"Parameter0:Input",{614a1e1b-851b-4c39-8274-dd9b92e9cd08};"Parameter1:Input",{fb655cd8-7f4d-464a-8eff-b864dd6d0595};"Parameter2:Input",{614a1e1b-851b-4c39-8274-dd9b92e9cd08};"Parameter3:Input",{fb655cd8-7f4d-464a-8eff-b864dd6d0595};</property>
                   </properties>
                   <connections>
                     <connection
@@ -20021,7 +20024,7 @@ where [refTable].[id_day] = ? and [refTable].[id_case] = ?</property>
                       expressionType="Notify"
                       name="SqlCommandParam"
                       UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[dim_case_report]) [refTable]
-where [refTable].[source_id] = ? and [refTable].[ak_patention_id] = ? and [refTable].[id_gender_age] = ?</property>
+where [refTable].[source_id] = ? and [refTable].[ak_patention_id] = ?</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the type of connection used to access the reference dataset."
@@ -20057,7 +20060,7 @@ where [refTable].[source_id] = ? and [refTable].[ak_patention_id] = ? and [refTa
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                      name="ParameterMap">#{Package\fact_severity_case\fact_severity_case\Load case_report.Outputs[OLE DB Source Output].Columns[source_id]};#{Package\fact_severity_case\fact_severity_case\Load case_report.Outputs[OLE DB Source Output].Columns[ak_patention_id]};#{Package\fact_severity_case\fact_severity_case\Lookup id_gender_age.Outputs[Lookup Match Output].Columns[id_gender_age]};</property>
+                      name="ParameterMap">#{Package\fact_severity_case\fact_severity_case\Load case_report.Outputs[OLE DB Source Output].Columns[source_id]};#{Package\fact_severity_case\fact_severity_case\Load case_report.Outputs[OLE DB Source Output].Columns[ak_patention_id]};</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -20081,22 +20084,6 @@ where [refTable].[source_id] = ? and [refTable].[ak_patention_id] = ? and [refTa
                       name="Lookup Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\fact_severity_case\fact_severity_case\Lookup id_case.Inputs[Lookup Input].Columns[source_id]"
-                          cachedDataType="i4"
-                          cachedName="source_id"
-                          lineageId="Package\fact_severity_case\fact_severity_case\Load case_report.Outputs[OLE DB Source Output].Columns[source_id]">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table that a column joins."
-                              name="JoinToReferenceColumn">source_id</property>
-                            <property
-                              dataType="System.Null"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn" />
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
                           refId="Package\fact_severity_case\fact_severity_case\Lookup id_case.Inputs[Lookup Input].Columns[ak_patention_id]"
                           cachedCodepage="1252"
                           cachedDataType="str"
@@ -20115,15 +20102,15 @@ where [refTable].[source_id] = ? and [refTable].[ak_patention_id] = ? and [refTa
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\fact_severity_case\fact_severity_case\Lookup id_case.Inputs[Lookup Input].Columns[id_gender_age]"
+                          refId="Package\fact_severity_case\fact_severity_case\Lookup id_case.Inputs[Lookup Input].Columns[source_id]"
                           cachedDataType="i4"
-                          cachedName="id_gender_age"
-                          lineageId="Package\fact_severity_case\fact_severity_case\Lookup id_gender_age.Outputs[Lookup Match Output].Columns[id_gender_age]">
+                          cachedName="source_id"
+                          lineageId="Package\fact_severity_case\fact_severity_case\Load case_report.Outputs[OLE DB Source Output].Columns[source_id]">
                           <properties>
                             <property
                               dataType="System.String"
                               description="Specifies the column in the reference table that a column joins."
-                              name="JoinToReferenceColumn">id_gender_age</property>
+                              name="JoinToReferenceColumn">source_id</property>
                             <property
                               dataType="System.Null"
                               description="Specifies the column in the reference table from which a column is copied."
@@ -20445,22 +20432,6 @@ where [refTable].[source_id] = ? and [refTable].[age] = ? and [refTable].[gender
                       name="Lookup Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\fact_severity_case\fact_severity_case\Lookup id_gender_age.Inputs[Lookup Input].Columns[source_id]"
-                          cachedDataType="i4"
-                          cachedName="source_id"
-                          lineageId="Package\fact_severity_case\fact_severity_case\Load case_report.Outputs[OLE DB Source Output].Columns[source_id]">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table that a column joins."
-                              name="JoinToReferenceColumn">source_id</property>
-                            <property
-                              dataType="System.Null"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn" />
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
                           refId="Package\fact_severity_case\fact_severity_case\Lookup id_gender_age.Inputs[Lookup Input].Columns[age]"
                           cachedCodepage="1252"
                           cachedDataType="str"
@@ -20490,6 +20461,22 @@ where [refTable].[source_id] = ? and [refTable].[age] = ? and [refTable].[gender
                               dataType="System.String"
                               description="Specifies the column in the reference table that a column joins."
                               name="JoinToReferenceColumn">gender</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\fact_severity_case\fact_severity_case\Lookup id_gender_age.Inputs[Lookup Input].Columns[source_id]"
+                          cachedDataType="i4"
+                          cachedName="source_id"
+                          lineageId="Package\fact_severity_case\fact_severity_case\Load case_report.Outputs[OLE DB Source Output].Columns[source_id]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">source_id</property>
                             <property
                               dataType="System.Null"
                               description="Specifies the column in the reference table from which a column is copied."
@@ -26202,8 +26189,8 @@ where [refTable].[year] = ?</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="250,309"
-          Size="250,352"
+          PanelSize="250,342"
+          Size="250,385"
           Id="Package\dim_gender_age"
           TopLeft="2064.36904761905,3083.5" />
         <NodeLayout
@@ -27513,14 +27500,14 @@ where [refTable].[year] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="62.3888888888974,0"
+              EndConnector="62.388888888898,0"
               Start="0,0"
-              End="54.8888888888974,0">
+              End="54.888888888898,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="54.8888888888974,0" />
+                    End="54.888888888898,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -27535,14 +27522,14 @@ where [refTable].[year] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="45.7222222222215,0"
+              EndConnector="45.7222222222229,0"
               Start="0,0"
-              End="38.2222222222215,0">
+              End="38.2222222222229,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="38.2222222222215,0" />
+                    End="38.2222222222229,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -27729,18 +27716,30 @@ where [refTable].[year] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="2349.54761904762,3255.58333333333">
+          TopLeft="2349.54761904762,3251.66666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-35.178571428577,0"
+              EndConnector="-35.1785714285702,24.3333333333298"
               Start="0,0"
-              End="-27.678571428577,0">
+              End="-27.6785714285702,24.3333333333298">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-27.678571428577,0" />
+                    End="-13.5892857142851,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-13.5892857142851,0"
+                    Point2="-17.5892857142851,0"
+                    Point3="-17.5892857142851,4" />
+                  <mssgle:LineSegment
+                    End="-17.5892857142851,20.3333333333298" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-17.5892857142851,20.3333333333298"
+                    Point2="-17.5892857142851,24.3333333333298"
+                    Point3="-21.5892857142851,24.3333333333298" />
+                  <mssgle:LineSegment
+                    End="-27.6785714285702,24.3333333333298" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -27751,18 +27750,30 @@ where [refTable].[year] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 8]"
-          TopLeft="2064.36904761905,3259.41666666666">
+          TopLeft="2064.36904761905,3276">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-148.535714285714,0"
+              EndConnector="-148.53571428572,-16.6666666666702"
               Start="0,0"
-              End="-141.035714285714,0">
+              End="-141.03571428572,-16.6666666666702">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-141.035714285714,0" />
+                    End="-70.26785714286,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-70.26785714286,0"
+                    Point2="-74.26785714286,0"
+                    Point3="-74.26785714286,-4" />
+                  <mssgle:LineSegment
+                    End="-74.26785714286,-12.6666666666702" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-74.26785714286,-12.6666666666702"
+                    Point2="-74.26785714286,-16.6666666666702"
+                    Point3="-78.26785714286,-16.6666666666702" />
+                  <mssgle:LineSegment
+                    End="-141.03571428572,-16.6666666666702" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -28058,7 +28069,7 @@ where [refTable].[year] = ?</property>
         <NodeLayout
           Size="186,42"
           Id="Package\dim_case_report\Populate dim case_report\Load case_report_NDS"
-          TopLeft="219,5.49999999999989" />
+          TopLeft="218,6.49999999999989" />
         <NodeLayout
           Size="216,42"
           Id="Package\dim_case_report\Populate dim case_report\Slowly Changing Dimension"
@@ -28081,25 +28092,25 @@ where [refTable].[year] = ?</property>
           TopLeft="5.50000000000006,311.5" />
         <EdgeLayout
           Id="Package\dim_case_report\Populate dim case_report.Paths[OLE DB Source Output]"
-          TopLeft="312,47.4999999999999">
+          TopLeft="311.5,48.4999999999999">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,59.0000000000001"
               Start="0,0"
-              End="0,52.5">
+              End="0,51.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,51.5000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="-27.8251171875,20.1357421875001,55.650234375,11.228515625"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -28135,7 +28146,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-113.59138671875,25.4878048780488,54.1827734375,11.43359375"
+              BoundingBox="-143.18173828125,25.4878048780488,113.3634765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -28159,7 +28170,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              BoundingBox="-80.51173828125,20.4453125,161.0234765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -29159,6 +29170,10 @@ where [refTable].[year] = ?</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="203,42"
+          Id="Package\dim_object\Populate dim_object\Sort and delete mulpticate"
+          TopLeft="211.5,82.5" />
+        <NodeLayout
           Size="113,42"
           Id="Package\dim_object\Populate dim_object\Lookup"
           TopLeft="257.5,161.918604651163" />
@@ -29166,10 +29181,6 @@ where [refTable].[year] = ?</property>
           Size="181,42"
           Id="Package\dim_object\Populate dim_object\Load case_detail NDS"
           TopLeft="222,5.5" />
-        <NodeLayout
-          Size="203,42"
-          Id="Package\dim_object\Populate dim_object\Sort and delete mulpticate"
-          TopLeft="211.5,82.5" />
         <NodeLayout
           Size="107,42"
           Id="Package\dim_object\Populate dim_object\Insert"
@@ -29193,7 +29204,9 @@ where [refTable].[year] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -29215,7 +29228,9 @@ where [refTable].[year] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -30006,7 +30021,9 @@ where [refTable].[year] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -30029,36 +30046,12 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-55.80638671875,44.1570906155016,111.6127734375,11.609375"
+              BoundingBox="-55.80638671875,44.1570906155017,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output]"
-          TopLeft="133.138888888889,182.388888888889">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,41.6944026104414"
-              Start="0,0"
-              End="0,34.1944026104414">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.1944026104414" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,11.2925138052207,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output1]"
+          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output8]"
           TopLeft="296.583333333333,159.888888888889">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -30082,7 +30075,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output2]"
+          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output7]"
           TopLeft="862.72619047619,98.2142857142857">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -30106,7 +30099,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output3]"
+          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output6]"
           TopLeft="723.916666666667,70.5238095238095">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -30130,7 +30123,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output8]"
+          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output5]"
           TopLeft="798.424603174603,237.65873015873">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -30155,6 +30148,54 @@ where [refTable].[year] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output4]"
+          TopLeft="227.472222222222,244.112352820372">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="92.8888888888889,0"
+              Start="0,0"
+              End="85.3888888888889,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="85.3888888888889,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-5.49694227430555,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output3]"
+          TopLeft="133.138888888889,182.388888888889">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.6944026104414"
+              Start="0,0"
+              End="0,34.1944026104414">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.1944026104414" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,11.2925138052207,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output2]"
           TopLeft="563.361111111111,158.222222222222">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -30178,7 +30219,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output5]"
+          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output1]"
           TopLeft="471.361111111111,240.423881673882">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -30197,12 +30238,12 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-1.40964068700398,5,96.3827734375,11.609375"
+              BoundingBox="-1.409640687004,5,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output6]"
+          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output]"
           TopLeft="780.583333333333,155.777777777778">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -30222,30 +30263,6 @@ where [refTable].[year] = ?</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-79.5524978298612,5,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output7]"
-          TopLeft="227.472222222222,244.112352820372">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="92.8888888888889,0"
-              Start="0,0"
-              End="85.3888888888889,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="85.3888888888889,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-5.49694227430555,5,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -30281,7 +30298,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="104.52339057427,18.2018984733066,21.9142578125,9.7490234375"
+              BoundingBox="104.523390574269,18.2018984733066,21.9142578125,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -30304,7 +30321,9 @@ where [refTable].[year] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -30326,7 +30345,9 @@ where [refTable].[year] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -30348,7 +30369,9 @@ where [refTable].[year] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -30608,7 +30631,9 @@ where [refTable].[year] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-21.01857421875,9.0514019942731,42.0371484375,9.5732421875"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -30630,7 +30655,9 @@ where [refTable].[year] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-25.19765625,8.41557525590725,50.3953125,11.2431640625"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -30652,7 +30679,9 @@ where [refTable].[year] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="12.79640625,5,30.9071875,9.568359375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -30675,7 +30704,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-28.5266486855159,5,30.807265625,9.5732421875"
+              BoundingBox="-28.5266486855158,5,71.008515625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -30711,7 +30740,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="76.242570064484,18.658431136188,28.268828125,9.4462890625"
+              BoundingBox="76.242570064484,18.658431136188,68.289609375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -30747,7 +30776,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-113.854099392361,22.9094438291113,46.7359765625,9.7490234375"
+              BoundingBox="-113.854099392361,22.9094438291113,106.5734765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -30770,7 +30799,9 @@ where [refTable].[year] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-11.94765625,5,50.3953125,11.2236328125"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -30793,36 +30824,12 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-55.80638671875,27.1278521825383,111.6127734375,11.609375"
+              BoundingBox="-55.80638671875,27.1278521825383,151.3834765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output]"
-          TopLeft="658.944444444444,337.833333333335">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-43.7777777777778,0"
-              Start="0,0"
-              End="-36.2777777777778,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-36.2777777777778,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-66.3302756076389,5,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output1]"
+          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output10]"
           TopLeft="671.5,151.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -30841,12 +30848,12 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-72.7747200520833,5,96.3827734375,11.609375"
+              BoundingBox="-102.365071614583,5,155.5634765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output2]"
+          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output9]"
           TopLeft="879.5,147.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -30865,12 +30872,12 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-74.94138671875,5,96.3827734375,11.609375"
+              BoundingBox="-74.94138671875,5,136.1534765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output3]"
+          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output8]"
           TopLeft="958,89.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -30889,36 +30896,12 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,8.4453125,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,8.4453125,155.5634765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output4]"
-          TopLeft="831.5,69.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="42,0"
-              Start="0,0"
-              End="34.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="34.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-30.94138671875,5,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output10]"
+          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output7]"
           TopLeft="490.166666666667,337.944444444446">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -30937,7 +30920,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-71.8302756076388,5,96.3827734375,11.609375"
+              BoundingBox="-71.8302756076389,5,136.1534765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -30961,84 +30944,12 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,14.4453125,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,14.4453125,136.1534765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output5]"
-          TopLeft="874.833333333333,338.277777777778">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-32.888888888889,0"
-              Start="0,0"
-              End="-25.388888888889,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-25.388888888889,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-60.8858311631945,5,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output7]"
-          TopLeft="958.222222222222,260.055555555556">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,58.1111111111111"
-              Start="0,0"
-              End="0,50.6111111111111">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,50.6111111111111" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,19.5008680555555,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output8]"
-          TopLeft="841.833333333333,238.959595959596">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="38.7777777777779,0"
-              Start="0,0"
-              End="31.2777777777779,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="31.2777777777779,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-32.552497829861,5,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output9]"
           TopLeft="589.833333333333,241.681818181818">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -31057,7 +30968,127 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-12.44138671875,5,96.3827734375,11.609375"
+              BoundingBox="-12.44138671875,5,136.1534765625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output4]"
+          TopLeft="831.5,69.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="42,0"
+              Start="0,0"
+              End="34.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="34.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-30.94138671875,5,136.1534765625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output3]"
+          TopLeft="658.944444444444,337.833333333335">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-43.7777777777778,0"
+              Start="0,0"
+              End="-36.2777777777778,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-36.2777777777778,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-66.3302756076389,5,155.5634765625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output2]"
+          TopLeft="874.833333333333,338.277777777778">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-32.888888888889,0"
+              Start="0,0"
+              End="-25.388888888889,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-25.388888888889,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-60.8858311631945,5,136.1534765625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output1]"
+          TopLeft="958.222222222222,260.055555555556">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58.1111111111111"
+              Start="0,0"
+              End="0,50.6111111111111">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.6111111111111" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,19.5008680555556,136.1534765625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output]"
+          TopLeft="841.833333333333,238.959595959596">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38.7777777777779,0"
+              Start="0,0"
+              End="31.2777777777779,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="31.2777777777779,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-32.5524978298611,5,136.1534765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -31081,7 +31112,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-21.50298828125,13.1435081455464,43.0059765625,9.7490234375"
+              BoundingBox="-21.50298828125,13.1435081455464,83.4334765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -31104,7 +31135,9 @@ where [refTable].[year] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-15.10447265625,8.02685546875,30.2089453125,9.4462890625"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -31330,7 +31363,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="-2.70359375,5,30.9071875,9.568359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -31354,7 +31387,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-41.009669547033,5,111.6127734375,11.609375"
+              BoundingBox="-41.009669547033,5,151.3834765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -31378,7 +31411,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-26.7837388111021,5,96.3827734375,11.609375"
+              BoundingBox="-26.7837388111021,5,136.1534765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -31402,7 +31435,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-9.44138671875,5,96.3827734375,11.609375"
+              BoundingBox="-9.44138671875,5,136.1534765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -31426,7 +31459,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-74.94138671875,5,96.3827734375,11.609375"
+              BoundingBox="-74.94138671875,5,136.1534765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -31450,7 +31483,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,12.4453125,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,12.4453125,136.1534765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -31474,7 +31507,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-26.7747200520834,5,96.3827734375,11.609375"
+              BoundingBox="-26.7747200520834,5,136.1534765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -31498,7 +31531,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,13.9453125,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,13.9453125,136.1534765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -31522,7 +31555,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-79.44138671875,5,96.3827734375,11.609375"
+              BoundingBox="-79.44138671875,5,136.1534765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -31546,7 +31579,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="2.62973958333335,5,30.9071875,9.568359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -31643,19 +31676,27 @@ where [refTable].[year] = ?</property>
         <NodeLayout
           Size="151,42"
           Id="Package\fact_severity_case\fact_severity_case\Lookup id_case"
-          TopLeft="48.361111111111,141.141414141414" />
+          TopLeft="58.361111111111,141.141414141414" />
+        <NodeLayout
+          Size="226,42"
+          Id="Package\fact_severity_case\fact_severity_case\YEAR, QUARTER, MONTH, DAY"
+          TopLeft="292.694444444444,52.1666666666667" />
         <NodeLayout
           Size="165,42"
           Id="Package\fact_severity_case\fact_severity_case\Lookup id_quarter"
           TopLeft="781.869047619048,56.2142857142857" />
         <NodeLayout
+          Size="107,46"
+          Id="Package\fact_severity_case\fact_severity_case\Insert"
+          TopLeft="514.508441749821,224.706349206349" />
+        <NodeLayout
           Size="147,42"
           Id="Package\fact_severity_case\fact_severity_case\Lookup id_day"
           TopLeft="563.361111111111,137.055555555556" />
         <NodeLayout
-          Size="107,46"
-          Id="Package\fact_severity_case\fact_severity_case\Insert"
-          TopLeft="511.508441749821,228.706349206349" />
+          Size="226,42"
+          Id="Package\fact_severity_case\fact_severity_case\Lookup id in fact_severity_case"
+          TopLeft="22.424603174603,227.706349206349" />
         <NodeLayout
           Size="151,42"
           Id="Package\fact_severity_case\fact_severity_case\Lookup id_year"
@@ -31665,25 +31706,41 @@ where [refTable].[year] = ?</property>
           Id="Package\fact_severity_case\fact_severity_case\Lookup id_gender_age"
           TopLeft="303.472222222222,136.08329149933" />
         <NodeLayout
-          Size="226,42"
-          Id="Package\fact_severity_case\fact_severity_case\Lookup id in fact_severity_case"
-          TopLeft="7.42460317460302,227.706349206349" />
+          Size="121,42"
+          Id="Package\fact_severity_case\fact_severity_case\Add total"
+          TopLeft="325.424603174603,229.47557997558" />
         <NodeLayout
           Size="161,42"
           Id="Package\fact_severity_case\fact_severity_case\Lookup id_month"
           TopLeft="780.583333333333,132.5" />
         <NodeLayout
-          Size="121,42"
-          Id="Package\fact_severity_case\fact_severity_case\Add total"
-          TopLeft="325.424603174603,229.47557997558" />
-        <NodeLayout
-          Size="226,42"
-          Id="Package\fact_severity_case\fact_severity_case\YEAR, QUARTER, MONTH, DAY"
-          TopLeft="292.694444444444,52.1666666666667" />
-        <NodeLayout
           Size="160,42"
           Id="Package\fact_severity_case\fact_severity_case\Load case_report"
           TopLeft="53.25,50.5" />
+        <EdgeLayout
+          Id="Package\fact_severity_case\fact_severity_case.Paths[Derived Column Output]"
+          TopLeft="518.694444444444,71.3333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="54.2222222222222,0"
+              Start="0,0"
+              End="46.7222222222222,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="46.7222222222222,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\fact_severity_case\fact_severity_case.Paths[OLE DB Source Output]"
           TopLeft="213.25,72.3333333333333">
@@ -31710,25 +31767,25 @@ where [refTable].[year] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\fact_severity_case\fact_severity_case.Paths[Lookup No Match Output]"
-          TopLeft="233.424603174603,249.590964590964">
+          TopLeft="248.424603174603,249.590964590964">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="92,0"
+              EndConnector="77,0"
               Start="0,0"
-              End="84.5,0">
+              End="69.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="84.5,0" />
+                    End="69.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-13.55638671875,5,111.6127734375,11.609375"
+              BoundingBox="-21.05638671875,5,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -31758,7 +31815,7 @@ where [refTable].[year] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\fact_severity_case\fact_severity_case.Paths[Lookup Match Output4]"
-          TopLeft="122.142857142857,183.141414141414">
+          TopLeft="134.642857142857,183.141414141414">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -31810,21 +31867,21 @@ where [refTable].[year] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-104.111111111111,0"
+              EndConnector="-94.111111111111,0"
               Start="0,0"
-              End="-96.611111111111,0">
+              End="-86.611111111111,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-96.611111111111,0" />
+                    End="-86.611111111111,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-96.4969422743055,5,96.3827734375,11.609375"
+              BoundingBox="-91.4969422743055,5,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -31878,42 +31935,18 @@ where [refTable].[year] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\fact_severity_case\fact_severity_case.Paths[Derived Column Output1]"
-          TopLeft="446.424603174603,251.090964590964">
+          TopLeft="446.424603174603,249.090964590964">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="65.0838385752177,0"
+              EndConnector="68.083838575218,0"
               Start="0,0"
-              End="57.5838385752177,0">
+              End="60.583838575218,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="57.5838385752177,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\fact_severity_case\fact_severity_case.Paths[Derived Column Output]"
-          TopLeft="518.694444444444,71.3333333333333">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="54.2222222222222,0"
-              Start="0,0"
-              End="46.7222222222222,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="46.7222222222222,0" />
+                    End="60.583838575218,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -31927,6 +31960,16 @@ where [refTable].[year] = ?</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\fact_severity_case\fact_severity_case\Lookup id_case">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\fact_severity_case\fact_severity_case\Insert">
     <Properties>
@@ -31964,6 +32007,16 @@ where [refTable].[year] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\fact_severity_case\fact_severity_case\Lookup id_gender_age">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\fact_severity_case\fact_severity_case\Load case_report">
     <Properties>
       <Property>
@@ -31984,54 +32037,54 @@ where [refTable].[year] = ?</property>
         <NodeLayout
           Size="160,42"
           Id="Package\fact_severity_phu\fact_severity_phu\Load case_report"
-          TopLeft="223.25,55.5" />
+          TopLeft="70.75,111.75" />
         <NodeLayout
           Size="212,42"
           Id="Package\fact_severity_phu\fact_severity_phu\Lookup ak_phu_id from phu"
-          TopLeft="476.583333333333,133.638888888889" />
+          TopLeft="324.083333333333,189.888888888889" />
         <NodeLayout
           Size="148,42"
           Id="Package\fact_severity_phu\fact_severity_phu\Lookup id_phu"
-          TopLeft="222.805555555556,135.388888888889" />
+          TopLeft="70.305555555556,191.638888888889" />
         <NodeLayout
           Size="223,42"
           Id="Package\fact_severity_phu\fact_severity_phu\Lookup id in fact_severity_phu"
-          TopLeft="483.193833943834,237.667887667887" />
+          TopLeft="330.693833943834,293.917887667887" />
         <NodeLayout
           Size="198,42"
           Id="Package\fact_severity_phu\fact_severity_phu\Sort and delete Duplicate"
-          TopLeft="198,239.25" />
+          TopLeft="45.5,295.5" />
         <NodeLayout
           Size="165,42"
           Id="Package\fact_severity_phu\fact_severity_phu\Lookup id_quarter"
-          TopLeft="958.119047619048,56.2142857142857" />
+          TopLeft="805.619047619048,112.464285714286" />
         <NodeLayout
           Size="107,42"
           Id="Package\fact_severity_phu\fact_severity_phu\Insert"
-          TopLeft="997.134615384615,226.653846153846" />
+          TopLeft="841.301282051282,295.126068376068" />
         <NodeLayout
           Size="226,42"
           Id="Package\fact_severity_phu\fact_severity_phu\YEAR, QUARTER, MONTH, DAY"
-          TopLeft="468.944444444444,52.1666666666667" />
+          TopLeft="316.444444444444,108.416666666667" />
         <NodeLayout
           Size="147,42"
           Id="Package\fact_severity_phu\fact_severity_phu\Lookup id_day"
-          TopLeft="739.611111111111,134.555555555556" />
+          TopLeft="587.111111111111,190.805555555556" />
         <NodeLayout
           Size="151,42"
           Id="Package\fact_severity_phu\fact_severity_phu\Lookup id_year"
-          TopLeft="749.166666666667,48.5" />
+          TopLeft="596.666666666667,104.75" />
         <NodeLayout
           Size="121,42"
           Id="Package\fact_severity_phu\fact_severity_phu\Add total"
-          TopLeft="778.300776809398,241.423076923077" />
+          TopLeft="625.800776809398,297.673076923077" />
         <NodeLayout
           Size="161,42"
           Id="Package\fact_severity_phu\fact_severity_phu\Lookup id_month"
-          TopLeft="956.833333333333,132.5" />
+          TopLeft="804.333333333333,188.75" />
         <EdgeLayout
           Id="Package\fact_severity_phu\fact_severity_phu.Paths[Derived Column Output]"
-          TopLeft="694.944444444444,71.3333333333333">
+          TopLeft="542.444444444444,127.583333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -32055,7 +32108,7 @@ where [refTable].[year] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\fact_severity_phu\fact_severity_phu.Paths[Sort Output]"
-          TopLeft="396,259.458943833944">
+          TopLeft="243.5,315.708943833944">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -32079,7 +32132,7 @@ where [refTable].[year] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\fact_severity_phu\fact_severity_phu.Paths[OLE DB Source Output]"
-          TopLeft="383.25,74.8333333333333">
+          TopLeft="230.75,131.083333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -32103,7 +32156,7 @@ where [refTable].[year] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\fact_severity_phu\fact_severity_phu.Paths[Lookup No Match Output]"
-          TopLeft="706.193833943834,260.545482295482">
+          TopLeft="553.693833943834,316.795482295482">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -32127,7 +32180,7 @@ where [refTable].[year] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\fact_severity_phu\fact_severity_phu.Paths[Lookup Match Output5]"
-          TopLeft="296.902777777778,177.388888888889">
+          TopLeft="144.402777777778,233.638888888889">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -32151,7 +32204,7 @@ where [refTable].[year] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\fact_severity_phu\fact_severity_phu.Paths[Lookup Match Output4]"
-          TopLeft="739.611111111111,155.097222222223">
+          TopLeft="587.111111111111,211.347222222223">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -32175,7 +32228,7 @@ where [refTable].[year] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\fact_severity_phu\fact_severity_phu.Paths[Lookup Match Output3]"
-          TopLeft="956.833333333333,154.527777777778">
+          TopLeft="804.333333333333,210.777777777778">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -32193,13 +32246,13 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-79.552497829861,5,96.3827734375,11.609375"
+              BoundingBox="-79.5524978298611,5,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\fact_severity_phu\fact_severity_phu.Paths[Lookup Match Output2]"
-          TopLeft="476.583333333333,155.513888888889">
+          TopLeft="324.083333333333,211.763888888889">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -32223,7 +32276,7 @@ where [refTable].[year] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\fact_severity_phu\fact_severity_phu.Paths[Lookup Match Output1]"
-          TopLeft="900.166666666667,70.5238095238095">
+          TopLeft="747.666666666667,126.77380952381">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -32247,7 +32300,7 @@ where [refTable].[year] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\fact_severity_phu\fact_severity_phu.Paths[Lookup Match Output]"
-          TopLeft="1038.97619047619,98.2142857142857">
+          TopLeft="886.47619047619,154.464285714286">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -32271,30 +32324,18 @@ where [refTable].[year] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\fact_severity_phu\fact_severity_phu.Paths[Derived Column Output1]"
-          TopLeft="899.300776809398,262.423076923077">
+          TopLeft="746.800776809398,317.399572649573">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="97.8338385752176,-14.7692307692307"
+              EndConnector="94.5005052418835,0"
               Start="0,0"
-              End="90.3338385752176,-14.7692307692307">
+              End="87.0005052418835,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="44.9169192876088,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="44.9169192876088,0"
-                    Point2="48.9169192876088,0"
-                    Point3="48.9169192876088,-4" />
-                  <mssgle:LineSegment
-                    End="48.9169192876088,-10.7692307692307" />
-                  <mssgle:CubicBezierSegment
-                    Point1="48.9169192876088,-10.7692307692307"
-                    Point2="48.9169192876088,-14.7692307692307"
-                    Point3="52.9169192876088,-14.7692307692307" />
-                  <mssgle:LineSegment
-                    End="90.3338385752176,-14.7692307692307" />
+                    End="87.0005052418835,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -32426,7 +32467,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="14.55861328125,5,96.3827734375,11.609375"
+              BoundingBox="14.55861328125,5,136.1534765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -32450,7 +32491,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,14.9453125,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,14.9453125,136.1534765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -32474,7 +32515,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-119.44138671875,5,96.3827734375,11.609375"
+              BoundingBox="-119.44138671875,5,136.1534765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -32498,7 +32539,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-100.44138671875,5,96.3827734375,11.609375"
+              BoundingBox="-100.44138671875,5,136.1534765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -32522,7 +32563,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,14.9453125,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,14.9453125,136.1534765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -32546,7 +32587,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-0.441386718750003,5,96.3827734375,11.609375"
+              BoundingBox="-0.441386718750003,5,136.1534765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -32570,7 +32611,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="41.29640625,5,30.9071875,9.568359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -32594,7 +32635,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="-5.45359375,5,30.9071875,9.568359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -32618,7 +32659,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-0.762194799557967,5,111.6127734375,11.609375"
+              BoundingBox="-0.762194799557996,5,151.3834765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -32642,7 +32683,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="14.419724392361,5,96.3827734375,11.609375"
+              BoundingBox="14.419724392361,5,136.1534765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="252"
-  DTS:VersionGUID="{768BBA8D-6030-4677-8A4F-20B5D378AA00}">
+  DTS:VersionBuild="263"
+  DTS:VersionGUID="{02113F17-00CF-4F5F-94FC-39476C7BEEFB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -3544,7 +3544,7 @@ where [refTable].[reporting_phu] = ?</property>
                     <property
                       dataType="System.String"
                       description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                      name="FastLoadOptions">TABLOCK</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
@@ -3973,17 +3973,6 @@ where [refTable].[reporting_phu] = ?</property>
                           name="phu_address"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[phu_website]"
-                          codePage="1252"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].ExternalColumns[phu_website]"
-                          length="100"
-                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[phu_website]"
-                          name="phu_website"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
                           refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[status]"
                           dataType="i4"
                           errorOrTruncationOperation="Conversion"
@@ -4190,13 +4179,6 @@ where [refTable].[reporting_phu] = ?</property>
                           length="100"
                           lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[phu_address]"
                           name="phu_address" />
-                        <outputColumn
-                          refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[phu_website]"
-                          codePage="1252"
-                          dataType="str"
-                          length="100"
-                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[phu_website]"
-                          name="phu_website" />
                         <outputColumn
                           refId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Error Output].Columns[status]"
                           dataType="i4"
@@ -4583,7 +4565,7 @@ where [refTable].[ak_city_name] = ?</property>
                       expressionType="Notify"
                       name="SqlCommandParam"
                       UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[public_health_unit]) [refTable]
-where [refTable].[reporting_phu] = ? and [refTable].[reporting_phu_address] = ? and [refTable].[reporting_phu_website] = ? and [refTable].[reporting_phu_postal_code] = ? and [refTable].[phu_city_id] = ?</property>
+where [refTable].[reporting_phu] = ? and [refTable].[reporting_phu_address] = ? and [refTable].[reporting_phu_postal_code] = ? and [refTable].[phu_city_id] = ?</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the type of connection used to access the reference dataset."
@@ -4619,7 +4601,7 @@ where [refTable].[reporting_phu] = ? and [refTable].[reporting_phu_address] = ? 
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                      name="ParameterMap">#{Package\NDS Case_report\Import from Stage To NDS\Sort by patention_id and remove duplicate.Outputs[Sort Output].Columns[reporting_phu]};#{Package\NDS Case_report\Import from Stage To NDS\Sort by patention_id and remove duplicate.Outputs[Sort Output].Columns[phu_address]};#{Package\NDS Case_report\Import from Stage To NDS\Sort by patention_id and remove duplicate.Outputs[Sort Output].Columns[phu_website]};#{Package\NDS Case_report\Import from Stage To NDS\Sort by patention_id and remove duplicate.Outputs[Sort Output].Columns[phu_postal_code]};#{Package\NDS Case_report\Import from Stage To NDS\Lookup phu_city_id in phu_city_nds.Outputs[Lookup Match Output].Columns[phu_city_id]};</property>
+                      name="ParameterMap">#{Package\NDS Case_report\Import from Stage To NDS\Sort by patention_id and remove duplicate.Outputs[Sort Output].Columns[reporting_phu]};#{Package\NDS Case_report\Import from Stage To NDS\Sort by patention_id and remove duplicate.Outputs[Sort Output].Columns[phu_address]};#{Package\NDS Case_report\Import from Stage To NDS\Sort by patention_id and remove duplicate.Outputs[Sort Output].Columns[phu_postal_code]};#{Package\NDS Case_report\Import from Stage To NDS\Lookup phu_city_id in phu_city_nds.Outputs[Lookup Match Output].Columns[phu_city_id]};</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -4643,51 +4625,17 @@ where [refTable].[reporting_phu] = ? and [refTable].[reporting_phu_address] = ? 
                       name="Lookup Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_id in phu_nds.Inputs[Lookup Input].Columns[phu_website]"
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_id in phu_nds.Inputs[Lookup Input].Columns[reporting_phu]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="100"
-                          cachedName="phu_website"
-                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Sort by patention_id and remove duplicate.Outputs[Sort Output].Columns[phu_website]">
+                          cachedName="reporting_phu"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Sort by patention_id and remove duplicate.Outputs[Sort Output].Columns[reporting_phu]">
                           <properties>
                             <property
                               dataType="System.String"
                               description="Specifies the column in the reference table that a column joins."
-                              name="JoinToReferenceColumn">reporting_phu_website</property>
-                            <property
-                              dataType="System.Null"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn" />
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_id in phu_nds.Inputs[Lookup Input].Columns[phu_city_id]"
-                          cachedDataType="i4"
-                          cachedName="phu_city_id"
-                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_city_id in phu_city_nds.Outputs[Lookup Match Output].Columns[phu_city_id]">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table that a column joins."
-                              name="JoinToReferenceColumn">phu_city_id</property>
-                            <property
-                              dataType="System.Null"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn" />
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_id in phu_nds.Inputs[Lookup Input].Columns[phu_postal_code]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="100"
-                          cachedName="phu_postal_code"
-                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Sort by patention_id and remove duplicate.Outputs[Sort Output].Columns[phu_postal_code]">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table that a column joins."
-                              name="JoinToReferenceColumn">reporting_phu_postal_code</property>
+                              name="JoinToReferenceColumn">reporting_phu</property>
                             <property
                               dataType="System.Null"
                               description="Specifies the column in the reference table from which a column is copied."
@@ -4713,17 +4661,33 @@ where [refTable].[reporting_phu] = ? and [refTable].[reporting_phu_address] = ? 
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_id in phu_nds.Inputs[Lookup Input].Columns[reporting_phu]"
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_id in phu_nds.Inputs[Lookup Input].Columns[phu_postal_code]"
                           cachedCodepage="1252"
                           cachedDataType="str"
                           cachedLength="100"
-                          cachedName="reporting_phu"
-                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Sort by patention_id and remove duplicate.Outputs[Sort Output].Columns[reporting_phu]">
+                          cachedName="phu_postal_code"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Sort by patention_id and remove duplicate.Outputs[Sort Output].Columns[phu_postal_code]">
                           <properties>
                             <property
                               dataType="System.String"
                               description="Specifies the column in the reference table that a column joins."
-                              name="JoinToReferenceColumn">reporting_phu</property>
+                              name="JoinToReferenceColumn">reporting_phu_postal_code</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_id in phu_nds.Inputs[Lookup Input].Columns[phu_city_id]"
+                          cachedDataType="i4"
+                          cachedName="phu_city_id"
+                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_city_id in phu_city_nds.Outputs[Lookup Match Output].Columns[phu_city_id]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">phu_city_id</property>
                             <property
                               dataType="System.Null"
                               description="Specifies the column in the reference table from which a column is copied."
@@ -5217,24 +5181,6 @@ where [refTable].[reporting_phu] = ? and [refTable].[reporting_phu_address] = ? 
                           </properties>
                         </inputColumn>
                         <inputColumn
-                          refId="Package\NDS Case_report\Import from Stage To NDS\Sort by patention_id and remove duplicate.Inputs[Sort Input].Columns[phu_website]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="100"
-                          cachedName="phu_website"
-                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[phu_website]">
-                          <properties>
-                            <property
-                              dataType="System.Int32"
-                              description="Specifies the comparison options for character data."
-                              name="NewComparisonFlags">0</property>
-                            <property
-                              dataType="System.Int32"
-                              description="Specifies the sort order of the column."
-                              name="NewSortKeyPosition">0</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
                           refId="Package\NDS Case_report\Import from Stage To NDS\Sort by patention_id and remove duplicate.Inputs[Sort Input].Columns[status]"
                           cachedDataType="i4"
                           cachedName="status"
@@ -5464,21 +5410,6 @@ where [refTable].[reporting_phu] = ? and [refTable].[reporting_phu_address] = ? 
                               dataType="System.Int32"
                               description="Specifies the lineage identifier of the input column that is associated with this output column."
                               name="SortColumnId">#{Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[phu_address]}</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\NDS Case_report\Import from Stage To NDS\Sort by patention_id and remove duplicate.Outputs[Sort Output].Columns[phu_website]"
-                          codePage="1252"
-                          dataType="str"
-                          length="100"
-                          lineageId="Package\NDS Case_report\Import from Stage To NDS\Sort by patention_id and remove duplicate.Outputs[Sort Output].Columns[phu_website]"
-                          name="phu_website">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Specifies the lineage identifier of the input column that is associated with this output column."
-                              name="SortColumnId">#{Package\NDS Case_report\Import from Stage To NDS\Load Stage.Outputs[OLE DB Source Output].Columns[phu_website]}</property>
                           </properties>
                         </outputColumn>
                         <outputColumn
@@ -5867,14 +5798,14 @@ where [refTable].[reporting_phu] = ? and [refTable].[reporting_phu_address] = ? 
                   startId="Package\NDS Case_report\Import from Stage To NDS\Delete NULL patention_id.Outputs[Conditional Split Default Output]" />
                 <path
                   refId="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output4]"
-                  endId="Package\NDS Case_report\Import from Stage To NDS\check outbreak_related.Inputs[Conditional Split Input]"
+                  endId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input]"
                   name="Derived Column Output"
-                  startId="Package\NDS Case_report\Import from Stage To NDS\Change blank value in outbreak_related to no.Outputs[Derived Column Output]" />
+                  startId="Package\NDS Case_report\Import from Stage To NDS\Derived Update_at.Outputs[Derived Column Output]" />
                 <path
                   refId="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output3]"
-                  endId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input]"
+                  endId="Package\NDS Case_report\Import from Stage To NDS\check outcome.Inputs[Conditional Split Input]"
                   name="Derived Column Output"
-                  startId="Package\NDS Case_report\Import from Stage To NDS\Derived created_at, update_at.Outputs[Derived Column Output]" />
+                  startId="Package\NDS Case_report\Import from Stage To NDS\Remove all empty string.Outputs[Derived Column Output]" />
                 <path
                   refId="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output2]"
                   endId="Package\NDS Case_report\Import from Stage To NDS\Remove all empty string.Inputs[Derived Column Input]"
@@ -5882,14 +5813,14 @@ where [refTable].[reporting_phu] = ? and [refTable].[reporting_phu_address] = ? 
                   startId="Package\NDS Case_report\Import from Stage To NDS\Derived SourceID.Outputs[Derived Column Output]" />
                 <path
                   refId="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output1]"
-                  endId="Package\NDS Case_report\Import from Stage To NDS\check outcome.Inputs[Conditional Split Input]"
+                  endId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input]"
                   name="Derived Column Output"
-                  startId="Package\NDS Case_report\Import from Stage To NDS\Remove all empty string.Outputs[Derived Column Output]" />
+                  startId="Package\NDS Case_report\Import from Stage To NDS\Derived created_at, update_at.Outputs[Derived Column Output]" />
                 <path
                   refId="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output]"
-                  endId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input]"
+                  endId="Package\NDS Case_report\Import from Stage To NDS\check outbreak_related.Inputs[Conditional Split Input]"
                   name="Derived Column Output"
-                  startId="Package\NDS Case_report\Import from Stage To NDS\Derived Update_at.Outputs[Derived Column Output]" />
+                  startId="Package\NDS Case_report\Import from Stage To NDS\Change blank value in outbreak_related to no.Outputs[Derived Column Output]" />
                 <path
                   refId="Package\NDS Case_report\Import from Stage To NDS.Paths[Lookup Match Output]"
                   endId="Package\NDS Case_report\Import from Stage To NDS\Derived Update_at.Inputs[Derived Column Input]"
@@ -8616,7 +8547,7 @@ where [refTable].[ak_city_name] = ? and [refTable].[source_id] = ?</property>
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                      name="ParameterMap">#{Package\NDS phu_city\Import from public_health_unit To phu_city\Sort by conv_reporting_phu_city and remove duplicate.Outputs[Sort Output].Columns[reporting_phu_city]};#{Package\NDS phu_city\Import from public_health_unit To phu_city\488:invalid};</property>
+                      name="ParameterMap">#{Package\NDS phu_city\Import from public_health_unit To phu_city\Sort by conv_reporting_phu_city and remove duplicate.Outputs[Sort Output].Columns[reporting_phu_city]};#{Package\NDS phu_city\Import from public_health_unit To phu_city\632:invalid};</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -8776,7 +8707,7 @@ where [refTable].[source_id] = ? and [refTable].[ak_city_name] = ?</property>
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                      name="ParameterMap">#{Package\NDS phu_city\Import from public_health_unit To phu_city\489:invalid};#{Package\NDS phu_city\Import from public_health_unit To phu_city\Sort by conv_reporting_phu_city and remove duplicate.Outputs[Sort Output].Columns[reporting_phu_city]};</property>
+                      name="ParameterMap">#{Package\NDS phu_city\Import from public_health_unit To phu_city\633:invalid};#{Package\NDS phu_city\Import from public_health_unit To phu_city\Sort by conv_reporting_phu_city and remove duplicate.Outputs[Sort Output].Columns[reporting_phu_city]};</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -16198,14 +16129,14 @@ where [refTable].[ak_phu_id] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,93.6547619047623"
+              EndConnector="0,93.654761904762"
               Start="0,0"
-              End="0,86.1547619047623">
+              End="0,86.154761904762">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,86.1547619047623" />
+                    End="0,86.154761904762" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16905,7 +16836,7 @@ where [refTable].[ak_phu_id] = ?</property>
           Id="Package\NDS Case_report\Import from Stage To NDS\Insert"
           TopLeft="516.388888888889,1150.38888888889" />
         <EdgeLayout
-          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output3]"
+          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output1]"
           TopLeft="570.638888888889,1108.38888888889">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -16923,9 +16854,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16947,13 +16876,11 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-27.8251171875,5.8770428312363,55.650234375,11.2431640625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output1]"
+          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output3]"
           TopLeft="351.988761662426,344.663916391639">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -16971,13 +16898,11 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-27.8251171875,6.824237550708,55.650234375,11.2431640625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output]"
+          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output4]"
           TopLeft="187.638888888889,1112.38888888889">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -16995,9 +16920,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-27.53947265625,7.8857421875,55.0789453125,11.228515625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17020,7 +16943,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-102.9342578125,10.7542317708333,205.868515625,11.658203125"
+              BoundingBox="-70.61390625,10.7542317708333,141.2278125,11.658203125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -17044,7 +16967,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-47.9392578125,8.4453125,95.878515625,11.609375"
+              BoundingBox="-15.2180859375,9.47314453125,30.436171875,9.5537109375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -17068,7 +16991,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-47.9392578125,4.9453125,95.878515625,11.609375"
+              BoundingBox="-15.2180859375,5.97314453125,30.436171875,9.5537109375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -17092,7 +17015,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-47.9392578125,4.1953125,95.878515625,11.609375"
+              BoundingBox="-15.2180859375,5.22314453125,30.436171875,9.5537109375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -17116,7 +17039,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-47.9392578125,8.8897569444445,95.878515625,11.609375"
+              BoundingBox="-15.2180859375,9.9175889756945,30.436171875,9.5537109375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -17140,7 +17063,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-47.9392578125,3.9088862320433,95.878515625,11.609375"
+              BoundingBox="-15.2180859375,4.9367182632933,30.436171875,9.5537109375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -17163,9 +17086,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-27.8251171875,5.62841796875,55.650234375,11.2431640625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17187,9 +17108,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-27.8251171875,7.35064019097215,55.650234375,11.2431640625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17248,7 +17167,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-80.51173828125,11.211308372033,161.0234765625,11.609375"
+              BoundingBox="-48.19138671875,11.211308372033,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -17272,7 +17191,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-80.51173828125,14.8762863249367,161.0234765625,11.609375"
+              BoundingBox="-48.19138671875,14.8762863249367,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -17308,12 +17227,12 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-166.817293836806,26.3055555555555,161.0234765625,11.609375"
+              BoundingBox="-134.496942274305,26.3055555555555,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output4]"
+          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output]"
           TopLeft="358.472222222222,706.482703019641">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -17331,9 +17250,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-27.8251171875,3.63454120640365,55.650234375,11.2431640625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -17351,6 +17268,29 @@ where [refTable].[ak_phu_id] = ?</property>
         <Name>UsedTableName</Name>
         <Value
           type="q3:string">[dbo].[phu_city]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\NDS Case_report\Import from Stage To NDS\Lookup id in Case_report">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[case_report]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -17395,29 +17335,6 @@ where [refTable].[ak_phu_id] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\NDS Case_report\Import from Stage To NDS\Lookup id in Case_report">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[case_report]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -17946,7 +17863,9 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17968,7 +17887,9 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18086,7 +18007,9 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18108,7 +18031,9 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18130,7 +18055,9 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -18152,7 +18079,9 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
