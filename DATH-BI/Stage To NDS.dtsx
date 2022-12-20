@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="263"
-  DTS:VersionGUID="{02113F17-00CF-4F5F-94FC-39476C7BEEFB}">
+  DTS:VersionBuild="265"
+  DTS:VersionGUID="{745B6A23-0ECD-44F8-A393-0AE2EDFDC5C0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -4490,7 +4490,7 @@ where [refTable].[ak_city_name] = ?</property>
                     <output
                       refId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_city_id in phu_city_nds.Outputs[Lookup Match Output]"
                       errorOrTruncationOperation="Lookup"
-                      errorRowDisposition="FailComponent"
+                      errorRowDisposition="IgnoreFailure"
                       exclusionGroup="1"
                       name="Lookup Match Output"
                       synchronousInputId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_city_id in phu_city_nds.Inputs[Lookup Input]">
@@ -7719,1464 +7719,6 @@ where [refTable].[ak_phu_id] = ?</property>
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\NDS phu_city\Get PHU_SourceID"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{118A9CE3-8F4B-4EF0-BD28-B4A2C029B443}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Get PHU_SourceID"
-          DTS:ThreadHint="0">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{443C55DC-FF7A-40CA-B737-CA04ACD01B01}"
-              SQLTask:SqlStatementSource="select id as PHU_SourceID from data_flow where name_of_table = 'public_health_unit'"
-              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
-              <SQLTask:ResultBinding
-                SQLTask:ResultName="PHU_SourceID"
-                SQLTask:DtsVariableName="User::PHU_SourceID" />
-            </SQLTask:SqlTaskData>
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\NDS phu_city\Import from public_health_unit To phu_city"
-          DTS:CreationName="Microsoft.Pipeline"
-          DTS:Description="Data Flow Task"
-          DTS:DTSID="{57551CF0-3DA5-42ED-BA56-657641AC3C8C}"
-          DTS:ExecutableType="Microsoft.Pipeline"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Import from public_health_unit To phu_city"
-          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <pipeline
-              version="1">
-              <components>
-                <component
-                  refId="Package\NDS phu_city\Import from public_health_unit To phu_city\delete NULL reporting_phu_city"
-                  componentClassID="Microsoft.ConditionalSplit"
-                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-                  description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
-                  name="delete NULL reporting_phu_city"
-                  usesDispositions="true">
-                  <inputs>
-                    <input
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\delete NULL reporting_phu_city.Inputs[Conditional Split Input]"
-                      description="Input to the Conditional Split Transformation"
-                      name="Conditional Split Input">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\delete NULL reporting_phu_city.Inputs[Conditional Split Input].Columns[reporting_phu_city]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="100"
-                          cachedName="reporting_phu_city"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit.Outputs[OLE DB Source Output].Columns[reporting_phu_city]" />
-                      </inputColumns>
-                      <externalMetadataColumns />
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\delete NULL reporting_phu_city.Outputs[Case 1]"
-                      description="Output 1 of the Conditional Split Transformation"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      exclusionGroup="1"
-                      name="Case 1"
-                      synchronousInputId="Package\NDS phu_city\Import from public_health_unit To phu_city\delete NULL reporting_phu_city.Inputs[Conditional Split Input]"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                          name="Expression">[ISNULL](#{Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit.Outputs[OLE DB Source Output].Columns[reporting_phu_city]})</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Specifies the friendly version of the expression. This expression version uses column names."
-                          expressionType="Notify"
-                          name="FriendlyExpression">ISNULL(reporting_phu_city)</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
-                          name="EvaluationOrder">0</property>
-                      </properties>
-                      <externalMetadataColumns />
-                    </output>
-                    <output
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\delete NULL reporting_phu_city.Outputs[Conditional Split Default Output]"
-                      description="Default Output of the Conditional Split Transformation"
-                      exclusionGroup="1"
-                      name="Conditional Split Default Output"
-                      synchronousInputId="Package\NDS phu_city\Import from public_health_unit To phu_city\delete NULL reporting_phu_city.Inputs[Conditional Split Input]">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          name="IsDefaultOut">true</property>
-                      </properties>
-                      <externalMetadataColumns />
-                    </output>
-                    <output
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\delete NULL reporting_phu_city.Outputs[Conditional Split Error Output]"
-                      description="Error Output of the Conditional Split Transformation"
-                      exclusionGroup="1"
-                      isErrorOut="true"
-                      name="Conditional Split Error Output"
-                      synchronousInputId="Package\NDS phu_city\Import from public_health_unit To phu_city\delete NULL reporting_phu_city.Inputs[Conditional Split Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\delete NULL reporting_phu_city.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\delete NULL reporting_phu_city.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\delete NULL reporting_phu_city.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\delete NULL reporting_phu_city.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived add collumn SourceID"
-                  componentClassID="Microsoft.DerivedColumn"
-                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-                  name="Derived add collumn SourceID"
-                  usesDispositions="true">
-                  <inputs>
-                    <input
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived add collumn SourceID.Inputs[Derived Column Input]"
-                      description="Input to the Derived Column Transformation"
-                      name="Derived Column Input">
-                      <externalMetadataColumns />
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived add collumn SourceID.Outputs[Derived Column Output]"
-                      description="Default Output of the Derived Column Transformation"
-                      exclusionGroup="1"
-                      name="Derived Column Output"
-                      synchronousInputId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived add collumn SourceID.Inputs[Derived Column Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived add collumn SourceID.Outputs[Derived Column Output].Columns[SourceID]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Computation"
-                          errorRowDisposition="FailComponent"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived add collumn SourceID.Outputs[Derived Column Output].Columns[SourceID]"
-                          name="SourceID"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.String"
-                              description="Derived Column Expression"
-                              name="Expression">@[User::PHU_SourceID]</property>
-                            <property
-                              containsID="true"
-                              dataType="System.String"
-                              description="Derived Column Friendly Expression"
-                              expressionType="Notify"
-                              name="FriendlyExpression">@[User::PHU_SourceID]</property>
-                          </properties>
-                        </outputColumn>
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                    <output
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived add collumn SourceID.Outputs[Derived Column Error Output]"
-                      description="Error Output of the Derived Column Transformation"
-                      exclusionGroup="1"
-                      isErrorOut="true"
-                      name="Derived Column Error Output"
-                      synchronousInputId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived add collumn SourceID.Inputs[Derived Column Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived add collumn SourceID.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived add collumn SourceID.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived add collumn SourceID.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived add collumn SourceID.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived collumn PG_SourceID"
-                  componentClassID="Microsoft.DerivedColumn"
-                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-                  name="Derived collumn PG_SourceID"
-                  usesDispositions="true">
-                  <inputs>
-                    <input
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived collumn PG_SourceID.Inputs[Derived Column Input]"
-                      description="Input to the Derived Column Transformation"
-                      name="Derived Column Input">
-                      <externalMetadataColumns />
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived collumn PG_SourceID.Outputs[Derived Column Output]"
-                      description="Default Output of the Derived Column Transformation"
-                      exclusionGroup="1"
-                      name="Derived Column Output"
-                      synchronousInputId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived collumn PG_SourceID.Inputs[Derived Column Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived collumn PG_SourceID.Outputs[Derived Column Output].Columns[PG_SourceID]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Computation"
-                          errorRowDisposition="FailComponent"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived collumn PG_SourceID.Outputs[Derived Column Output].Columns[PG_SourceID]"
-                          name="PG_SourceID"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.String"
-                              description="Derived Column Expression"
-                              name="Expression">@[User::PG_SourceID]</property>
-                            <property
-                              containsID="true"
-                              dataType="System.String"
-                              description="Derived Column Friendly Expression"
-                              expressionType="Notify"
-                              name="FriendlyExpression">@[User::PG_SourceID]</property>
-                          </properties>
-                        </outputColumn>
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                    <output
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived collumn PG_SourceID.Outputs[Derived Column Error Output]"
-                      description="Error Output of the Derived Column Transformation"
-                      exclusionGroup="1"
-                      isErrorOut="true"
-                      name="Derived Column Error Output"
-                      synchronousInputId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived collumn PG_SourceID.Inputs[Derived Column Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived collumn PG_SourceID.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived collumn PG_SourceID.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived collumn PG_SourceID.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived collumn PG_SourceID.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived Updated At"
-                  componentClassID="Microsoft.DerivedColumn"
-                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-                  name="Derived Updated At"
-                  usesDispositions="true">
-                  <inputs>
-                    <input
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived Updated At.Inputs[Derived Column Input]"
-                      description="Input to the Derived Column Transformation"
-                      name="Derived Column Input">
-                      <externalMetadataColumns />
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived Updated At.Outputs[Derived Column Output]"
-                      description="Default Output of the Derived Column Transformation"
-                      exclusionGroup="1"
-                      name="Derived Column Output"
-                      synchronousInputId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived Updated At.Inputs[Derived Column Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived Updated At.Outputs[Derived Column Output].Columns[Updated At]"
-                          dataType="dbTimeStamp"
-                          errorOrTruncationOperation="Computation"
-                          errorRowDisposition="FailComponent"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived Updated At.Outputs[Derived Column Output].Columns[Updated At]"
-                          name="Updated At"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.String"
-                              description="Derived Column Expression"
-                              name="Expression">[GETDATE]()</property>
-                            <property
-                              containsID="true"
-                              dataType="System.String"
-                              description="Derived Column Friendly Expression"
-                              expressionType="Notify"
-                              name="FriendlyExpression">GETDATE()</property>
-                          </properties>
-                        </outputColumn>
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                    <output
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived Updated At.Outputs[Derived Column Error Output]"
-                      description="Error Output of the Derived Column Transformation"
-                      exclusionGroup="1"
-                      isErrorOut="true"
-                      name="Derived Column Error Output"
-                      synchronousInputId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived Updated At.Inputs[Derived Column Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived Updated At.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived Updated At.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived Updated At.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived Updated At.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived UpdatedAt and CreatedAt"
-                  componentClassID="Microsoft.DerivedColumn"
-                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-                  name="Derived UpdatedAt and CreatedAt"
-                  usesDispositions="true">
-                  <inputs>
-                    <input
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived UpdatedAt and CreatedAt.Inputs[Derived Column Input]"
-                      description="Input to the Derived Column Transformation"
-                      name="Derived Column Input">
-                      <externalMetadataColumns />
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived UpdatedAt and CreatedAt.Outputs[Derived Column Output]"
-                      description="Default Output of the Derived Column Transformation"
-                      exclusionGroup="1"
-                      name="Derived Column Output"
-                      synchronousInputId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived UpdatedAt and CreatedAt.Inputs[Derived Column Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived UpdatedAt and CreatedAt.Outputs[Derived Column Output].Columns[CreatedAt]"
-                          dataType="dbTimeStamp"
-                          errorOrTruncationOperation="Computation"
-                          errorRowDisposition="FailComponent"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived UpdatedAt and CreatedAt.Outputs[Derived Column Output].Columns[CreatedAt]"
-                          name="CreatedAt"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.String"
-                              description="Derived Column Expression"
-                              name="Expression">[GETDATE]()</property>
-                            <property
-                              containsID="true"
-                              dataType="System.String"
-                              description="Derived Column Friendly Expression"
-                              expressionType="Notify"
-                              name="FriendlyExpression">GETDATE()</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived UpdatedAt and CreatedAt.Outputs[Derived Column Output].Columns[UpdatedAt]"
-                          dataType="dbTimeStamp"
-                          errorOrTruncationOperation="Computation"
-                          errorRowDisposition="FailComponent"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived UpdatedAt and CreatedAt.Outputs[Derived Column Output].Columns[UpdatedAt]"
-                          name="UpdatedAt"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.String"
-                              description="Derived Column Expression"
-                              name="Expression">[GETDATE]()</property>
-                            <property
-                              containsID="true"
-                              dataType="System.String"
-                              description="Derived Column Friendly Expression"
-                              expressionType="Notify"
-                              name="FriendlyExpression">GETDATE()</property>
-                          </properties>
-                        </outputColumn>
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                    <output
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived UpdatedAt and CreatedAt.Outputs[Derived Column Error Output]"
-                      description="Error Output of the Derived Column Transformation"
-                      exclusionGroup="1"
-                      isErrorOut="true"
-                      name="Derived Column Error Output"
-                      synchronousInputId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived UpdatedAt and CreatedAt.Inputs[Derived Column Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived UpdatedAt and CreatedAt.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived UpdatedAt and CreatedAt.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived UpdatedAt and CreatedAt.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived UpdatedAt and CreatedAt.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Insert new phu_city into phu_group_nds"
-                  componentClassID="Microsoft.OLEDBDestination"
-                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-                  description="OLE DB Destination"
-                  name="Insert new phu_city into phu_group_nds"
-                  usesDispositions="true"
-                  version="4">
-                  <properties>
-                    <property
-                      dataType="System.Int32"
-                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                      name="CommandTimeout">0</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dbo].[phu_city]</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable that contains the name of the database object used to open a rowset."
-                      name="OpenRowsetVariable"></property>
-                    <property
-                      dataType="System.String"
-                      description="The SQL command to be executed."
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the column code page to use when code page information is unavailable from the data source."
-                      name="DefaultCodePage">1252</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Forces the use of the DefaultCodePage property value when describing character data."
-                      name="AlwaysUseDefaultCodePage">false</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the mode used to access the database."
-                      name="AccessMode"
-                      typeConverter="AccessMode">3</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepIdentity">false</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepNulls">false</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                      name="FastLoadMaxInsertCommitSize">2147483647</property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Insert new phu_city into phu_group_nds.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LocalHost.COVID_19_NDS]"
-                      connectionManagerRefId="Package.ConnectionManagers[LocalHost.COVID_19_NDS]"
-                      description="The OLE DB runtime connection used to access the database."
-                      name="OleDbConnection" />
-                  </connections>
-                  <inputs>
-                    <input
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Insert new phu_city into phu_group_nds.Inputs[OLE DB Destination Input]"
-                      errorOrTruncationOperation="Insert"
-                      errorRowDisposition="FailComponent"
-                      hasSideEffects="true"
-                      name="OLE DB Destination Input">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Insert new phu_city into phu_group_nds.Inputs[OLE DB Destination Input].Columns[status]"
-                          cachedDataType="i4"
-                          cachedName="status"
-                          externalMetadataColumnId="Package\NDS phu_city\Import from public_health_unit To phu_city\Insert new phu_city into phu_group_nds.Inputs[OLE DB Destination Input].ExternalColumns[status]"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Sort by conv_reporting_phu_city and remove duplicate.Outputs[Sort Output].Columns[status]" />
-                        <inputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Insert new phu_city into phu_group_nds.Inputs[OLE DB Destination Input].Columns[UpdatedAt]"
-                          cachedDataType="dbTimeStamp"
-                          cachedName="UpdatedAt"
-                          externalMetadataColumnId="Package\NDS phu_city\Import from public_health_unit To phu_city\Insert new phu_city into phu_group_nds.Inputs[OLE DB Destination Input].ExternalColumns[update_at]"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived UpdatedAt and CreatedAt.Outputs[Derived Column Output].Columns[UpdatedAt]" />
-                        <inputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Insert new phu_city into phu_group_nds.Inputs[OLE DB Destination Input].Columns[CreatedAt]"
-                          cachedDataType="dbTimeStamp"
-                          cachedName="CreatedAt"
-                          externalMetadataColumnId="Package\NDS phu_city\Import from public_health_unit To phu_city\Insert new phu_city into phu_group_nds.Inputs[OLE DB Destination Input].ExternalColumns[created_at]"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived UpdatedAt and CreatedAt.Outputs[Derived Column Output].Columns[CreatedAt]" />
-                        <inputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Insert new phu_city into phu_group_nds.Inputs[OLE DB Destination Input].Columns[SourceID]"
-                          cachedDataType="i4"
-                          cachedName="SourceID"
-                          externalMetadataColumnId="Package\NDS phu_city\Import from public_health_unit To phu_city\Insert new phu_city into phu_group_nds.Inputs[OLE DB Destination Input].ExternalColumns[source_id]"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Sort by conv_reporting_phu_city and remove duplicate.Outputs[Sort Output].Columns[SourceID]" />
-                        <inputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Insert new phu_city into phu_group_nds.Inputs[OLE DB Destination Input].Columns[reporting_phu_city]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="100"
-                          cachedName="reporting_phu_city"
-                          cachedSortKeyPosition="1"
-                          externalMetadataColumnId="Package\NDS phu_city\Import from public_health_unit To phu_city\Insert new phu_city into phu_group_nds.Inputs[OLE DB Destination Input].ExternalColumns[ak_city_name]"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Sort by conv_reporting_phu_city and remove duplicate.Outputs[Sort Output].Columns[reporting_phu_city]" />
-                      </inputColumns>
-                      <externalMetadataColumns
-                        isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Insert new phu_city into phu_group_nds.Inputs[OLE DB Destination Input].ExternalColumns[id]"
-                          dataType="i4"
-                          name="id" />
-                        <externalMetadataColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Insert new phu_city into phu_group_nds.Inputs[OLE DB Destination Input].ExternalColumns[source_id]"
-                          dataType="i4"
-                          name="source_id" />
-                        <externalMetadataColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Insert new phu_city into phu_group_nds.Inputs[OLE DB Destination Input].ExternalColumns[phu_group_id]"
-                          dataType="i4"
-                          name="phu_group_id" />
-                        <externalMetadataColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Insert new phu_city into phu_group_nds.Inputs[OLE DB Destination Input].ExternalColumns[ak_city_name]"
-                          codePage="1252"
-                          dataType="str"
-                          length="100"
-                          name="ak_city_name" />
-                        <externalMetadataColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Insert new phu_city into phu_group_nds.Inputs[OLE DB Destination Input].ExternalColumns[created_at]"
-                          dataType="dbTimeStamp"
-                          name="created_at" />
-                        <externalMetadataColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Insert new phu_city into phu_group_nds.Inputs[OLE DB Destination Input].ExternalColumns[update_at]"
-                          dataType="dbTimeStamp"
-                          name="update_at" />
-                        <externalMetadataColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Insert new phu_city into phu_group_nds.Inputs[OLE DB Destination Input].ExternalColumns[status]"
-                          dataType="i4"
-                          name="status" />
-                      </externalMetadataColumns>
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Insert new phu_city into phu_group_nds.Outputs[OLE DB Destination Error Output]"
-                      exclusionGroup="1"
-                      isErrorOut="true"
-                      name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\NDS phu_city\Import from public_health_unit To phu_city\Insert new phu_city into phu_group_nds.Inputs[OLE DB Destination Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Insert new phu_city into phu_group_nds.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Insert new phu_city into phu_group_nds.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Insert new phu_city into phu_group_nds.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Insert new phu_city into phu_group_nds.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit"
-                  componentClassID="Microsoft.OLEDBSource"
-                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-                  description="OLE DB Source"
-                  name="Load Public_health_unit"
-                  usesDispositions="true"
-                  version="7">
-                  <properties>
-                    <property
-                      dataType="System.Int32"
-                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                      name="CommandTimeout">0</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dbo].[public_health_unit]</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable that contains the name of the database object used to open a rowset."
-                      name="OpenRowsetVariable"></property>
-                    <property
-                      dataType="System.String"
-                      description="The SQL command to be executed."
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                    <property
-                      dataType="System.String"
-                      description="The variable that contains the SQL command to be executed."
-                      name="SqlCommandVariable"></property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the column code page to use when code page information is unavailable from the data source."
-                      name="DefaultCodePage">1252</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Forces the use of the DefaultCodePage property value when describing character data."
-                      name="AlwaysUseDefaultCodePage">false</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the mode used to access the database."
-                      name="AccessMode"
-                      typeConverter="AccessMode">0</property>
-                    <property
-                      dataType="System.String"
-                      description="The mappings between the parameters in the SQL command and variables."
-                      name="ParameterMapping"></property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LocalHost.COVID_19_STAGE]"
-                      connectionManagerRefId="Package.ConnectionManagers[LocalHost.COVID_19_STAGE]"
-                      description="The OLE DB runtime connection used to access the database."
-                      name="OleDbConnection" />
-                  </connections>
-                  <outputs>
-                    <output
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit.Outputs[OLE DB Source Output]"
-                      name="OLE DB Source Output">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit.Outputs[OLE DB Source Output].Columns[status]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit.Outputs[OLE DB Source Output].ExternalColumns[status]"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit.Outputs[OLE DB Source Output].Columns[status]"
-                          name="status"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit.Outputs[OLE DB Source Output].Columns[reporting_phu_city]"
-                          codePage="1252"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit.Outputs[OLE DB Source Output].ExternalColumns[reporting_phu_city]"
-                          length="100"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit.Outputs[OLE DB Source Output].Columns[reporting_phu_city]"
-                          name="reporting_phu_city"
-                          truncationRowDisposition="FailComponent" />
-                      </outputColumns>
-                      <externalMetadataColumns
-                        isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit.Outputs[OLE DB Source Output].ExternalColumns[phu_id]"
-                          dataType="i4"
-                          name="phu_id" />
-                        <externalMetadataColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit.Outputs[OLE DB Source Output].ExternalColumns[reporting_phu]"
-                          codePage="1252"
-                          dataType="str"
-                          length="100"
-                          name="reporting_phu" />
-                        <externalMetadataColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit.Outputs[OLE DB Source Output].ExternalColumns[reporting_phu_address]"
-                          codePage="1252"
-                          dataType="str"
-                          length="100"
-                          name="reporting_phu_address" />
-                        <externalMetadataColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit.Outputs[OLE DB Source Output].ExternalColumns[reporting_phu_city]"
-                          codePage="1252"
-                          dataType="str"
-                          length="100"
-                          name="reporting_phu_city" />
-                        <externalMetadataColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit.Outputs[OLE DB Source Output].ExternalColumns[reporting_phu_postal_code]"
-                          codePage="1252"
-                          dataType="str"
-                          length="100"
-                          name="reporting_phu_postal_code" />
-                        <externalMetadataColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit.Outputs[OLE DB Source Output].ExternalColumns[reporting_phu_website]"
-                          codePage="1252"
-                          dataType="str"
-                          length="100"
-                          name="reporting_phu_website" />
-                        <externalMetadataColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit.Outputs[OLE DB Source Output].ExternalColumns[reporting_phu_latitude]"
-                          dataType="i8"
-                          name="reporting_phu_latitude" />
-                        <externalMetadataColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit.Outputs[OLE DB Source Output].ExternalColumns[reporting_phu_longitide]"
-                          dataType="i8"
-                          name="reporting_phu_longitide" />
-                        <externalMetadataColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit.Outputs[OLE DB Source Output].ExternalColumns[status]"
-                          dataType="i4"
-                          name="status" />
-                      </externalMetadataColumns>
-                    </output>
-                    <output
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit.Outputs[OLE DB Source Error Output]"
-                      isErrorOut="true"
-                      name="OLE DB Source Error Output">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit.Outputs[OLE DB Source Error Output].Columns[status]"
-                          dataType="i4"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit.Outputs[OLE DB Source Error Output].Columns[status]"
-                          name="status" />
-                        <outputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                        <outputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit.Outputs[OLE DB Source Error Output].Columns[reporting_phu_city]"
-                          codePage="1252"
-                          dataType="str"
-                          length="100"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit.Outputs[OLE DB Source Error Output].Columns[reporting_phu_city]"
-                          name="reporting_phu_city" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By PG_SourceID"
-                  componentClassID="Microsoft.Lookup"
-                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
-                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-                  name="Lookup id In phu_city By PG_SourceID"
-                  usesDispositions="true"
-                  version="6">
-                  <properties>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the SQL statement that generates the lookup table."
-                      expressionType="Notify"
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[phu_city]</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
-                      expressionType="Notify"
-                      name="SqlCommandParam"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[phu_city]) [refTable]
-where [refTable].[ak_city_name] = ? and [refTable].[source_id] = ?</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the type of connection used to access the reference dataset."
-                      name="ConnectionType"
-                      typeConverter="LookupConnectionType">0</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the cache type of the lookup table."
-                      name="CacheType"
-                      typeConverter="CacheType">0</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
-                      name="NoMatchBehavior"
-                      typeConverter="LookupNoMatchBehavior">1</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
-                      name="NoMatchCachePercentage">0</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
-                      name="MaxMemoryUsage">25</property>
-                    <property
-                      dataType="System.Int64"
-                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
-                      name="MaxMemoryUsage64">25</property>
-                    <property
-                      dataType="System.String"
-                      description="Indicates whether to reference metadata in an XML format."
-                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="source_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="phu_group_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ak_city_name" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="created_at" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="update_at" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="status" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                      name="ParameterMap">#{Package\NDS phu_city\Import from public_health_unit To phu_city\Sort by conv_reporting_phu_city and remove duplicate.Outputs[Sort Output].Columns[reporting_phu_city]};#{Package\NDS phu_city\Import from public_health_unit To phu_city\632:invalid};</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the column code page to use when code page information is unavailable from the data source."
-                      name="DefaultCodePage">1252</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
-                      name="TreatDuplicateKeysAsError">false</property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By PG_SourceID.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LocalHost.COVID_19_NDS]"
-                      connectionManagerRefId="Package.ConnectionManagers[LocalHost.COVID_19_NDS]"
-                      description="Connection manager used to access lookup data."
-                      name="OleDbConnection" />
-                  </connections>
-                  <inputs>
-                    <input
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By PG_SourceID.Inputs[Lookup Input]"
-                      name="Lookup Input">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By PG_SourceID.Inputs[Lookup Input].Columns[reporting_phu_city]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="100"
-                          cachedName="reporting_phu_city"
-                          cachedSortKeyPosition="1"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Sort by conv_reporting_phu_city and remove duplicate.Outputs[Sort Output].Columns[reporting_phu_city]">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table that a column joins."
-                              name="JoinToReferenceColumn">ak_city_name</property>
-                            <property
-                              dataType="System.Null"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn" />
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By PG_SourceID.Inputs[Lookup Input].Columns[PG_SourceID]"
-                          cachedDataType="i4"
-                          cachedName="PG_SourceID"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Sort by conv_reporting_phu_city and remove duplicate.Outputs[Sort Output].Columns[PG_SourceID]">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table that a column joins."
-                              name="JoinToReferenceColumn">source_id</property>
-                            <property
-                              dataType="System.Null"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn" />
-                          </properties>
-                        </inputColumn>
-                      </inputColumns>
-                      <externalMetadataColumns />
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By PG_SourceID.Outputs[Lookup Match Output]"
-                      errorOrTruncationOperation="Lookup"
-                      exclusionGroup="1"
-                      name="Lookup Match Output"
-                      synchronousInputId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By PG_SourceID.Inputs[Lookup Input]">
-                      <externalMetadataColumns />
-                    </output>
-                    <output
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By PG_SourceID.Outputs[Lookup No Match Output]"
-                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
-                      exclusionGroup="1"
-                      name="Lookup No Match Output"
-                      synchronousInputId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By PG_SourceID.Inputs[Lookup Input]">
-                      <externalMetadataColumns />
-                    </output>
-                    <output
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By PG_SourceID.Outputs[Lookup Error Output]"
-                      exclusionGroup="1"
-                      isErrorOut="true"
-                      name="Lookup Error Output"
-                      synchronousInputId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By PG_SourceID.Inputs[Lookup Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By PG_SourceID.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By PG_SourceID.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By PG_SourceID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By PG_SourceID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By SourceID"
-                  componentClassID="Microsoft.Lookup"
-                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
-                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-                  name="Lookup id In phu_city By SourceID"
-                  usesDispositions="true"
-                  version="6">
-                  <properties>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the SQL statement that generates the lookup table."
-                      expressionType="Notify"
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[phu_city]</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
-                      expressionType="Notify"
-                      name="SqlCommandParam"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[phu_city]) [refTable]
-where [refTable].[source_id] = ? and [refTable].[ak_city_name] = ?</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the type of connection used to access the reference dataset."
-                      name="ConnectionType"
-                      typeConverter="LookupConnectionType">0</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the cache type of the lookup table."
-                      name="CacheType"
-                      typeConverter="CacheType">0</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
-                      name="NoMatchBehavior"
-                      typeConverter="LookupNoMatchBehavior">1</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
-                      name="NoMatchCachePercentage">0</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
-                      name="MaxMemoryUsage">25</property>
-                    <property
-                      dataType="System.Int64"
-                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
-                      name="MaxMemoryUsage64">25</property>
-                    <property
-                      dataType="System.String"
-                      description="Indicates whether to reference metadata in an XML format."
-                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="source_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="phu_group_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ak_city_name" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="created_at" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="update_at" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="status" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
-                    <property
-                      containsID="true"
-                      dataType="System.String"
-                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                      name="ParameterMap">#{Package\NDS phu_city\Import from public_health_unit To phu_city\633:invalid};#{Package\NDS phu_city\Import from public_health_unit To phu_city\Sort by conv_reporting_phu_city and remove duplicate.Outputs[Sort Output].Columns[reporting_phu_city]};</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the column code page to use when code page information is unavailable from the data source."
-                      name="DefaultCodePage">1252</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
-                      name="TreatDuplicateKeysAsError">false</property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By SourceID.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LocalHost.COVID_19_NDS]"
-                      connectionManagerRefId="Package.ConnectionManagers[LocalHost.COVID_19_NDS]"
-                      description="Connection manager used to access lookup data."
-                      name="OleDbConnection" />
-                  </connections>
-                  <inputs>
-                    <input
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By SourceID.Inputs[Lookup Input]"
-                      name="Lookup Input">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By SourceID.Inputs[Lookup Input].Columns[SourceID]"
-                          cachedDataType="i4"
-                          cachedName="SourceID"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Sort by conv_reporting_phu_city and remove duplicate.Outputs[Sort Output].Columns[SourceID]">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table that a column joins."
-                              name="JoinToReferenceColumn">source_id</property>
-                            <property
-                              dataType="System.Null"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn" />
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By SourceID.Inputs[Lookup Input].Columns[reporting_phu_city]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="100"
-                          cachedName="reporting_phu_city"
-                          cachedSortKeyPosition="1"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Sort by conv_reporting_phu_city and remove duplicate.Outputs[Sort Output].Columns[reporting_phu_city]">
-                          <properties>
-                            <property
-                              dataType="System.String"
-                              description="Specifies the column in the reference table that a column joins."
-                              name="JoinToReferenceColumn">ak_city_name</property>
-                            <property
-                              dataType="System.Null"
-                              description="Specifies the column in the reference table from which a column is copied."
-                              name="CopyFromReferenceColumn" />
-                          </properties>
-                        </inputColumn>
-                      </inputColumns>
-                      <externalMetadataColumns />
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By SourceID.Outputs[Lookup Match Output]"
-                      errorOrTruncationOperation="Lookup"
-                      exclusionGroup="1"
-                      name="Lookup Match Output"
-                      synchronousInputId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By SourceID.Inputs[Lookup Input]">
-                      <externalMetadataColumns />
-                    </output>
-                    <output
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By SourceID.Outputs[Lookup No Match Output]"
-                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
-                      exclusionGroup="1"
-                      name="Lookup No Match Output"
-                      synchronousInputId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By SourceID.Inputs[Lookup Input]">
-                      <externalMetadataColumns />
-                    </output>
-                    <output
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By SourceID.Outputs[Lookup Error Output]"
-                      exclusionGroup="1"
-                      isErrorOut="true"
-                      name="Lookup Error Output"
-                      synchronousInputId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By SourceID.Inputs[Lookup Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By SourceID.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By SourceID.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By SourceID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By SourceID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Sort by conv_reporting_phu_city and remove duplicate"
-                  componentClassID="Microsoft.Sort"
-                  contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-                  description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
-                  name="Sort by conv_reporting_phu_city and remove duplicate"
-                  version="1">
-                  <properties>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the Sort transformation removes rows with duplicate sort values."
-                      name="EliminateDuplicates">true</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the maximum number of threads to use for sorting."
-                      expressionType="Notify"
-                      name="MaximumThreads">-1</property>
-                  </properties>
-                  <inputs>
-                    <input
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Sort by conv_reporting_phu_city and remove duplicate.Inputs[Sort Input]"
-                      name="Sort Input">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Sort by conv_reporting_phu_city and remove duplicate.Inputs[Sort Input].Columns[reporting_phu_city]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="100"
-                          cachedName="reporting_phu_city"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit.Outputs[OLE DB Source Output].Columns[reporting_phu_city]">
-                          <properties>
-                            <property
-                              dataType="System.Int32"
-                              description="Specifies the comparison options for character data."
-                              name="NewComparisonFlags">0</property>
-                            <property
-                              dataType="System.Int32"
-                              description="Specifies the sort order of the column."
-                              name="NewSortKeyPosition">1</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Sort by conv_reporting_phu_city and remove duplicate.Inputs[Sort Input].Columns[status]"
-                          cachedDataType="i4"
-                          cachedName="status"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit.Outputs[OLE DB Source Output].Columns[status]">
-                          <properties>
-                            <property
-                              dataType="System.Int32"
-                              description="Specifies the comparison options for character data."
-                              name="NewComparisonFlags">0</property>
-                            <property
-                              dataType="System.Int32"
-                              description="Specifies the sort order of the column."
-                              name="NewSortKeyPosition">0</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Sort by conv_reporting_phu_city and remove duplicate.Inputs[Sort Input].Columns[PG_SourceID]"
-                          cachedDataType="i4"
-                          cachedName="PG_SourceID"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived collumn PG_SourceID.Outputs[Derived Column Output].Columns[PG_SourceID]">
-                          <properties>
-                            <property
-                              dataType="System.Int32"
-                              description="Specifies the comparison options for character data."
-                              name="NewComparisonFlags">0</property>
-                            <property
-                              dataType="System.Int32"
-                              description="Specifies the sort order of the column."
-                              name="NewSortKeyPosition">0</property>
-                          </properties>
-                        </inputColumn>
-                        <inputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Sort by conv_reporting_phu_city and remove duplicate.Inputs[Sort Input].Columns[SourceID]"
-                          cachedDataType="i4"
-                          cachedName="SourceID"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived add collumn SourceID.Outputs[Derived Column Output].Columns[SourceID]">
-                          <properties>
-                            <property
-                              dataType="System.Int32"
-                              description="Specifies the comparison options for character data."
-                              name="NewComparisonFlags">0</property>
-                            <property
-                              dataType="System.Int32"
-                              description="Specifies the sort order of the column."
-                              name="NewSortKeyPosition">0</property>
-                          </properties>
-                        </inputColumn>
-                      </inputColumns>
-                      <externalMetadataColumns />
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Sort by conv_reporting_phu_city and remove duplicate.Outputs[Sort Output]"
-                      isSorted="true"
-                      name="Sort Output">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Sort by conv_reporting_phu_city and remove duplicate.Outputs[Sort Output].Columns[reporting_phu_city]"
-                          codePage="1252"
-                          dataType="str"
-                          length="100"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Sort by conv_reporting_phu_city and remove duplicate.Outputs[Sort Output].Columns[reporting_phu_city]"
-                          name="reporting_phu_city"
-                          sortKeyPosition="1">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Specifies the lineage identifier of the input column that is associated with this output column."
-                              name="SortColumnId">#{Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit.Outputs[OLE DB Source Output].Columns[reporting_phu_city]}</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Sort by conv_reporting_phu_city and remove duplicate.Outputs[Sort Output].Columns[status]"
-                          dataType="i4"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Sort by conv_reporting_phu_city and remove duplicate.Outputs[Sort Output].Columns[status]"
-                          name="status">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Specifies the lineage identifier of the input column that is associated with this output column."
-                              name="SortColumnId">#{Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit.Outputs[OLE DB Source Output].Columns[status]}</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Sort by conv_reporting_phu_city and remove duplicate.Outputs[Sort Output].Columns[PG_SourceID]"
-                          dataType="i4"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Sort by conv_reporting_phu_city and remove duplicate.Outputs[Sort Output].Columns[PG_SourceID]"
-                          name="PG_SourceID">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Specifies the lineage identifier of the input column that is associated with this output column."
-                              name="SortColumnId">#{Package\NDS phu_city\Import from public_health_unit To phu_city\Derived collumn PG_SourceID.Outputs[Derived Column Output].Columns[PG_SourceID]}</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Sort by conv_reporting_phu_city and remove duplicate.Outputs[Sort Output].Columns[SourceID]"
-                          dataType="i4"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Sort by conv_reporting_phu_city and remove duplicate.Outputs[Sort Output].Columns[SourceID]"
-                          name="SourceID">
-                          <properties>
-                            <property
-                              containsID="true"
-                              dataType="System.Int32"
-                              description="Specifies the lineage identifier of the input column that is associated with this output column."
-                              name="SortColumnId">#{Package\NDS phu_city\Import from public_health_unit To phu_city\Derived add collumn SourceID.Outputs[Derived Column Output].Columns[SourceID]}</property>
-                          </properties>
-                        </outputColumn>
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Update phu_city_nds"
-                  componentClassID="Microsoft.OLEDBCommand"
-                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
-                  description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
-                  name="Update phu_city_nds"
-                  usesDispositions="true"
-                  version="2">
-                  <properties>
-                    <property
-                      dataType="System.Int32"
-                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                      name="CommandTimeout">0</property>
-                    <property
-                      dataType="System.String"
-                      description="The SQL command to be executed."
-                      expressionType="Notify"
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">Update [phu_city] set [update_at] =?, [status] = ? where [ak_city_name]= ?  and [source_id] = ?</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the column code page to use when code page information is unavailable from the data source."
-                      name="DefaultCodePage">1252</property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Update phu_city_nds.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LocalHost.COVID_19_NDS]"
-                      connectionManagerRefId="Package.ConnectionManagers[LocalHost.COVID_19_NDS]"
-                      description="The OLE DB runtime connection used to access the database."
-                      name="OleDbConnection" />
-                  </connections>
-                  <inputs>
-                    <input
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Update phu_city_nds.Inputs[OLE DB Command Input]"
-                      errorOrTruncationOperation="Command Execution"
-                      errorRowDisposition="FailComponent"
-                      hasSideEffects="true"
-                      name="OLE DB Command Input">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Update phu_city_nds.Inputs[OLE DB Command Input].Columns[Updated At]"
-                          cachedDataType="dbTimeStamp"
-                          cachedName="Updated At"
-                          externalMetadataColumnId="Package\NDS phu_city\Import from public_health_unit To phu_city\Update phu_city_nds.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived Updated At.Outputs[Derived Column Output].Columns[Updated At]" />
-                        <inputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Update phu_city_nds.Inputs[OLE DB Command Input].Columns[status]"
-                          cachedDataType="i4"
-                          cachedName="status"
-                          externalMetadataColumnId="Package\NDS phu_city\Import from public_health_unit To phu_city\Update phu_city_nds.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Sort by conv_reporting_phu_city and remove duplicate.Outputs[Sort Output].Columns[status]" />
-                        <inputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Update phu_city_nds.Inputs[OLE DB Command Input].Columns[SourceID]"
-                          cachedDataType="i4"
-                          cachedName="SourceID"
-                          externalMetadataColumnId="Package\NDS phu_city\Import from public_health_unit To phu_city\Update phu_city_nds.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Sort by conv_reporting_phu_city and remove duplicate.Outputs[Sort Output].Columns[SourceID]" />
-                        <inputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Update phu_city_nds.Inputs[OLE DB Command Input].Columns[reporting_phu_city]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="100"
-                          cachedName="reporting_phu_city"
-                          cachedSortKeyPosition="1"
-                          externalMetadataColumnId="Package\NDS phu_city\Import from public_health_unit To phu_city\Update phu_city_nds.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Sort by conv_reporting_phu_city and remove duplicate.Outputs[Sort Output].Columns[reporting_phu_city]" />
-                      </inputColumns>
-                      <externalMetadataColumns
-                        isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Update phu_city_nds.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                          dataType="dbTimeStamp"
-                          name="Param_0">
-                          <properties>
-                            <property
-                              dataType="System.Int32"
-                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                              name="DBParamInfoFlags">65</property>
-                          </properties>
-                        </externalMetadataColumn>
-                        <externalMetadataColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Update phu_city_nds.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                          dataType="i4"
-                          name="Param_1">
-                          <properties>
-                            <property
-                              dataType="System.Int32"
-                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                              name="DBParamInfoFlags">65</property>
-                          </properties>
-                        </externalMetadataColumn>
-                        <externalMetadataColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Update phu_city_nds.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                          codePage="1252"
-                          dataType="str"
-                          length="100"
-                          name="Param_2">
-                          <properties>
-                            <property
-                              dataType="System.Int32"
-                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                              name="DBParamInfoFlags">65</property>
-                          </properties>
-                        </externalMetadataColumn>
-                        <externalMetadataColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Update phu_city_nds.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                          dataType="i4"
-                          name="Param_3">
-                          <properties>
-                            <property
-                              dataType="System.Int32"
-                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                              name="DBParamInfoFlags">81</property>
-                          </properties>
-                        </externalMetadataColumn>
-                      </externalMetadataColumns>
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Update phu_city_nds.Outputs[OLE DB Command Output]"
-                      exclusionGroup="1"
-                      name="OLE DB Command Output"
-                      synchronousInputId="Package\NDS phu_city\Import from public_health_unit To phu_city\Update phu_city_nds.Inputs[OLE DB Command Input]">
-                      <externalMetadataColumns />
-                    </output>
-                    <output
-                      refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Update phu_city_nds.Outputs[OLE DB Command Error Output]"
-                      exclusionGroup="1"
-                      isErrorOut="true"
-                      name="OLE DB Command Error Output"
-                      synchronousInputId="Package\NDS phu_city\Import from public_health_unit To phu_city\Update phu_city_nds.Inputs[OLE DB Command Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Update phu_city_nds.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Update phu_city_nds.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\NDS phu_city\Import from public_health_unit To phu_city\Update phu_city_nds.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\NDS phu_city\Import from public_health_unit To phu_city\Update phu_city_nds.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-              </components>
-              <paths>
-                <path
-                  refId="Package\NDS phu_city\Import from public_health_unit To phu_city.Paths[Conditional Split Default Output]"
-                  endId="Package\NDS phu_city\Import from public_health_unit To phu_city\Sort by conv_reporting_phu_city and remove duplicate.Inputs[Sort Input]"
-                  name="Conditional Split Default Output"
-                  startId="Package\NDS phu_city\Import from public_health_unit To phu_city\delete NULL reporting_phu_city.Outputs[Conditional Split Default Output]" />
-                <path
-                  refId="Package\NDS phu_city\Import from public_health_unit To phu_city.Paths[Derived Column Output]"
-                  endId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived add collumn SourceID.Inputs[Derived Column Input]"
-                  name="Derived Column Output"
-                  startId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived collumn PG_SourceID.Outputs[Derived Column Output]" />
-                <path
-                  refId="Package\NDS phu_city\Import from public_health_unit To phu_city.Paths[Derived Column Output1]"
-                  endId="Package\NDS phu_city\Import from public_health_unit To phu_city\Update phu_city_nds.Inputs[OLE DB Command Input]"
-                  name="Derived Column Output"
-                  startId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived Updated At.Outputs[Derived Column Output]" />
-                <path
-                  refId="Package\NDS phu_city\Import from public_health_unit To phu_city.Paths[Derived Column Output2]"
-                  endId="Package\NDS phu_city\Import from public_health_unit To phu_city\Insert new phu_city into phu_group_nds.Inputs[OLE DB Destination Input]"
-                  name="Derived Column Output"
-                  startId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived UpdatedAt and CreatedAt.Outputs[Derived Column Output]" />
-                <path
-                  refId="Package\NDS phu_city\Import from public_health_unit To phu_city.Paths[Derived Column Output3]"
-                  endId="Package\NDS phu_city\Import from public_health_unit To phu_city\delete NULL reporting_phu_city.Inputs[Conditional Split Input]"
-                  name="Derived Column Output"
-                  startId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived add collumn SourceID.Outputs[Derived Column Output]" />
-                <path
-                  refId="Package\NDS phu_city\Import from public_health_unit To phu_city.Paths[Lookup Match Output]"
-                  endId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived Updated At.Inputs[Derived Column Input]"
-                  name="Lookup Match Output"
-                  startId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By SourceID.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\NDS phu_city\Import from public_health_unit To phu_city.Paths[Lookup No Match Output]"
-                  endId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By SourceID.Inputs[Lookup Input]"
-                  name="Lookup No Match Output"
-                  startId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By PG_SourceID.Outputs[Lookup No Match Output]" />
-                <path
-                  refId="Package\NDS phu_city\Import from public_health_unit To phu_city.Paths[Lookup No Match Output1]"
-                  endId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived UpdatedAt and CreatedAt.Inputs[Derived Column Input]"
-                  name="Lookup No Match Output"
-                  startId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By SourceID.Outputs[Lookup No Match Output]" />
-                <path
-                  refId="Package\NDS phu_city\Import from public_health_unit To phu_city.Paths[OLE DB Source Output]"
-                  endId="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived collumn PG_SourceID.Inputs[Derived Column Input]"
-                  name="OLE DB Source Output"
-                  startId="Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit.Outputs[OLE DB Source Output]" />
-                <path
-                  refId="Package\NDS phu_city\Import from public_health_unit To phu_city.Paths[Sort Output]"
-                  endId="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By PG_SourceID.Inputs[Lookup Input]"
-                  name="Sort Output"
-                  startId="Package\NDS phu_city\Import from public_health_unit To phu_city\Sort by conv_reporting_phu_city and remove duplicate.Outputs[Sort Output]" />
-              </paths>
-            </pipeline>
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
           DTS:refId="Package\NDS phu_city\Import from public_health_unit_group To phu_city"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
@@ -10552,22 +9094,6 @@ where [refTable].[ak_group_name] = ?</property>
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
           DTS:To="Package\NDS phu_city\Import from public_health_unit_group To phu_city" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\NDS phu_city.PrecedenceConstraints[Constraint 1]"
-          DTS:CreationName=""
-          DTS:DTSID="{98AB8161-408D-4CE0-90C8-B5EABB5AF43B}"
-          DTS:From="Package\NDS phu_city\Import from public_health_unit_group To phu_city"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 1"
-          DTS:To="Package\NDS phu_city\Get PHU_SourceID" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\NDS phu_city.PrecedenceConstraints[Constraint 2]"
-          DTS:CreationName=""
-          DTS:DTSID="{BF8CA0A0-5CC6-4179-A51F-1F9D4E4148B1}"
-          DTS:From="Package\NDS phu_city\Get PHU_SourceID"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 2"
-          DTS:To="Package\NDS phu_city\Import from public_health_unit To phu_city" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
@@ -15928,14 +14454,6 @@ where [refTable].[ak_phu_id] = ?</property>
           Id="Package\NDS phu_city\Get PG_SourceID"
           TopLeft="109.285714285714,10.896103896104" />
         <NodeLayout
-          Size="168,42"
-          Id="Package\NDS phu_city\Get PHU_SourceID"
-          TopLeft="98.8333333333335,171.861111111111" />
-        <NodeLayout
-          Size="284,42"
-          Id="Package\NDS phu_city\Import from public_health_unit To phu_city"
-          TopLeft="42.9046783864876,244.603174603175" />
-        <NodeLayout
           Size="318,42"
           Id="Package\NDS phu_city\Import from public_health_unit_group To phu_city"
           TopLeft="24.1832611832612,96.1738816738817" />
@@ -15961,57 +14479,13 @@ where [refTable].[ak_phu_id] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS phu_city.PrecedenceConstraints[Constraint 1]"
-          TopLeft="183.008297258297,138.173881673882">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,33.6872294372293"
-              Start="0,0"
-              End="0,26.1872294372293">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.1872294372293" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS phu_city.PrecedenceConstraints[Constraint 2]"
-          TopLeft="183.869005859911,213.861111111111">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,30.742063492064"
-              Start="0,0"
-              End="0,23.242063492064">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.242063492064" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="376,342"
-          Size="376,385"
+          PanelSize="376,179"
+          Size="376,222"
           Id="Package\NDS phu_city"
-          TopLeft="1.09523809523833,539.25" />
+          TopLeft="6.09523809523833,623.25" />
         <NodeLayout
           Size="227,42"
           Id="Package\NDS phu_group\Get phu_group_stage SourceID"
@@ -16125,18 +14599,18 @@ where [refTable].[ak_phu_id] = ?</property>
           TopLeft="245.257575757575,1015.75757575758" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="190.968253968254,445.595238095238">
+          TopLeft="193.468253968254,445.595238095238">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,93.654761904762"
+              EndConnector="0,177.654761904762"
               Start="0,0"
-              End="0,86.154761904762">
+              End="0,170.154761904762">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,86.154761904762" />
+                    End="0,170.154761904762" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16235,18 +14709,18 @@ where [refTable].[ak_phu_id] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="377.095238095238,731.5">
+          TopLeft="382.095238095238,732.75">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="192.273809523809,0"
+              EndConnector="187.273809523809,0"
               Start="0,0"
-              End="184.773809523809,0">
+              End="179.773809523809,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="184.773809523809,0" />
+                    End="179.773809523809,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -16764,6 +15238,10 @@ where [refTable].[ak_phu_id] = ?</property>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="279,42"
+          Id="Package\NDS Case_report\Import from Stage To NDS\Sort by patention_id and remove duplicate"
+          TopLeft="213.447837150127,158.166666666667" />
+        <NodeLayout
           Size="142,42"
           Id="Package\NDS Case_report\Import from Stage To NDS\check gender"
           TopLeft="283.86641221374,526.055555555555" />
@@ -16796,13 +15274,13 @@ where [refTable].[ak_phu_id] = ?</property>
           Id="Package\NDS Case_report\Import from Stage To NDS\Derived SourceID"
           TopLeft="271.833333333333,230.166666666667" />
         <NodeLayout
+          Size="197,42"
+          Id="Package\NDS Case_report\Import from Stage To NDS\Lookup id in Case_report"
+          TopLeft="262,985.777777777777" />
+        <NodeLayout
           Size="204,42"
           Id="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_id in phu_nds"
           TopLeft="254.388888888889,902.245786033711" />
-        <NodeLayout
-          Size="113,42"
-          Id="Package\NDS Case_report\Import from Stage To NDS\Update"
-          TopLeft="130.888888888889,1146.88888888889" />
         <NodeLayout
           Size="193,42"
           Id="Package\NDS Case_report\Import from Stage To NDS\Remove all empty string"
@@ -16824,249 +15302,13 @@ where [refTable].[ak_phu_id] = ?</property>
           Id="Package\NDS Case_report\Import from Stage To NDS\Derived created_at, update_at"
           TopLeft="460.388888888889,1066.38888888889" />
         <NodeLayout
-          Size="197,42"
-          Id="Package\NDS Case_report\Import from Stage To NDS\Lookup id in Case_report"
-          TopLeft="262,985.777777777777" />
-        <NodeLayout
-          Size="279,42"
-          Id="Package\NDS Case_report\Import from Stage To NDS\Sort by patention_id and remove duplicate"
-          TopLeft="213.447837150127,158.166666666667" />
+          Size="113,42"
+          Id="Package\NDS Case_report\Import from Stage To NDS\Update"
+          TopLeft="130.888888888889,1146.88888888889" />
         <NodeLayout
           Size="107,42"
           Id="Package\NDS Case_report\Import from Stage To NDS\Insert"
           TopLeft="516.388888888889,1150.38888888889" />
-        <EdgeLayout
-          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output1]"
-          TopLeft="570.638888888889,1108.38888888889">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,41.9999999999998"
-              Start="0,0"
-              End="0,34.4999999999998">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.4999999999998" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output2]"
-          TopLeft="352.972222222222,272.166666666667">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,30.4972497249726"
-              Start="0,0"
-              End="0,22.9972497249726">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.9972497249726" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output3]"
-          TopLeft="351.988761662426,344.663916391639">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,32.391639163916"
-              Start="0,0"
-              End="0,24.891639163916">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.891639163916" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output4]"
-          TopLeft="187.638888888889,1112.38888888889">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,34.5"
-              Start="0,0"
-              End="0,27">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Conditional Split Default Output]"
-          TopLeft="350.848918575064,117.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,40.6666666666666"
-              Start="0,0"
-              End="0,33.1666666666666">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,33.1666666666666" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-70.61390625,10.7542317708333,141.2278125,11.658203125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Case 14]"
-          TopLeft="351.36641221374,419.055555555555">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,36"
-              Start="0,0"
-              End="0,28.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-15.2180859375,9.47314453125,30.436171875,9.5537109375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Case 13]"
-          TopLeft="353.36641221374,497.055555555555">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,29"
-              Start="0,0"
-              End="0,21.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-15.2180859375,5.97314453125,30.436171875,9.5537109375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Case 12]"
-          TopLeft="356.710983884648,568.055555555555">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,27.5"
-              Start="0,0"
-              End="0,20">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-15.2180859375,5.22314453125,30.436171875,9.5537109375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Case 11]"
-          TopLeft="358.638888888889,774.494949494949">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,36.888888888889"
-              Start="0,0"
-              End="0,29.388888888889">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29.388888888889" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-15.2180859375,9.9175889756945,30.436171875,9.5537109375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Case 1]"
-          TopLeft="358.305555555556,637.555555555555">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,26.9271474640866"
-              Start="0,0"
-              End="0,19.4271474640866">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.4271474640866" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-15.2180859375,4.9367182632933,30.436171875,9.5537109375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Sort Output]"
           TopLeft="352.89058524173,200.166666666667">
@@ -17086,7 +15328,9 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-15.45359375,6.4658203125,30.9071875,9.568359375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17108,7 +15352,9 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-15.45359375,8.18804253472215,30.9071875,9.568359375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17143,7 +15389,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="33.8880577256945,20.6310842564619,111.6127734375,11.609375"
+              BoundingBox="33.8880577256945,20.6310842564619,151.3834765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -17167,7 +15413,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,11.211308372033,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,11.211308372033,136.1534765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -17191,7 +15437,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,14.8762863249367,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,14.8762863249367,136.1534765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -17227,7 +15473,103 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-134.496942274305,26.3055555555555,96.3827734375,11.609375"
+              BoundingBox="-134.496942274305,26.3055555555555,136.1534765625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output4]"
+          TopLeft="187.638888888889,1112.38888888889">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.5"
+              Start="0,0"
+              End="0,27">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-15.45359375,8.7158203125,30.9071875,9.568359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output3]"
+          TopLeft="351.988761662426,344.663916391639">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32.391639163916"
+              Start="0,0"
+              End="0,24.891639163916">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.891639163916" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-15.45359375,7.661639894458,30.9071875,9.568359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output2]"
+          TopLeft="352.972222222222,272.166666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.4972497249726"
+              Start="0,0"
+              End="0,22.9972497249726">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.9972497249726" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-15.45359375,6.7144451749863,30.9071875,9.568359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output1]"
+          TopLeft="570.638888888889,1108.38888888889">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.9999999999998"
+              Start="0,0"
+              End="0,34.4999999999998">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.4999999999998" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-15.45359375,12.4658203124999,30.9071875,9.568359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -17250,7 +15592,153 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-15.45359375,4.47194355015365,30.9071875,9.568359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Conditional Split Default Output]"
+          TopLeft="350.848918575064,117.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40.6666666666666"
+              Start="0,0"
+              End="0,33.1666666666666">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.1666666666666" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-70.61390625,10.7542317708333,180.998515625,11.658203125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Case 14]"
+          TopLeft="351.36641221374,419.055555555555">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36"
+              Start="0,0"
+              End="0,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-15.2180859375,9.47314453125,71.008515625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Case 13]"
+          TopLeft="353.36641221374,497.055555555555">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29"
+              Start="0,0"
+              End="0,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-15.2180859375,5.97314453125,71.008515625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Case 12]"
+          TopLeft="356.710983884648,568.055555555555">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.5"
+              Start="0,0"
+              End="0,20">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-15.2180859375,5.22314453125,71.008515625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Case 11]"
+          TopLeft="358.638888888889,774.494949494949">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.888888888889"
+              Start="0,0"
+              End="0,29.388888888889">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.388888888889" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-15.2180859375,9.9175889756945,71.008515625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Case 1]"
+          TopLeft="358.305555555556,637.555555555555">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26.9271474640866"
+              Start="0,0"
+              End="0,19.4271474640866">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.4271474640866" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-15.2180859375,4.9367182632933,71.008515625,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -17262,7 +15750,7 @@ where [refTable].[ak_phu_id] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -17784,394 +16272,6 @@ where [refTable].[ak_phu_id] = ?</property>
         <Name>UsedTableName</Name>
         <Value
           type="q3:string">[dbo].[public_health_unit]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\NDS phu_city\Import from public_health_unit To phu_city">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="178,42"
-          Id="Package\NDS phu_city\Import from public_health_unit To phu_city\Update phu_city_nds"
-          TopLeft="198.590909090909,656.772727272728" />
-        <NodeLayout
-          Size="171,42"
-          Id="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived Updated At"
-          TopLeft="209.045454545454,573.5" />
-        <NodeLayout
-          Size="222,42"
-          Id="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived add collumn SourceID"
-          TopLeft="280.090909090909,157.045454545455" />
-        <NodeLayout
-          Size="271,42"
-          Id="Package\NDS phu_city\Import from public_health_unit To phu_city\Insert new phu_city into phu_group_nds"
-          TopLeft="464.5,650.5" />
-        <NodeLayout
-          Size="337,42"
-          Id="Package\NDS phu_city\Import from public_health_unit To phu_city\Sort by conv_reporting_phu_city and remove duplicate"
-          TopLeft="221.590909090909,311.227272727273" />
-        <NodeLayout
-          Size="191,42"
-          Id="Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit"
-          TopLeft="300.136363636364,3.13636363636363" />
-        <NodeLayout
-          Size="238,42"
-          Id="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived UpdatedAt and CreatedAt"
-          TopLeft="482.340909090909,574.772727272728" />
-        <NodeLayout
-          Size="220,42"
-          Id="Package\NDS phu_city\Import from public_health_unit To phu_city\Derived collumn PG_SourceID"
-          TopLeft="280.409090909091,77.0454545454552" />
-        <NodeLayout
-          Size="262,42"
-          Id="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By PG_SourceID"
-          TopLeft="262.041373682043,391.318181818182" />
-        <NodeLayout
-          Size="228,42"
-          Id="Package\NDS phu_city\Import from public_health_unit To phu_city\delete NULL reporting_phu_city"
-          TopLeft="278,227" />
-        <NodeLayout
-          Size="243,42"
-          Id="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By SourceID"
-          TopLeft="270.5,481.5" />
-        <EdgeLayout
-          Id="Package\NDS phu_city\Import from public_health_unit To phu_city.Paths[Sort Output]"
-          TopLeft="391.566141386476,353.227272727273">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,38.090909090909"
-              Start="0,0"
-              End="0,30.590909090909">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.590909090909" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS phu_city\Import from public_health_unit To phu_city.Paths[OLE DB Source Output]"
-          TopLeft="393.022727272727,45.1363636363636">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,31.9090909090916"
-              Start="0,0"
-              End="0,24.4090909090916">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.4090909090916" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS phu_city\Import from public_health_unit To phu_city.Paths[Lookup No Match Output1]"
-          TopLeft="431.166666666667,523.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="170.174242424242,51.272727272728"
-              Start="0,0"
-              End="170.174242424242,43.772727272728">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.7103248346097" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.7103248346097"
-                    Point2="0,20.7103248346097"
-                    Point3="4,20.7103248346097" />
-                  <mssgle:LineSegment
-                    End="166.174242424242,20.7103248346097" />
-                  <mssgle:CubicBezierSegment
-                    Point1="166.174242424242,20.7103248346097"
-                    Point2="170.174242424242,20.7103248346097"
-                    Point3="170.174242424242,24.7103248346097" />
-                  <mssgle:LineSegment
-                    End="170.174242424242,43.772727272728" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="29.280734493371,25.7103248346097,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS phu_city\Import from public_health_unit To phu_city.Paths[Lookup No Match Output]"
-          TopLeft="392.520686841022,433.318181818182">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,48.181818181818"
-              Start="0,0"
-              End="0,40.681818181818">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,40.681818181818" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-55.80638671875,14.536221590909,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS phu_city\Import from public_health_unit To phu_city.Paths[Lookup Match Output]"
-          TopLeft="392,523.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-97.454545454546,50"
-              Start="0,0"
-              End="-97.454545454546,42.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21"
-                    Point2="0,25"
-                    Point3="-4,25" />
-                  <mssgle:LineSegment
-                    End="-93.454545454546,25" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-93.454545454546,25"
-                    Point2="-97.454545454546,25"
-                    Point3="-97.454545454546,29" />
-                  <mssgle:LineSegment
-                    End="-97.454545454546,42.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-96.918659446023,30,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS phu_city\Import from public_health_unit To phu_city.Paths[Derived Column Output3]"
-          TopLeft="391.545454545455,199.045454545455">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,27.954545454545"
-              Start="0,0"
-              End="0,20.454545454545">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.454545454545" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS phu_city\Import from public_health_unit To phu_city.Paths[Derived Column Output2]"
-          TopLeft="600.670454545455,616.772727272728">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,33.727272727272"
-              Start="0,0"
-              End="0,26.227272727272">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.227272727272" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS phu_city\Import from public_health_unit To phu_city.Paths[Derived Column Output1]"
-          TopLeft="291.068181818182,615.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,41.2727272727273"
-              Start="0,0"
-              End="0,33.7727272727273">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,33.7727272727273" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS phu_city\Import from public_health_unit To phu_city.Paths[Derived Column Output]"
-          TopLeft="390.75,119.045454545455">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,37.9999999999998"
-              Start="0,0"
-              End="0,30.4999999999998">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.4999999999998" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\NDS phu_city\Import from public_health_unit To phu_city.Paths[Conditional Split Default Output]"
-          TopLeft="391.045454545455,269">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,42.227272727273"
-              Start="0,0"
-              End="0,34.727272727273">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.727272727273" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-70.61390625,11.5345348011365,141.2278125,11.658203125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\NDS phu_city\Import from public_health_unit To phu_city\Insert new phu_city into phu_group_nds">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\NDS phu_city\Import from public_health_unit To phu_city\Load Public_health_unit">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By PG_SourceID">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[phu_city]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\NDS phu_city\Import from public_health_unit To phu_city\Lookup id In phu_city By SourceID">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[phu_city]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
