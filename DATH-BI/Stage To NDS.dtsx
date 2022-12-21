@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="265"
-  DTS:VersionGUID="{745B6A23-0ECD-44F8-A393-0AE2EDFDC5C0}">
+  DTS:VersionBuild="271"
+  DTS:VersionGUID="{6274EA21-CC71-4C68-AF9E-6FBFEEFE8221}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -3801,7 +3801,8 @@ where [refTable].[reporting_phu] = ?</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from case_report
+where outcome != 'Not Resolved'</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -3818,7 +3819,7 @@ where [refTable].[reporting_phu] = ?</property>
                       dataType="System.Int32"
                       description="Specifies the mode used to access the database."
                       name="AccessMode"
-                      typeConverter="AccessMode">0</property>
+                      typeConverter="AccessMode">2</property>
                     <property
                       dataType="System.String"
                       description="The mappings between the parameters in the SQL command and variables."
@@ -4420,7 +4421,7 @@ where [refTable].[ak_city_name] = ?</property>
                       dataType="System.Int32"
                       description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
                       name="NoMatchBehavior"
-                      typeConverter="LookupNoMatchBehavior">0</property>
+                      typeConverter="LookupNoMatchBehavior">1</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
@@ -4490,7 +4491,6 @@ where [refTable].[ak_city_name] = ?</property>
                     <output
                       refId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_city_id in phu_city_nds.Outputs[Lookup Match Output]"
                       errorOrTruncationOperation="Lookup"
-                      errorRowDisposition="IgnoreFailure"
                       exclusionGroup="1"
                       name="Lookup Match Output"
                       synchronousInputId="Package\NDS Case_report\Import from Stage To NDS\Lookup phu_city_id in phu_city_nds.Inputs[Lookup Input]">
@@ -5798,14 +5798,14 @@ where [refTable].[reporting_phu] = ? and [refTable].[reporting_phu_address] = ? 
                   startId="Package\NDS Case_report\Import from Stage To NDS\Delete NULL patention_id.Outputs[Conditional Split Default Output]" />
                 <path
                   refId="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output4]"
-                  endId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input]"
+                  endId="Package\NDS Case_report\Import from Stage To NDS\check outbreak_related.Inputs[Conditional Split Input]"
                   name="Derived Column Output"
-                  startId="Package\NDS Case_report\Import from Stage To NDS\Derived Update_at.Outputs[Derived Column Output]" />
+                  startId="Package\NDS Case_report\Import from Stage To NDS\Change blank value in outbreak_related to no.Outputs[Derived Column Output]" />
                 <path
                   refId="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output3]"
-                  endId="Package\NDS Case_report\Import from Stage To NDS\check outcome.Inputs[Conditional Split Input]"
+                  endId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input]"
                   name="Derived Column Output"
-                  startId="Package\NDS Case_report\Import from Stage To NDS\Remove all empty string.Outputs[Derived Column Output]" />
+                  startId="Package\NDS Case_report\Import from Stage To NDS\Derived created_at, update_at.Outputs[Derived Column Output]" />
                 <path
                   refId="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output2]"
                   endId="Package\NDS Case_report\Import from Stage To NDS\Remove all empty string.Inputs[Derived Column Input]"
@@ -5813,14 +5813,14 @@ where [refTable].[reporting_phu] = ? and [refTable].[reporting_phu_address] = ? 
                   startId="Package\NDS Case_report\Import from Stage To NDS\Derived SourceID.Outputs[Derived Column Output]" />
                 <path
                   refId="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output1]"
-                  endId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input]"
+                  endId="Package\NDS Case_report\Import from Stage To NDS\check outcome.Inputs[Conditional Split Input]"
                   name="Derived Column Output"
-                  startId="Package\NDS Case_report\Import from Stage To NDS\Derived created_at, update_at.Outputs[Derived Column Output]" />
+                  startId="Package\NDS Case_report\Import from Stage To NDS\Remove all empty string.Outputs[Derived Column Output]" />
                 <path
                   refId="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output]"
-                  endId="Package\NDS Case_report\Import from Stage To NDS\check outbreak_related.Inputs[Conditional Split Input]"
+                  endId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input]"
                   name="Derived Column Output"
-                  startId="Package\NDS Case_report\Import from Stage To NDS\Change blank value in outbreak_related to no.Outputs[Derived Column Output]" />
+                  startId="Package\NDS Case_report\Import from Stage To NDS\Derived Update_at.Outputs[Derived Column Output]" />
                 <path
                   refId="Package\NDS Case_report\Import from Stage To NDS.Paths[Lookup Match Output]"
                   endId="Package\NDS Case_report\Import from Stage To NDS\Derived Update_at.Inputs[Derived Column Input]"
@@ -14368,6 +14368,13 @@ where [refTable].[ak_phu_id] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <AnnotationLayout
+          Text="ZZZZ"
+          ParentId="Package\NDS Case_detail"
+          FontInfo="{assembly:Null}"
+          Size="56,60"
+          Id="cab956c0-10d2-4dae-bb06-ac7cde36e81c"
+          TopLeft="103.666666666667,5.5" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -14816,9 +14823,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-30.5551171875,8.37841796875,61.110234375,11.2431640625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14840,9 +14845,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-30.51849609375,15.62841796875,61.0369921875,11.2431640625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14877,7 +14880,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="23.1241688368055,19.2194530979577,151.3834765625,11.609375"
+              BoundingBox="23.1241688368055,19.2194530979577,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -14901,7 +14904,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-83.24173828125,15.0316069162437,166.4834765625,11.609375"
+              BoundingBox="-83.24173828125,15.0316069162437,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -14937,7 +14940,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-168.005627170139,20,166.4834765625,11.609375"
+              BoundingBox="-168.005627170139,20,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -14960,9 +14963,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-30.5551171875,11.0935361412633,61.110234375,11.2431640625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14984,9 +14985,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-30.5551171875,13.7882997962367,61.110234375,11.2431640625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -15008,9 +15007,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-15.45359375,13.4102647569446,30.9071875,9.568359375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -15032,9 +15029,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-30.26947265625,9.7117513020833,60.5389453125,11.2431640625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -15057,7 +15052,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-70.61390625,13.6708984375,211.328515625,11.658203125"
+              BoundingBox="-70.61390625,13.6708984375,141.2278125,11.658203125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -15081,7 +15076,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-50.6692578125,14.1147900895282,101.338515625,11.609375"
+              BoundingBox="-50.6692578125,14.1147900895282,30.436171875,9.5537109375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -15105,7 +15100,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-50.6692578125,13.1538262085138,101.338515625,11.609375"
+              BoundingBox="-50.6692578125,13.1538262085138,30.436171875,9.5537109375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -15129,7 +15124,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-50.6692578125,14.1366310827999,101.338515625,11.609375"
+              BoundingBox="-50.6692578125,14.1366310827999,30.436171875,9.5537109375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -15153,7 +15148,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-50.6692578125,13.9901050283111,101.338515625,11.609375"
+              BoundingBox="-50.6692578125,13.9901050283111,30.436171875,9.5537109375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -15328,9 +15323,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-15.45359375,6.4658203125,30.9071875,9.568359375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -15352,9 +15345,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-15.45359375,8.18804253472215,30.9071875,9.568359375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -15389,7 +15380,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="33.8880577256945,20.6310842564619,151.3834765625,11.609375"
+              BoundingBox="33.8880577256945,20.6310842564619,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -15413,7 +15404,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,11.211308372033,136.1534765625,11.609375"
+              BoundingBox="-48.19138671875,11.211308372033,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -15437,7 +15428,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,14.8762863249367,136.1534765625,11.609375"
+              BoundingBox="-48.19138671875,14.8762863249367,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -15473,56 +15464,52 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-134.496942274305,26.3055555555555,136.1534765625,11.609375"
+              BoundingBox="-134.496942274305,26.3055555555555,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output4]"
-          TopLeft="187.638888888889,1112.38888888889">
+          TopLeft="358.472222222222,706.482703019641">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,34.5"
+              EndConnector="0,26.0122464753073"
               Start="0,0"
-              End="0,27">
+              End="0,18.5122464753073">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27" />
+                    End="0,18.5122464753073" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-15.45359375,8.7158203125,30.9071875,9.568359375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output3]"
-          TopLeft="351.988761662426,344.663916391639">
+          TopLeft="570.638888888889,1108.38888888889">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,32.391639163916"
+              EndConnector="0,41.9999999999998"
               Start="0,0"
-              End="0,24.891639163916">
+              End="0,34.4999999999998">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.891639163916" />
+                    End="0,34.4999999999998" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-15.45359375,7.661639894458,30.9071875,9.568359375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -15544,57 +15531,51 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-15.45359375,6.7144451749863,30.9071875,9.568359375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output1]"
-          TopLeft="570.638888888889,1108.38888888889">
+          TopLeft="351.988761662426,344.663916391639">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,41.9999999999998"
+              EndConnector="0,32.391639163916"
               Start="0,0"
-              End="0,34.4999999999998">
+              End="0,24.891639163916">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.4999999999998" />
+                    End="0,24.891639163916" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-15.45359375,12.4658203124999,30.9071875,9.568359375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output]"
-          TopLeft="358.472222222222,706.482703019641">
+          TopLeft="187.638888888889,1112.38888888889">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,26.0122464753073"
+              EndConnector="0,34.5"
               Start="0,0"
-              End="0,18.5122464753073">
+              End="0,27">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.5122464753073" />
+                    End="0,27" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-15.45359375,4.47194355015365,30.9071875,9.568359375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -15617,7 +15598,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-70.61390625,10.7542317708333,180.998515625,11.658203125"
+              BoundingBox="-70.61390625,10.7542317708333,141.2278125,11.658203125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -15641,7 +15622,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-15.2180859375,9.47314453125,71.008515625,11.609375"
+              BoundingBox="-15.2180859375,9.47314453125,30.436171875,9.5537109375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -15665,7 +15646,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-15.2180859375,5.97314453125,71.008515625,11.609375"
+              BoundingBox="-15.2180859375,5.97314453125,30.436171875,9.5537109375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -15689,7 +15670,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-15.2180859375,5.22314453125,71.008515625,11.609375"
+              BoundingBox="-15.2180859375,5.22314453125,30.436171875,9.5537109375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -15713,7 +15694,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-15.2180859375,9.9175889756945,71.008515625,11.609375"
+              BoundingBox="-15.2180859375,9.9175889756945,30.436171875,9.5537109375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -15737,7 +15718,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-15.2180859375,4.9367182632933,71.008515625,11.609375"
+              BoundingBox="-15.2180859375,4.9367182632933,30.436171875,9.5537109375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -15916,7 +15897,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,10.4453125,161.0234765625,11.609375"
+              BoundingBox="-48.19138671875,10.4453125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -15939,9 +15920,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-27.78849609375,6.92387251420455,55.5769921875,11.2431640625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -15963,9 +15942,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-27.78849609375,11.8199764103084,55.5769921875,11.2431640625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -15987,9 +15964,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-27.78849609375,6.61867770900975,55.5769921875,11.2431640625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16011,9 +15986,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-27.78849609375,8.12841796875,55.5769921875,11.2431640625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16035,9 +16008,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-15.45359375,10.4059611575705,30.9071875,9.568359375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16060,7 +16031,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-70.61390625,7.7820095486111,205.868515625,11.658203125"
+              BoundingBox="-70.61390625,7.7820095486111,141.2278125,11.658203125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -16084,7 +16055,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-15.2180859375,14.5564778645833,95.878515625,11.609375"
+              BoundingBox="-15.2180859375,14.5564778645833,30.436171875,9.5537109375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -16107,9 +16078,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-27.78849609375,6.7067007970328,55.5769921875,11.2431640625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16131,9 +16100,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-27.78849609375,7.46175130208335,55.5769921875,11.2431640625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16168,7 +16135,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="11.94361328125,33.2456140350877,151.3834765625,11.609375"
+              BoundingBox="11.94361328125,33.2456140350877,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -16204,7 +16171,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-114.94138671875,32.8421052631579,161.0234765625,11.609375"
+              BoundingBox="-114.94138671875,32.8421052631579,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -16360,7 +16327,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="21.4115950520835,30.9364731653888,156.8434765625,11.609375"
+              BoundingBox="21.4115950520835,30.9364731653888,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -16384,7 +16351,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-70.80673828125,14.742015796703,141.6134765625,11.609375"
+              BoundingBox="-70.80673828125,14.742015796703,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -16443,9 +16410,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-18.1494140625,3.21337890625,36.298828125,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16467,9 +16432,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16491,9 +16454,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-18.1494140625,7.32459563628805,36.298828125,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16516,7 +16477,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-93.2292578125,2.4208984375,186.458515625,11.658203125"
+              BoundingBox="-93.2292578125,2.4208984375,141.2278125,11.658203125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -16539,9 +16500,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-18.1494140625,4.309532752404,36.298828125,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16563,9 +16522,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-18.1494140625,10.96337890625,36.298828125,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -16716,7 +16673,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-149.55673828125,25.6260387811635,141.6134765625,11.609375"
+              BoundingBox="-126.94138671875,25.6260387811635,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -16739,9 +16696,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-18.1494140625,5.21337890625,36.298828125,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16763,9 +16718,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-17.83447265625,13.46337890625,35.6689453125,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16787,9 +16740,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16812,7 +16763,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-93.2292578125,2.9208984375,186.458515625,11.658203125"
+              BoundingBox="-70.61390625,2.9208984375,141.2278125,11.658203125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -16835,9 +16786,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-17.83447265625,6.21337890625,35.6689453125,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -16859,9 +16808,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-18.1494140625,9.46337890625,36.298828125,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17016,9 +16963,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-18.1494140625,7.71337890625,36.298828125,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17040,9 +16985,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-18.1494140625,4.5573726660004,36.298828125,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17101,7 +17044,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-70.80673828125,12.9453125,141.6134765625,11.609375"
+              BoundingBox="-48.19138671875,12.9453125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -17137,7 +17080,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-158.30673828125,26.0632911392405,141.6134765625,11.609375"
+              BoundingBox="-135.69138671875,26.0632911392405,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -17160,9 +17103,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17184,9 +17125,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-18.1494140625,13.96337890625,36.298828125,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17208,9 +17147,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-18.1494140625,7.46337890625,36.298828125,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17233,7 +17170,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-93.2292578125,5.0769046777496,186.458515625,11.658203125"
+              BoundingBox="-70.61390625,5.0769046777496,141.2278125,11.658203125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
