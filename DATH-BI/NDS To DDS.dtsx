@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="380"
-  DTS:VersionGUID="{7F30B0D9-8919-49F8-9A7F-C862ECC36F2E}">
+  DTS:VersionBuild="395"
+  DTS:VersionGUID="{D4E752BB-3A8F-458B-B884-B9CA8A8618A9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -13224,49 +13224,49 @@ where [refTable].[year] = ?</property>
                   startId="Package\fact_case_amount\fact_case_amount\Check case_status.Outputs[Fatal]" />
                 <path
                   refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output8]"
-                  endId="Package\fact_case_amount\fact_case_amount\Lookup id_case.Inputs[Lookup Input]"
-                  name="Lookup Match Output"
-                  startId="Package\fact_case_amount\fact_case_amount\Lookup id_gender_age.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output7]"
-                  endId="Package\fact_case_amount\fact_case_amount\Lookup id_day.Inputs[Lookup Input]"
-                  name="Lookup Match Output"
-                  startId="Package\fact_case_amount\fact_case_amount\Lookup id_month.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output6]"
-                  endId="Package\fact_case_amount\fact_case_amount\Lookup id in fact_case_amount.Inputs[Lookup Input]"
-                  name="Lookup Match Output"
-                  startId="Package\fact_case_amount\fact_case_amount\Lookup id_case.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output5]"
-                  endId="Package\fact_case_amount\fact_case_amount\Lookup ak_phu_id from phu.Inputs[Lookup Input]"
-                  name="Lookup Match Output"
-                  startId="Package\fact_case_amount\fact_case_amount\Lookup id_day.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output3]"
                   endId="Package\fact_case_amount\fact_case_amount\Check status.Inputs[Conditional Split Input]"
                   name="Lookup Match Output"
                   startId="Package\fact_case_amount\fact_case_amount\Lookup id in fact_case_amount.Outputs[Lookup Match Output]" />
                 <path
-                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output2]"
+                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output7]"
+                  endId="Package\fact_case_amount\fact_case_amount\Lookup id_case.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\fact_case_amount\fact_case_amount\Lookup id_gender_age.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output6]"
+                  endId="Package\fact_case_amount\fact_case_amount\Lookup id_day.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\fact_case_amount\fact_case_amount\Lookup id_month.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output5]"
+                  endId="Package\fact_case_amount\fact_case_amount\Lookup id in fact_case_amount.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\fact_case_amount\fact_case_amount\Lookup id_case.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output3]"
                   endId="Package\fact_case_amount\fact_case_amount\Lookup id_quarter.Inputs[Lookup Input]"
                   name="Lookup Match Output"
                   startId="Package\fact_case_amount\fact_case_amount\Lookup id_year.Outputs[Lookup Match Output]" />
                 <path
-                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output1]"
+                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output2]"
                   endId="Package\fact_case_amount\fact_case_amount\Lookup id_month.Inputs[Lookup Input]"
                   name="Lookup Match Output"
                   startId="Package\fact_case_amount\fact_case_amount\Lookup id_quarter.Outputs[Lookup Match Output]" />
                 <path
-                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output]"
+                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output1]"
                   endId="Package\fact_case_amount\fact_case_amount\Lookup id_phu.Inputs[Lookup Input]"
                   name="Lookup Match Output"
                   startId="Package\fact_case_amount\fact_case_amount\Lookup ak_phu_id from phu.Outputs[Lookup Match Output]" />
                 <path
-                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output4]"
+                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output]"
                   endId="Package\fact_case_amount\fact_case_amount\Lookup id_gender_age.Inputs[Lookup Input]"
                   name="Lookup Match Output"
                   startId="Package\fact_case_amount\fact_case_amount\Lookup id_phu.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output4]"
+                  endId="Package\fact_case_amount\fact_case_amount\Lookup ak_phu_id from phu.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\fact_case_amount\fact_case_amount\Lookup id_day.Outputs[Lookup Match Output]" />
                 <path
                   refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup No Match Output]"
                   endId="Package\fact_case_amount\fact_case_amount\Check case_status.Inputs[Conditional Split Input]"
@@ -17161,24 +17161,24 @@ where [refTable].[source_id] = ? and [refTable].[age_group] = ?</property>
                   startId="Package\fact_ontario_case\fact_ontario_case\Check case_status.Outputs[Deceased]" />
                 <path
                   refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output10]"
+                  endId="Package\fact_ontario_case\fact_ontario_case\Check Status.Inputs[Conditional Split Input]"
+                  name="Lookup Match Output"
+                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output9]"
                   endId="Package\fact_ontario_case\fact_ontario_case\Lookup id_exposure.Inputs[Lookup Input]"
                   name="Lookup Match Output"
                   startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_phu.Outputs[Lookup Match Output]" />
                 <path
-                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output9]"
+                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output8]"
                   endId="Package\fact_ontario_case\fact_ontario_case\Lookup id_object.Inputs[Lookup Input]"
                   name="Lookup Match Output"
                   startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_exposure.Outputs[Lookup Match Output]" />
                 <path
-                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output8]"
+                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output7]"
                   endId="Package\fact_ontario_case\fact_ontario_case\Lookup id_gender.Inputs[Lookup Input]"
                   name="Lookup Match Output"
                   startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_object.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output7]"
-                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup_id_age_group.Inputs[Lookup Input]"
-                  name="Lookup Match Output"
-                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_gender.Outputs[Lookup Match Output]" />
                 <path
                   refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output6]"
                   endId="Package\fact_ontario_case\fact_ontario_case\Lookup id_quarter.Inputs[Lookup Input]"
@@ -17186,9 +17186,9 @@ where [refTable].[source_id] = ? and [refTable].[age_group] = ?</property>
                   startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_year.Outputs[Lookup Match Output]" />
                 <path
                   refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output3]"
-                  endId="Package\fact_ontario_case\fact_ontario_case\Check Status.Inputs[Conditional Split Input]"
+                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup id_month.Inputs[Lookup Input]"
                   name="Lookup Match Output"
-                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id.Outputs[Lookup Match Output]" />
+                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_quarter.Outputs[Lookup Match Output]" />
                 <path
                   refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output4]"
                   endId="Package\fact_ontario_case\fact_ontario_case\Lookup id_phu.Inputs[Lookup Input]"
@@ -17196,24 +17196,24 @@ where [refTable].[source_id] = ? and [refTable].[age_group] = ?</property>
                   startId="Package\fact_ontario_case\fact_ontario_case\Lookup ak_phu_id from phu.Outputs[Lookup Match Output]" />
                 <path
                   refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output2]"
-                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup id_month.Inputs[Lookup Input]"
-                  name="Lookup Match Output"
-                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_quarter.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output1]"
                   endId="Package\fact_ontario_case\fact_ontario_case\Lookup id_day.Inputs[Lookup Input]"
                   name="Lookup Match Output"
                   startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_month.Outputs[Lookup Match Output]" />
                 <path
-                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output]"
+                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output1]"
                   endId="Package\fact_ontario_case\fact_ontario_case\Lookup ak_phu_id from phu.Inputs[Lookup Input]"
                   name="Lookup Match Output"
                   startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_day.Outputs[Lookup Match Output]" />
                 <path
-                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output5]"
+                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output]"
                   endId="Package\fact_ontario_case\fact_ontario_case\Lookup id.Inputs[Lookup Input]"
                   name="Lookup Match Output"
                   startId="Package\fact_ontario_case\fact_ontario_case\Lookup_id_age_group.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output5]"
+                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup_id_age_group.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_gender.Outputs[Lookup Match Output]" />
                 <path
                   refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup No Match Output]"
                   endId="Package\fact_ontario_case\fact_ontario_case\Check case_status.Inputs[Conditional Split Input]"
@@ -23380,12 +23380,12 @@ where [refTable].[year] = ?</property>
               <components>
                 <component
                   refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert"
-                  componentClassID="Microsoft.OLEDBDestination"
-                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-                  description="OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
                   name="Insert"
                   usesDispositions="true"
-                  version="4">
+                  version="2">
                   <properties>
                     <property
                       dataType="System.Int32"
@@ -23393,46 +23393,38 @@ where [refTable].[year] = ?</property>
                       name="CommandTimeout">0</property>
                     <property
                       dataType="System.String"
-                      description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dbo].[fact_vaccination_amount]</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable that contains the name of the database object used to open a rowset."
-                      name="OpenRowsetVariable"></property>
-                    <property
-                      dataType="System.String"
                       description="The SQL command to be executed."
+                      expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">declare @day int = ?
+  declare @phu int = ?
+  declare @vaccination_amount int = ?
+  declare @age_group int = ?
+
+  declare @day_prev int 
+  
+  select @day_prev = id_day
+  from [fact_vaccination_amount] 
+  where id_phu=@phu 
+	and id_age_group=@age_group 
+	and id_day &gt;= any (select id_day from [fact_vaccination_amount]  where id_phu=@phu and id_age_group=@age_group)
+
+  if @day_prev is NULL
+  begin
+	insert into [fact_vaccination_amount]([id_phu],[id_day],[id_age_group],[vaccination_amount]) values(@phu,@day,@age_group,@vaccination_amount)
+	return
+  end 
+  
+  if(@day &gt;= @day_prev)
+  begin
+	declare @amount int = @vaccination_amount - (select sum(vaccination_amount) from [fact_vaccination_amount]  where id_phu=@phu and id_age_group=@age_group)
+	if(@amount &lt; 0) set @amount = 0
+	insert into [fact_vaccination_amount]([id_phu],[id_day],[id_age_group],[vaccination_amount]) values(@phu,@day,@age_group,@amount)
+  end</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
                       name="DefaultCodePage">1252</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Forces the use of the DefaultCodePage property value when describing character data."
-                      name="AlwaysUseDefaultCodePage">false</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the mode used to access the database."
-                      name="AccessMode"
-                      typeConverter="AccessMode">3</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepIdentity">false</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepNulls">false</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                      name="FastLoadMaxInsertCommitSize">2147483647</property>
                   </properties>
                   <connections>
                     <connection
@@ -23444,76 +23436,111 @@ where [refTable].[year] = ?</property>
                   </connections>
                   <inputs>
                     <input
-                      refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Destination Input]"
-                      errorOrTruncationOperation="Insert"
+                      refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Command Input]"
+                      errorOrTruncationOperation="Command Execution"
                       errorRowDisposition="FailComponent"
                       hasSideEffects="true"
-                      name="OLE DB Destination Input">
+                      name="OLE DB Command Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Destination Input].Columns[id_day]"
+                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Command Input].Columns[id_day]"
                           cachedDataType="i4"
                           cachedName="id_day"
-                          externalMetadataColumnId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Destination Input].ExternalColumns[id_day]"
+                          externalMetadataColumnId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                           lineageId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_day.Outputs[Lookup Match Output].Columns[id_day]" />
                         <inputColumn
-                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Destination Input].Columns[id_phu]"
+                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Command Input].Columns[id_phu]"
                           cachedDataType="i4"
                           cachedName="id_phu"
-                          externalMetadataColumnId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Destination Input].ExternalColumns[id_phu]"
+                          externalMetadataColumnId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                           lineageId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_phu.Outputs[Lookup Match Output].Columns[id_phu]" />
                         <inputColumn
-                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Destination Input].Columns[at_least_one_dose]"
+                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Command Input].Columns[at_least_one_dose]"
                           cachedDataType="i4"
                           cachedName="at_least_one_dose"
-                          externalMetadataColumnId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Destination Input].ExternalColumns[vaccination_amount]"
+                          externalMetadataColumnId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
                           lineageId="Package\fact_vaccination_amount\fact_vaccination_amount\Load vaccination.Outputs[OLE DB Source Output].Columns[at_least_one_dose]" />
                         <inputColumn
-                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Destination Input].Columns[id_age_group]"
+                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Command Input].Columns[id_age_group]"
                           cachedDataType="i4"
                           cachedName="id_age_group"
-                          externalMetadataColumnId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Destination Input].ExternalColumns[id_age_group]"
+                          externalMetadataColumnId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                           lineageId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_age_group.Outputs[Lookup Match Output].Columns[id_age_group]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Destination Input].ExternalColumns[id_phu]"
+                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                           dataType="i4"
-                          name="id_phu" />
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
                         <externalMetadataColumn
-                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Destination Input].ExternalColumns[id_day]"
+                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                           dataType="i4"
-                          name="id_day" />
+                          name="Param_1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
                         <externalMetadataColumn
-                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Destination Input].ExternalColumns[vaccination_amount]"
+                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
                           dataType="i4"
-                          name="vaccination_amount" />
+                          name="Param_2">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
                         <externalMetadataColumn
-                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Destination Input].ExternalColumns[id_age_group]"
+                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                           dataType="i4"
-                          name="id_age_group" />
+                          name="Param_3">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
                       </externalMetadataColumns>
                     </input>
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Outputs[OLE DB Destination Error Output]"
+                      refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Outputs[OLE DB Command Output]"
+                      exclusionGroup="1"
+                      name="OLE DB Command Output"
+                      synchronousInputId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Command Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Outputs[OLE DB Command Error Output]"
                       exclusionGroup="1"
                       isErrorOut="true"
-                      name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Destination Input]">
+                      name="OLE DB Command Error Output"
+                      synchronousInputId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Command Input]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          lineageId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          refId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          lineageId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -25265,7 +25292,7 @@ where [refTable].[year] = ?</property>
                   startId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_phu.Outputs[Lookup Match Output]" />
                 <path
                   refId="Package\fact_vaccination_amount\fact_vaccination_amount.Paths[Lookup No Match Output]"
-                  endId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Destination Input]"
+                  endId="Package\fact_vaccination_amount\fact_vaccination_amount\Insert.Inputs[OLE DB Command Input]"
                   name="Lookup No Match Output"
                   startId="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id.Outputs[Lookup No Match Output]" />
                 <path
@@ -30052,126 +30079,6 @@ where [refTable].[year] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output8]"
-          TopLeft="227.472222222222,244.112352820372">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="92.8888888888889,0"
-              Start="0,0"
-              End="85.3888888888889,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="85.3888888888889,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-5.49694227430555,5,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output7]"
-          TopLeft="780.583333333333,155.777777777778">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-70.2222222222224,0"
-              Start="0,0"
-              End="-62.7222222222224,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-62.7222222222224,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-79.5524978298612,5,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output6]"
-          TopLeft="471.361111111111,240.423881673882">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="101.063492063492,0"
-              Start="0,0"
-              End="93.563492063492,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="93.563492063492,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-1.409640687004,5,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output5]"
-          TopLeft="563.361111111111,158.222222222222">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-54.7777777777776,0"
-              Start="0,0"
-              End="-47.2777777777776,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-47.2777777777776,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-71.8302756076388,5,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output4]"
-          TopLeft="133.138888888889,182.388888888889">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,41.6944026104414"
-              Start="0,0"
-              End="0,34.1944026104414">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.1944026104414" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,11.2925138052207,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output3]"
           TopLeft="798.424603174603,237.65873015873">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -30195,7 +30102,103 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output2]"
+          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output7]"
+          TopLeft="227.472222222222,244.112352820372">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="92.8888888888889,0"
+              Start="0,0"
+              End="85.3888888888889,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="85.3888888888889,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-5.49694227430555,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output6]"
+          TopLeft="780.583333333333,155.777777777778">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-70.2222222222224,0"
+              Start="0,0"
+              End="-62.7222222222224,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-62.7222222222224,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-79.5524978298612,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output5]"
+          TopLeft="471.361111111111,240.423881673882">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="101.063492063492,0"
+              Start="0,0"
+              End="93.563492063492,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="93.563492063492,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-1.409640687004,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output4]"
+          TopLeft="563.361111111111,158.222222222222">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-54.7777777777776,0"
+              Start="0,0"
+              End="-47.2777777777776,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-47.2777777777776,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-71.8302756076388,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output3]"
           TopLeft="723.916666666667,70.5238095238095">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -30219,7 +30222,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output1]"
+          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output2]"
           TopLeft="862.72619047619,98.2142857142857">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -30243,7 +30246,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output]"
+          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output1]"
           TopLeft="296.583333333333,159.888888888889">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -30263,6 +30266,30 @@ where [refTable].[year] = ?</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-89.8302756076389,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output]"
+          TopLeft="133.138888888889,182.388888888889">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.6944026104414"
+              Start="0,0"
+              End="0,34.1944026104414">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.1944026104414" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,11.2925138052207,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -30830,6 +30857,30 @@ where [refTable].[year] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output10]"
+          TopLeft="490.166666666667,337.944444444446">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-54.7777777777777,0"
+              Start="0,0"
+              End="-47.2777777777777,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-47.2777777777777,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-71.8302756076389,5,136.1534765625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output9]"
           TopLeft="589.833333333333,241.681818181818">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -30853,7 +30904,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output9]"
+          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output8]"
           TopLeft="841.833333333333,238.959595959596">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -30877,7 +30928,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output8]"
+          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output7]"
           TopLeft="958.222222222222,260.055555555556">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -30897,30 +30948,6 @@ where [refTable].[year] = ?</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-48.19138671875,19.5008680555556,136.1534765625,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output7]"
-          TopLeft="874.833333333333,338.277777777778">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-32.888888888889,0"
-              Start="0,0"
-              End="-25.388888888889,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-25.388888888889,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-60.8858311631945,5,136.1534765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -30950,25 +30977,25 @@ where [refTable].[year] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output5]"
-          TopLeft="658.944444444444,337.833333333335">
+          TopLeft="874.833333333333,338.277777777778">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-43.7777777777778,0"
+              EndConnector="-32.888888888889,0"
               Start="0,0"
-              End="-36.2777777777778,0">
+              End="-25.388888888889,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-36.2777777777778,0" />
+                    End="-25.388888888889,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-66.3302756076389,5,155.5634765625,11.609375"
+              BoundingBox="-60.8858311631945,5,136.1534765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -30998,30 +31025,6 @@ where [refTable].[year] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output3]"
-          TopLeft="490.166666666667,337.944444444446">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-54.7777777777777,0"
-              Start="0,0"
-              End="-47.2777777777777,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-47.2777777777777,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-71.8302756076389,5,136.1534765625,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output2]"
           TopLeft="958,89.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -31045,7 +31048,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output1]"
+          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output2]"
           TopLeft="879.5,147.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -31069,7 +31072,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output]"
+          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output1]"
           TopLeft="671.5,151.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -31089,6 +31092,30 @@ where [refTable].[year] = ?</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-102.365071614583,5,155.5634765625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output]"
+          TopLeft="658.944444444444,337.833333333335">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-43.7777777777778,0"
+              Start="0,0"
+              End="-36.2777777777778,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-36.2777777777778,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-66.3302756076389,5,155.5634765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -32404,49 +32431,91 @@ where [refTable].[year] = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="181,42"
-          Id="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_age_group"
-          TopLeft="219.5,171.5" />
-        <NodeLayout
-          Size="147,42"
-          Id="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_day"
-          TopLeft="550.5,175.5" />
-        <NodeLayout
-          Size="212,42"
-          Id="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup ak_phu_id from phu"
-          TopLeft="196.5,262.5" />
-        <NodeLayout
-          Size="161,42"
-          Id="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_month"
-          TopLeft="809.5,179.5" />
-        <NodeLayout
-          Size="157,42"
-          Id="Package\fact_vaccination_amount\fact_vaccination_amount\Load vaccination"
-          TopLeft="21,85.5" />
-        <NodeLayout
-          Size="226,42"
-          Id="Package\fact_vaccination_amount\fact_vaccination_amount\YEAR, QUARTER, MONTH, DAY"
-          TopLeft="205.5,85.5" />
-        <NodeLayout
           Size="165,42"
           Id="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_quarter"
           TopLeft="806.5,88.5" />
-        <NodeLayout
-          Size="125,42"
-          Id="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id"
-          TopLeft="822.222222222222,265.81746031746" />
-        <NodeLayout
-          Size="107,42"
-          Id="Package\fact_vaccination_amount\fact_vaccination_amount\Insert"
-          TopLeft="1064.81060606061,266.960678210681" />
         <NodeLayout
           Size="148,42"
           Id="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_phu"
           TopLeft="541.5,266.5" />
         <NodeLayout
+          Size="125,42"
+          Id="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id"
+          TopLeft="822.222222222222,265.81746031746" />
+        <NodeLayout
           Size="151,42"
           Id="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_year"
           TopLeft="552.5,92.5" />
+        <NodeLayout
+          Size="181,42"
+          Id="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_age_group"
+          TopLeft="219.5,171.5" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\fact_vaccination_amount\fact_vaccination_amount\Load vaccination"
+          TopLeft="21,85.5" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_month"
+          TopLeft="809.5,179.5" />
+        <NodeLayout
+          Size="212,42"
+          Id="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup ak_phu_id from phu"
+          TopLeft="196.5,262.5" />
+        <NodeLayout
+          Size="147,42"
+          Id="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_day"
+          TopLeft="550.5,175.5" />
+        <NodeLayout
+          Size="226,42"
+          Id="Package\fact_vaccination_amount\fact_vaccination_amount\YEAR, QUARTER, MONTH, DAY"
+          TopLeft="205.5,85.5" />
+        <EdgeLayout
+          Id="Package\fact_vaccination_amount\fact_vaccination_amount.Paths[OLE DB Source Output]"
+          TopLeft="178,106.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27.5,0"
+              Start="0,0"
+              End="20,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="20,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\fact_vaccination_amount\fact_vaccination_amount.Paths[Lookup Match Output6]"
+          TopLeft="689.5,287.15873015873">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="132.722222222222,0"
+              Start="0,0"
+              End="125.222222222222,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="125.222222222222,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="14.419724392361,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\fact_vaccination_amount\fact_vaccination_amount.Paths[Lookup Match Output5]"
           TopLeft="408.5,285.5">
@@ -32613,179 +32682,37 @@ where [refTable].[year] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\fact_vaccination_amount\fact_vaccination_amount.Paths[OLE DB Source Output]"
-          TopLeft="178,106.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="27.5,0"
-              Start="0,0"
-              End="20,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="20,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="107,42"
+          Id="Package\fact_vaccination_amount\fact_vaccination_amount\Insert"
+          TopLeft="832.411150385604,371.75" />
         <EdgeLayout
           Id="Package\fact_vaccination_amount\fact_vaccination_amount.Paths[Lookup No Match Output]"
-          TopLeft="947.222222222222,287.38906926407">
+          TopLeft="885.316686303913,307.81746031746">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="117.588383838384,0"
+              EndConnector="0,63.93253968254"
               Start="0,0"
-              End="110.088383838384,0">
+              End="0,56.43253968254">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="110.088383838384,0" />
+                    End="0,56.43253968254" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-0.762194799557996,5,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\fact_vaccination_amount\fact_vaccination_amount.Paths[Lookup Match Output6]"
-          TopLeft="689.5,287.15873015873">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="132.722222222222,0"
-              Start="0,0"
-              End="125.222222222222,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="125.222222222222,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="14.419724392361,5,96.3827734375,11.609375"
+              BoundingBox="-55.80638671875,22.41158234127,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_age_group">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[dim_age_group]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_day">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[dim_day]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup ak_phu_id from phu">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[public_health_unit]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_month">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[dim_month]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\fact_vaccination_amount\fact_vaccination_amount\Load vaccination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_quarter">
     <Properties>
@@ -32798,6 +32725,29 @@ where [refTable].[year] = ?</property>
         <Name>UsedTableName</Name>
         <Value
           type="q3:string">[dbo].[dim_quarter]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_phu">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dim_phu]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -32833,20 +32783,7 @@ where [refTable].[year] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\fact_vaccination_amount\fact_vaccination_amount\Insert">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_phu">
+    design-time-name="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_year">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -32856,7 +32793,7 @@ where [refTable].[year] = ?</property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[dim_phu]</Value>
+          type="q3:string">[dbo].[dim_year]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -32869,7 +32806,7 @@ where [refTable].[year] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_year">
+    design-time-name="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_age_group">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -32879,7 +32816,84 @@ where [refTable].[year] = ?</property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[dim_year]</Value>
+          type="q3:string">[dbo].[dim_age_group]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\fact_vaccination_amount\fact_vaccination_amount\Load vaccination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_month">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dim_month]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup ak_phu_id from phu">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[public_health_unit]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_day">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dim_day]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>

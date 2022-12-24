@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="271"
-  DTS:VersionGUID="{6274EA21-CC71-4C68-AF9E-6FBFEEFE8221}">
+  DTS:VersionBuild="272"
+  DTS:VersionGUID="{FADB0FBB-71B3-453F-9FB9-8F2055946E46}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -5798,14 +5798,14 @@ where [refTable].[reporting_phu] = ? and [refTable].[reporting_phu_address] = ? 
                   startId="Package\NDS Case_report\Import from Stage To NDS\Delete NULL patention_id.Outputs[Conditional Split Default Output]" />
                 <path
                   refId="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output4]"
-                  endId="Package\NDS Case_report\Import from Stage To NDS\check outbreak_related.Inputs[Conditional Split Input]"
+                  endId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input]"
                   name="Derived Column Output"
-                  startId="Package\NDS Case_report\Import from Stage To NDS\Change blank value in outbreak_related to no.Outputs[Derived Column Output]" />
+                  startId="Package\NDS Case_report\Import from Stage To NDS\Derived Update_at.Outputs[Derived Column Output]" />
                 <path
                   refId="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output3]"
-                  endId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input]"
+                  endId="Package\NDS Case_report\Import from Stage To NDS\check outcome.Inputs[Conditional Split Input]"
                   name="Derived Column Output"
-                  startId="Package\NDS Case_report\Import from Stage To NDS\Derived created_at, update_at.Outputs[Derived Column Output]" />
+                  startId="Package\NDS Case_report\Import from Stage To NDS\Remove all empty string.Outputs[Derived Column Output]" />
                 <path
                   refId="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output2]"
                   endId="Package\NDS Case_report\Import from Stage To NDS\Remove all empty string.Inputs[Derived Column Input]"
@@ -5813,14 +5813,14 @@ where [refTable].[reporting_phu] = ? and [refTable].[reporting_phu_address] = ? 
                   startId="Package\NDS Case_report\Import from Stage To NDS\Derived SourceID.Outputs[Derived Column Output]" />
                 <path
                   refId="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output1]"
-                  endId="Package\NDS Case_report\Import from Stage To NDS\check outcome.Inputs[Conditional Split Input]"
+                  endId="Package\NDS Case_report\Import from Stage To NDS\Insert.Inputs[OLE DB Destination Input]"
                   name="Derived Column Output"
-                  startId="Package\NDS Case_report\Import from Stage To NDS\Remove all empty string.Outputs[Derived Column Output]" />
+                  startId="Package\NDS Case_report\Import from Stage To NDS\Derived created_at, update_at.Outputs[Derived Column Output]" />
                 <path
                   refId="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output]"
-                  endId="Package\NDS Case_report\Import from Stage To NDS\Update.Inputs[OLE DB Command Input]"
+                  endId="Package\NDS Case_report\Import from Stage To NDS\check outbreak_related.Inputs[Conditional Split Input]"
                   name="Derived Column Output"
-                  startId="Package\NDS Case_report\Import from Stage To NDS\Derived Update_at.Outputs[Derived Column Output]" />
+                  startId="Package\NDS Case_report\Import from Stage To NDS\Change blank value in outbreak_related to no.Outputs[Derived Column Output]" />
                 <path
                   refId="Package\NDS Case_report\Import from Stage To NDS.Paths[Lookup Match Output]"
                   endId="Package\NDS Case_report\Import from Stage To NDS\Derived Update_at.Inputs[Derived Column Input]"
@@ -14372,7 +14372,7 @@ where [refTable].[ak_phu_id] = ?</property>
           Text="ZZZZ"
           ParentId="Package\NDS Case_detail"
           FontInfo="{assembly:Null}"
-          Size="56,60"
+          Size="56,40"
           Id="cab956c0-10d2-4dae-bb06-ac7cde36e81c"
           TopLeft="103.666666666667,5.5" />
         <ContainerLayout
@@ -15469,7 +15469,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output4]"
+          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output]"
           TopLeft="358.472222222222,706.482703019641">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -15491,7 +15491,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output3]"
+          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output1]"
           TopLeft="570.638888888889,1108.38888888889">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -15535,7 +15535,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output1]"
+          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output3]"
           TopLeft="351.988761662426,344.663916391639">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -15557,7 +15557,7 @@ where [refTable].[ak_phu_id] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output]"
+          Id="Package\NDS Case_report\Import from Stage To NDS.Paths[Derived Column Output4]"
           TopLeft="187.638888888889,1112.38888888889">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -15731,7 +15731,7 @@ where [refTable].[ak_phu_id] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -17325,9 +17325,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17349,9 +17347,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17469,9 +17465,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17493,9 +17487,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17517,9 +17509,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17541,9 +17531,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -17565,9 +17553,7 @@ where [refTable].[ak_phu_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
