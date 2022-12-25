@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="395"
-  DTS:VersionGUID="{D4E752BB-3A8F-458B-B884-B9CA8A8618A9}">
+  DTS:VersionBuild="397"
+  DTS:VersionGUID="{2F6FC235-20D6-4679-ADF3-2108FE4F2AF6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1497,6 +1497,22 @@ where [refTable].[source_id] = ? and [refTable].[age_group] = ?</property>
                           externalMetadataColumnId="Package\dim_case_report\Populate dim case_report\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[id_gender_age]"
                           lineageId="Package\dim_case_report\Populate dim case_report\Lookup id_gender_age In dim_gender_age.Outputs[Lookup Match Output].Columns[id_gender_age]" />
                         <inputColumn
+                          refId="Package\dim_case_report\Populate dim case_report\Insert Destination.Inputs[OLE DB Destination Input].Columns[case_acquistion_info]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="case_acquistion_info"
+                          externalMetadataColumnId="Package\dim_case_report\Populate dim case_report\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[case_acquisition_info]"
+                          lineageId="Package\dim_case_report\Populate dim case_report\Load case_report_NDS.Outputs[OLE DB Source Output].Columns[case_acquistion_info]" />
+                        <inputColumn
+                          refId="Package\dim_case_report\Populate dim case_report\Insert Destination.Inputs[OLE DB Destination Input].Columns[outbreak_related]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="outbreak_related"
+                          externalMetadataColumnId="Package\dim_case_report\Populate dim case_report\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[outbreak_related]"
+                          lineageId="Package\dim_case_report\Populate dim case_report\Load case_report_NDS.Outputs[OLE DB Source Output].Columns[outbreak_related]" />
+                        <inputColumn
                           refId="Package\dim_case_report\Populate dim case_report\Insert Destination.Inputs[OLE DB Destination Input].Columns[status]"
                           cachedDataType="i4"
                           cachedName="status"
@@ -1523,6 +1539,18 @@ where [refTable].[source_id] = ? and [refTable].[age_group] = ?</property>
                           refId="Package\dim_case_report\Populate dim case_report\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[id_gender_age]"
                           dataType="i4"
                           name="id_gender_age" />
+                        <externalMetadataColumn
+                          refId="Package\dim_case_report\Populate dim case_report\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[case_acquisition_info]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="case_acquisition_info" />
+                        <externalMetadataColumn
+                          refId="Package\dim_case_report\Populate dim case_report\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[outbreak_related]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="outbreak_related" />
                         <externalMetadataColumn
                           refId="Package\dim_case_report\Populate dim case_report\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[status]"
                           dataType="i4"
@@ -1580,7 +1608,7 @@ where [refTable].[source_id] = ? and [refTable].[age_group] = ?</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select status, source_id, ak_patention_id, age, outcome, gender 
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select status, source_id, ak_patention_id, age, outcome, gender, case_acquistion_info, outbreak_related
 from case_report
 where (created_at &lt; ? and created_at&gt;=?) 
 or (update_at&lt;? and update_at&gt;=?)</property>
@@ -1670,6 +1698,28 @@ or (update_at&lt;? and update_at&gt;=?)</property>
                           lineageId="Package\dim_case_report\Populate dim case_report\Load case_report_NDS.Outputs[OLE DB Source Output].Columns[gender]"
                           name="gender"
                           truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\dim_case_report\Populate dim case_report\Load case_report_NDS.Outputs[OLE DB Source Output].Columns[case_acquistion_info]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim_case_report\Populate dim case_report\Load case_report_NDS.Outputs[OLE DB Source Output].ExternalColumns[case_acquistion_info]"
+                          length="100"
+                          lineageId="Package\dim_case_report\Populate dim case_report\Load case_report_NDS.Outputs[OLE DB Source Output].Columns[case_acquistion_info]"
+                          name="case_acquistion_info"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\dim_case_report\Populate dim case_report\Load case_report_NDS.Outputs[OLE DB Source Output].Columns[outbreak_related]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\dim_case_report\Populate dim case_report\Load case_report_NDS.Outputs[OLE DB Source Output].ExternalColumns[outbreak_related]"
+                          length="100"
+                          lineageId="Package\dim_case_report\Populate dim case_report\Load case_report_NDS.Outputs[OLE DB Source Output].Columns[outbreak_related]"
+                          name="outbreak_related"
+                          truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -1705,6 +1755,18 @@ or (update_at&lt;? and update_at&gt;=?)</property>
                           refId="Package\dim_case_report\Populate dim case_report\Load case_report_NDS.Outputs[OLE DB Source Output].ExternalColumns[status]"
                           dataType="i4"
                           name="status" />
+                        <externalMetadataColumn
+                          refId="Package\dim_case_report\Populate dim case_report\Load case_report_NDS.Outputs[OLE DB Source Output].ExternalColumns[case_acquistion_info]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="case_acquistion_info" />
+                        <externalMetadataColumn
+                          refId="Package\dim_case_report\Populate dim case_report\Load case_report_NDS.Outputs[OLE DB Source Output].ExternalColumns[outbreak_related]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="outbreak_related" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -1748,6 +1810,20 @@ or (update_at&lt;? and update_at&gt;=?)</property>
                           length="100"
                           lineageId="Package\dim_case_report\Populate dim case_report\Load case_report_NDS.Outputs[OLE DB Source Error Output].Columns[age]"
                           name="age" />
+                        <outputColumn
+                          refId="Package\dim_case_report\Populate dim case_report\Load case_report_NDS.Outputs[OLE DB Source Error Output].Columns[case_acquistion_info]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\dim_case_report\Populate dim case_report\Load case_report_NDS.Outputs[OLE DB Source Error Output].Columns[case_acquistion_info]"
+                          name="case_acquistion_info" />
+                        <outputColumn
+                          refId="Package\dim_case_report\Populate dim case_report\Load case_report_NDS.Outputs[OLE DB Source Error Output].Columns[outbreak_related]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\dim_case_report\Populate dim case_report\Load case_report_NDS.Outputs[OLE DB Source Error Output].Columns[outbreak_related]"
+                          name="outbreak_related" />
                         <outputColumn
                           refId="Package\dim_case_report\Populate dim case_report\Load case_report_NDS.Outputs[OLE DB Source Error Output].Columns[gender]"
                           codePage="1252"
@@ -1956,7 +2032,7 @@ where [refTable].[age] = ? and [refTable].[gender] = ?</property>
                       description="The SQL command to be executed."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [dbo].[dim_case_report] SET [id_gender_age] = ?,[status] = ? WHERE [ak_patention_id] = ? AND [source_id] = ?</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [dbo].[dim_case_report] SET [case_acquisition_info] = ?,[id_gender_age] = ?,[outbreak_related] = ?,[status] = ? WHERE [ak_patention_id] = ? AND [source_id] = ?</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1984,38 +2060,56 @@ where [refTable].[age] = ? and [refTable].[gender] = ?</property>
                           cachedDataType="str"
                           cachedLength="100"
                           cachedName="ak_patention_id"
-                          externalMetadataColumnId="Package\dim_case_report\Populate dim case_report\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          externalMetadataColumnId="Package\dim_case_report\Populate dim case_report\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
                           lineageId="Package\dim_case_report\Populate dim case_report\Load case_report_NDS.Outputs[OLE DB Source Output].Columns[ak_patention_id]" />
+                        <inputColumn
+                          refId="Package\dim_case_report\Populate dim case_report\OLE DB Command.Inputs[OLE DB Command Input].Columns[case_acquistion_info]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="case_acquistion_info"
+                          externalMetadataColumnId="Package\dim_case_report\Populate dim case_report\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          lineageId="Package\dim_case_report\Populate dim case_report\Load case_report_NDS.Outputs[OLE DB Source Output].Columns[case_acquistion_info]" />
                         <inputColumn
                           refId="Package\dim_case_report\Populate dim case_report\OLE DB Command.Inputs[OLE DB Command Input].Columns[id_gender_age]"
                           cachedDataType="i4"
                           cachedName="id_gender_age"
-                          externalMetadataColumnId="Package\dim_case_report\Populate dim case_report\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          externalMetadataColumnId="Package\dim_case_report\Populate dim case_report\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                           lineageId="Package\dim_case_report\Populate dim case_report\Lookup id_gender_age In dim_gender_age.Outputs[Lookup Match Output].Columns[id_gender_age]" />
+                        <inputColumn
+                          refId="Package\dim_case_report\Populate dim case_report\OLE DB Command.Inputs[OLE DB Command Input].Columns[outbreak_related]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="outbreak_related"
+                          externalMetadataColumnId="Package\dim_case_report\Populate dim case_report\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          lineageId="Package\dim_case_report\Populate dim case_report\Load case_report_NDS.Outputs[OLE DB Source Output].Columns[outbreak_related]" />
                         <inputColumn
                           refId="Package\dim_case_report\Populate dim case_report\OLE DB Command.Inputs[OLE DB Command Input].Columns[source_id]"
                           cachedDataType="i4"
                           cachedName="source_id"
-                          externalMetadataColumnId="Package\dim_case_report\Populate dim case_report\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          externalMetadataColumnId="Package\dim_case_report\Populate dim case_report\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
                           lineageId="Package\dim_case_report\Populate dim case_report\Load case_report_NDS.Outputs[OLE DB Source Output].Columns[source_id]" />
                         <inputColumn
                           refId="Package\dim_case_report\Populate dim case_report\OLE DB Command.Inputs[OLE DB Command Input].Columns[status]"
                           cachedDataType="i4"
                           cachedName="status"
-                          externalMetadataColumnId="Package\dim_case_report\Populate dim case_report\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          externalMetadataColumnId="Package\dim_case_report\Populate dim case_report\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                           lineageId="Package\dim_case_report\Populate dim case_report\Load case_report_NDS.Outputs[OLE DB Source Output].Columns[status]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
                           refId="Package\dim_case_report\Populate dim case_report\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                          dataType="i4"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
                           name="Param_0">
                           <properties>
                             <property
                               dataType="System.Int32"
                               description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                              name="DBParamInfoFlags">81</property>
+                              name="DBParamInfoFlags">65</property>
                           </properties>
                         </externalMetadataColumn>
                         <externalMetadataColumn
@@ -2046,6 +2140,30 @@ where [refTable].[age] = ? and [refTable].[gender] = ?</property>
                           refId="Package\dim_case_report\Populate dim case_report\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                           dataType="i4"
                           name="Param_3">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\dim_case_report\Populate dim case_report\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="Param_4">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\dim_case_report\Populate dim case_report\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                          dataType="i4"
+                          name="Param_5">
                           <properties>
                             <property
                               dataType="System.Int32"
@@ -2106,7 +2224,7 @@ where [refTable].[age] = ? and [refTable].[gender] = ?</property>
                       description="The SQL command to be executed."
                       expressionType="Notify"
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [dbo].[dim_case_report] SET [status] = ? WHERE [ak_patention_id] = ? AND [source_id] = ?</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [dbo].[dim_case_report] SET [case_acquisition_info] = ?,[outbreak_related] = ?,[status] = ? WHERE [ak_patention_id] = ? AND [source_id] = ?</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2134,32 +2252,50 @@ where [refTable].[age] = ? and [refTable].[gender] = ?</property>
                           cachedDataType="str"
                           cachedLength="100"
                           cachedName="ak_patention_id"
-                          externalMetadataColumnId="Package\dim_case_report\Populate dim case_report\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          externalMetadataColumnId="Package\dim_case_report\Populate dim case_report\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                           lineageId="Package\dim_case_report\Populate dim case_report\Load case_report_NDS.Outputs[OLE DB Source Output].Columns[ak_patention_id]" />
+                        <inputColumn
+                          refId="Package\dim_case_report\Populate dim case_report\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[case_acquistion_info]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="case_acquistion_info"
+                          externalMetadataColumnId="Package\dim_case_report\Populate dim case_report\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          lineageId="Package\dim_case_report\Populate dim case_report\Load case_report_NDS.Outputs[OLE DB Source Output].Columns[case_acquistion_info]" />
+                        <inputColumn
+                          refId="Package\dim_case_report\Populate dim case_report\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[outbreak_related]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="outbreak_related"
+                          externalMetadataColumnId="Package\dim_case_report\Populate dim case_report\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          lineageId="Package\dim_case_report\Populate dim case_report\Load case_report_NDS.Outputs[OLE DB Source Output].Columns[outbreak_related]" />
                         <inputColumn
                           refId="Package\dim_case_report\Populate dim case_report\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[source_id]"
                           cachedDataType="i4"
                           cachedName="source_id"
-                          externalMetadataColumnId="Package\dim_case_report\Populate dim case_report\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          externalMetadataColumnId="Package\dim_case_report\Populate dim case_report\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
                           lineageId="Package\dim_case_report\Populate dim case_report\Load case_report_NDS.Outputs[OLE DB Source Output].Columns[source_id]" />
                         <inputColumn
                           refId="Package\dim_case_report\Populate dim case_report\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[status]"
                           cachedDataType="i4"
                           cachedName="status"
-                          externalMetadataColumnId="Package\dim_case_report\Populate dim case_report\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          externalMetadataColumnId="Package\dim_case_report\Populate dim case_report\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
                           lineageId="Package\dim_case_report\Populate dim case_report\Load case_report_NDS.Outputs[OLE DB Source Output].Columns[status]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
                           refId="Package\dim_case_report\Populate dim case_report\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                          dataType="i4"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
                           name="Param_0">
                           <properties>
                             <property
                               dataType="System.Int32"
                               description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                              name="DBParamInfoFlags">81</property>
+                              name="DBParamInfoFlags">65</property>
                           </properties>
                         </externalMetadataColumn>
                         <externalMetadataColumn
@@ -2179,6 +2315,30 @@ where [refTable].[age] = ? and [refTable].[gender] = ?</property>
                           refId="Package\dim_case_report\Populate dim case_report\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
                           dataType="i4"
                           name="Param_2">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\dim_case_report\Populate dim case_report\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="Param_3">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\dim_case_report\Populate dim case_report\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                          dataType="i4"
+                          name="Param_4">
                           <properties>
                             <property
                               dataType="System.Int32"
@@ -2233,7 +2393,7 @@ where [refTable].[age] = ? and [refTable].[gender] = ?</property>
                       dataType="System.String"
                       description="Specifies the SELECT statement used to create a schema rowset."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [ak_patention_id], [id_gender_age], [source_id], [status] FROM [dbo].[dim_case_report]</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [ak_patention_id], [case_acquisition_info], [id_gender_age], [outbreak_related], [source_id], [status] FROM [dbo].[dim_case_report]</property>
                     <property
                       dataType="System.String"
                       description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
@@ -2297,6 +2457,21 @@ where [refTable].[age] = ? and [refTable].[gender] = ?</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
+                          refId="Package\dim_case_report\Populate dim case_report\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[case_acquistion_info]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="case_acquistion_info"
+                          externalMetadataColumnId="Package\dim_case_report\Populate dim case_report\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[case_acquisition_info]"
+                          lineageId="Package\dim_case_report\Populate dim case_report\Load case_report_NDS.Outputs[OLE DB Source Output].Columns[case_acquistion_info]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">2</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
                           refId="Package\dim_case_report\Populate dim case_report\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[id_gender_age]"
                           cachedDataType="i4"
                           cachedName="id_gender_age"
@@ -2307,6 +2482,21 @@ where [refTable].[age] = ? and [refTable].[gender] = ?</property>
                               dataType="System.Int32"
                               name="ColumnType"
                               typeConverter="ColumnType">4</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\dim_case_report\Populate dim case_report\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[outbreak_related]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="outbreak_related"
+                          externalMetadataColumnId="Package\dim_case_report\Populate dim case_report\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[outbreak_related]"
+                          lineageId="Package\dim_case_report\Populate dim case_report\Load case_report_NDS.Outputs[OLE DB Source Output].Columns[outbreak_related]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              name="ColumnType"
+                              typeConverter="ColumnType">2</property>
                           </properties>
                         </inputColumn>
                         <inputColumn
@@ -2345,9 +2535,21 @@ where [refTable].[age] = ? and [refTable].[gender] = ?</property>
                           length="100"
                           name="ak_patention_id" />
                         <externalMetadataColumn
+                          refId="Package\dim_case_report\Populate dim case_report\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[case_acquisition_info]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="case_acquisition_info" />
+                        <externalMetadataColumn
                           refId="Package\dim_case_report\Populate dim case_report\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[id_gender_age]"
                           dataType="i4"
                           name="id_gender_age" />
+                        <externalMetadataColumn
+                          refId="Package\dim_case_report\Populate dim case_report\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[outbreak_related]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="outbreak_related" />
                         <externalMetadataColumn
                           refId="Package\dim_case_report\Populate dim case_report\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[source_id]"
                           dataType="i4"
@@ -13224,49 +13426,49 @@ where [refTable].[year] = ?</property>
                   startId="Package\fact_case_amount\fact_case_amount\Check case_status.Outputs[Fatal]" />
                 <path
                   refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output8]"
-                  endId="Package\fact_case_amount\fact_case_amount\Check status.Inputs[Conditional Split Input]"
+                  endId="Package\fact_case_amount\fact_case_amount\Lookup ak_phu_id from phu.Inputs[Lookup Input]"
                   name="Lookup Match Output"
-                  startId="Package\fact_case_amount\fact_case_amount\Lookup id in fact_case_amount.Outputs[Lookup Match Output]" />
+                  startId="Package\fact_case_amount\fact_case_amount\Lookup id_day.Outputs[Lookup Match Output]" />
                 <path
                   refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output7]"
-                  endId="Package\fact_case_amount\fact_case_amount\Lookup id_case.Inputs[Lookup Input]"
-                  name="Lookup Match Output"
-                  startId="Package\fact_case_amount\fact_case_amount\Lookup id_gender_age.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output6]"
-                  endId="Package\fact_case_amount\fact_case_amount\Lookup id_day.Inputs[Lookup Input]"
-                  name="Lookup Match Output"
-                  startId="Package\fact_case_amount\fact_case_amount\Lookup id_month.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output5]"
-                  endId="Package\fact_case_amount\fact_case_amount\Lookup id in fact_case_amount.Inputs[Lookup Input]"
-                  name="Lookup Match Output"
-                  startId="Package\fact_case_amount\fact_case_amount\Lookup id_case.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output3]"
-                  endId="Package\fact_case_amount\fact_case_amount\Lookup id_quarter.Inputs[Lookup Input]"
-                  name="Lookup Match Output"
-                  startId="Package\fact_case_amount\fact_case_amount\Lookup id_year.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output2]"
-                  endId="Package\fact_case_amount\fact_case_amount\Lookup id_month.Inputs[Lookup Input]"
-                  name="Lookup Match Output"
-                  startId="Package\fact_case_amount\fact_case_amount\Lookup id_quarter.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output1]"
-                  endId="Package\fact_case_amount\fact_case_amount\Lookup id_phu.Inputs[Lookup Input]"
-                  name="Lookup Match Output"
-                  startId="Package\fact_case_amount\fact_case_amount\Lookup ak_phu_id from phu.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output]"
                   endId="Package\fact_case_amount\fact_case_amount\Lookup id_gender_age.Inputs[Lookup Input]"
                   name="Lookup Match Output"
                   startId="Package\fact_case_amount\fact_case_amount\Lookup id_phu.Outputs[Lookup Match Output]" />
                 <path
-                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output4]"
-                  endId="Package\fact_case_amount\fact_case_amount\Lookup ak_phu_id from phu.Inputs[Lookup Input]"
+                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output6]"
+                  endId="Package\fact_case_amount\fact_case_amount\Lookup id_phu.Inputs[Lookup Input]"
                   name="Lookup Match Output"
-                  startId="Package\fact_case_amount\fact_case_amount\Lookup id_day.Outputs[Lookup Match Output]" />
+                  startId="Package\fact_case_amount\fact_case_amount\Lookup ak_phu_id from phu.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output5]"
+                  endId="Package\fact_case_amount\fact_case_amount\Lookup id_month.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\fact_case_amount\fact_case_amount\Lookup id_quarter.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output3]"
+                  endId="Package\fact_case_amount\fact_case_amount\Lookup id in fact_case_amount.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\fact_case_amount\fact_case_amount\Lookup id_case.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output2]"
+                  endId="Package\fact_case_amount\fact_case_amount\Lookup id_day.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\fact_case_amount\fact_case_amount\Lookup id_month.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output1]"
+                  endId="Package\fact_case_amount\fact_case_amount\Lookup id_case.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\fact_case_amount\fact_case_amount\Lookup id_gender_age.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output]"
+                  endId="Package\fact_case_amount\fact_case_amount\Check status.Inputs[Conditional Split Input]"
+                  name="Lookup Match Output"
+                  startId="Package\fact_case_amount\fact_case_amount\Lookup id in fact_case_amount.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output4]"
+                  endId="Package\fact_case_amount\fact_case_amount\Lookup id_quarter.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\fact_case_amount\fact_case_amount\Lookup id_year.Outputs[Lookup Match Output]" />
                 <path
                   refId="Package\fact_case_amount\fact_case_amount.Paths[Lookup No Match Output]"
                   endId="Package\fact_case_amount\fact_case_amount\Check case_status.Inputs[Conditional Split Input]"
@@ -17161,59 +17363,59 @@ where [refTable].[source_id] = ? and [refTable].[age_group] = ?</property>
                   startId="Package\fact_ontario_case\fact_ontario_case\Check case_status.Outputs[Deceased]" />
                 <path
                   refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output10]"
-                  endId="Package\fact_ontario_case\fact_ontario_case\Check Status.Inputs[Conditional Split Input]"
+                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup_id_age_group.Inputs[Lookup Input]"
                   name="Lookup Match Output"
-                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id.Outputs[Lookup Match Output]" />
+                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_gender.Outputs[Lookup Match Output]" />
                 <path
                   refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output9]"
-                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup id_exposure.Inputs[Lookup Input]"
-                  name="Lookup Match Output"
-                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_phu.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output8]"
-                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup id_object.Inputs[Lookup Input]"
-                  name="Lookup Match Output"
-                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_exposure.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output7]"
-                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup id_gender.Inputs[Lookup Input]"
-                  name="Lookup Match Output"
-                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_object.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output6]"
-                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup id_quarter.Inputs[Lookup Input]"
-                  name="Lookup Match Output"
-                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_year.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output3]"
-                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup id_month.Inputs[Lookup Input]"
-                  name="Lookup Match Output"
-                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_quarter.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output4]"
-                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup id_phu.Inputs[Lookup Input]"
-                  name="Lookup Match Output"
-                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup ak_phu_id from phu.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output2]"
-                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup id_day.Inputs[Lookup Input]"
-                  name="Lookup Match Output"
-                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_month.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output1]"
-                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup ak_phu_id from phu.Inputs[Lookup Input]"
-                  name="Lookup Match Output"
-                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_day.Outputs[Lookup Match Output]" />
-                <path
-                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output]"
                   endId="Package\fact_ontario_case\fact_ontario_case\Lookup id.Inputs[Lookup Input]"
                   name="Lookup Match Output"
                   startId="Package\fact_ontario_case\fact_ontario_case\Lookup_id_age_group.Outputs[Lookup Match Output]" />
                 <path
-                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output5]"
-                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup_id_age_group.Inputs[Lookup Input]"
+                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output8]"
+                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup ak_phu_id from phu.Inputs[Lookup Input]"
                   name="Lookup Match Output"
-                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_gender.Outputs[Lookup Match Output]" />
+                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_day.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output7]"
+                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup id_day.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_month.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output6]"
+                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup id_phu.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup ak_phu_id from phu.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output3]"
+                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup id_gender.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_object.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output4]"
+                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup id_quarter.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_year.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output2]"
+                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup id_object.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_exposure.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output1]"
+                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup id_exposure.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_phu.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output]"
+                  endId="Package\fact_ontario_case\fact_ontario_case\Check Status.Inputs[Conditional Split Input]"
+                  name="Lookup Match Output"
+                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output5]"
+                  endId="Package\fact_ontario_case\fact_ontario_case\Lookup id_month.Inputs[Lookup Input]"
+                  name="Lookup Match Output"
+                  startId="Package\fact_ontario_case\fact_ontario_case\Lookup id_quarter.Outputs[Lookup Match Output]" />
                 <path
                   refId="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup No Match Output]"
                   endId="Package\fact_ontario_case\fact_ontario_case\Check case_status.Inputs[Conditional Split Input]"
@@ -27354,14 +27556,14 @@ where [refTable].[year] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,46.2500000000002"
+              EndConnector="0,46.25"
               Start="0,0"
-              End="0,38.7500000000002">
+              End="0,38.75">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,38.7500000000002" />
+                    End="0,38.75" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -27373,8 +27575,8 @@ where [refTable].[year] = ?</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="219,314"
-          Size="219,357"
+          PanelSize="219,343"
+          Size="219,386"
           Id="Package\fact_vaccination_amount"
           TopLeft="509.444444444439,3521.91666666667" />
         <EdgeLayout
@@ -28096,7 +28298,7 @@ where [refTable].[year] = ?</property>
         <NodeLayout
           Size="186,42"
           Id="Package\dim_case_report\Populate dim case_report\Load case_report_NDS"
-          TopLeft="218,6.49999999999989" />
+          TopLeft="219,5.49999999999989" />
         <NodeLayout
           Size="216,42"
           Id="Package\dim_case_report\Populate dim case_report\Slowly Changing Dimension"
@@ -28105,42 +28307,56 @@ where [refTable].[year] = ?</property>
           Size="282,42"
           Id="Package\dim_case_report\Populate dim case_report\Lookup id_gender_age In dim_gender_age"
           TopLeft="171,107.5" />
-        <NodeLayout
-          Size="175,42"
-          Id="Package\dim_case_report\Populate dim case_report\OLE DB Command 1"
-          TopLeft="455.5,311.5" />
-        <NodeLayout
-          Size="166,42"
-          Id="Package\dim_case_report\Populate dim case_report\OLE DB Command"
-          TopLeft="229,311.5" />
-        <NodeLayout
-          Size="163,42"
-          Id="Package\dim_case_report\Populate dim case_report\Insert Destination"
-          TopLeft="5.50000000000006,311.5" />
         <EdgeLayout
           Id="Package\dim_case_report\Populate dim case_report.Paths[OLE DB Source Output]"
-          TopLeft="311.5,48.4999999999999">
+          TopLeft="312,47.4999999999999">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.0000000000001"
+              EndConnector="0,60"
               Start="0,0"
-              End="0,51.5000000000001">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,51.5000000000001" />
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dim_case_report\Populate dim case_report.Paths[Lookup Match Output]"
+          TopLeft="312,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-27.8251171875,20.1357421875001,55.650234375,11.228515625"
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\dim_case_report\Populate dim case_report\Insert Destination"
+          TopLeft="5.50000000000006,311.5" />
         <EdgeLayout
           Id="Package\dim_case_report\Populate dim case_report.Paths[New Output]"
           TopLeft="260,251.5">
@@ -28173,34 +28389,14 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-143.18173828125,25.4878048780488,113.3634765625,11.609375"
+              BoundingBox="-113.59138671875,25.4878048780488,54.1827734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\dim_case_report\Populate dim case_report.Paths[Lookup Match Output]"
-          TopLeft="312,149.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-80.51173828125,20.4453125,161.0234765625,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="166,42"
+          Id="Package\dim_case_report\Populate dim case_report\OLE DB Command"
+          TopLeft="229,311.5" />
         <EdgeLayout
           Id="Package\dim_case_report\Populate dim case_report.Paths[Inferred Member Updates Output]"
           TopLeft="312,251.5">
@@ -28225,6 +28421,10 @@ where [refTable].[year] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="175,42"
+          Id="Package\dim_case_report\Populate dim case_report\OLE DB Command 1"
+          TopLeft="455.5,311.5" />
         <EdgeLayout
           Id="Package\dim_case_report\Populate dim case_report.Paths[Changing Attribute Updates Output]"
           TopLeft="364,251.5">
@@ -28295,10 +28495,22 @@ where [refTable].[year] = ?</property>
       &lt;ChangeType&gt;None&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Load case_report_NDS.Outputs[OLE DB Source Output].Columns[case_acquistion_info]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;case_acquisition_info&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
       &lt;IdentificationString&gt;Lookup id_gender_age In dim_gender_age.Outputs[Lookup Match Output].Columns[id_gender_age]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;id_gender_age&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
       &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Load case_report_NDS.Outputs[OLE DB Source Output].Columns[outbreak_related]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;outbreak_related&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
       &lt;IdentificationString&gt;Load case_report_NDS.Outputs[OLE DB Source Output].Columns[source_id]&lt;/IdentificationString&gt;
@@ -30078,7 +30290,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output8]"
+          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output]"
           TopLeft="798.424603174603,237.65873015873">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -30102,7 +30314,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output7]"
+          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output1]"
           TopLeft="227.472222222222,244.112352820372">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -30126,7 +30338,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output6]"
+          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output2]"
           TopLeft="780.583333333333,155.777777777778">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -30150,7 +30362,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output5]"
+          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output3]"
           TopLeft="471.361111111111,240.423881673882">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -30174,7 +30386,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output4]"
+          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output8]"
           TopLeft="563.361111111111,158.222222222222">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -30198,7 +30410,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output3]"
+          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output4]"
           TopLeft="723.916666666667,70.5238095238095">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -30222,7 +30434,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output2]"
+          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output5]"
           TopLeft="862.72619047619,98.2142857142857">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -30246,7 +30458,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output1]"
+          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output6]"
           TopLeft="296.583333333333,159.888888888889">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -30270,7 +30482,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output]"
+          Id="Package\fact_case_amount\fact_case_amount.Paths[Lookup Match Output7]"
           TopLeft="133.138888888889,182.388888888889">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -30856,7 +31068,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output10]"
+          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output]"
           TopLeft="490.166666666667,337.944444444446">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -30880,7 +31092,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output9]"
+          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output1]"
           TopLeft="589.833333333333,241.681818181818">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -30904,7 +31116,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output8]"
+          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output2]"
           TopLeft="841.833333333333,238.959595959596">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -30928,7 +31140,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output7]"
+          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output3]"
           TopLeft="958.222222222222,260.055555555556">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -30952,7 +31164,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output6]"
+          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output4]"
           TopLeft="831.5,69.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -30976,7 +31188,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output5]"
+          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output10]"
           TopLeft="874.833333333333,338.277777777778">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -31000,7 +31212,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output4]"
+          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output6]"
           TopLeft="512.333333333333,175.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -31024,7 +31236,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output3]"
+          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output5]"
           TopLeft="958,89.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -31048,7 +31260,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output2]"
+          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output7]"
           TopLeft="879.5,147.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -31072,7 +31284,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output1]"
+          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output8]"
           TopLeft="671.5,151.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -31096,7 +31308,7 @@ where [refTable].[year] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output]"
+          Id="Package\fact_ontario_case\fact_ontario_case.Paths[Lookup Match Output9]"
           TopLeft="658.944444444444,337.833333333335">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -32714,7 +32926,7 @@ where [refTable].[year] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_quarter">
+    design-time-name="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_day">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -32724,76 +32936,7 @@ where [refTable].[year] = ?</property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[dim_quarter]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_phu">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[dim_phu]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[fact_vaccination_amount]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_year">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[dim_year]</Value>
+          type="q3:string">[dbo].[dim_day]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -32829,15 +32972,7 @@ where [refTable].[year] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\fact_vaccination_amount\fact_vaccination_amount\Load vaccination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_month">
+    design-time-name="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_phu">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -32847,7 +32982,7 @@ where [refTable].[year] = ?</property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[dim_month]</Value>
+          type="q3:string">[dbo].[dim_phu]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -32883,7 +33018,7 @@ where [refTable].[year] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_day">
+    design-time-name="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_month">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -32893,7 +33028,84 @@ where [refTable].[year] = ?</property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[dim_day]</Value>
+          type="q3:string">[dbo].[dim_month]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\fact_vaccination_amount\fact_vaccination_amount\Load vaccination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_year">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dim_year]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id_quarter">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dim_quarter]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\fact_vaccination_amount\fact_vaccination_amount\Lookup id">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[fact_vaccination_amount]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
