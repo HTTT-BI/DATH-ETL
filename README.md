@@ -62,6 +62,7 @@ Statistics of infections by Severity, outbreak group of each region in years.
 Assessment of the number of infections and deaths in Ontario by age group, gender and reason of infection
 ![](https://res.cloudinary.com/web-hcmus/image/upload/v1673665263/req7_zl6x67.png)
 
+### OLAP - [Link Github](https://github.com/HTTT-BI/DATH-OLAP.git)
 ### Data Mining - [Link Github](https://github.com/HTTT-BI/DATH-DATAMINING.git)
 
 <br>
